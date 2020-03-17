@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-lg-2">
+        <ngx-profile-list (profile_click)="onProfileClick($event)">
+        </ngx-profile-list>
+    </div>
+    <div class="col-lg-10 well-lg">
+        <!--This is where we will have Profile View-->
+        <nb-card size="giant">
+            <nb-card-header>Half-Hourly Profile</nb-card-header>
+            <nb-card-body>
+                <h3>{{ selectedProfile }}</h3>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

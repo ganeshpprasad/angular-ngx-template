@@ -1,0 +1,18 @@
+<!---->
+<nb-card size="giant">
+    <nb-card-header>Select HH-Profile</nb-card-header>
+    <nb-card-body class="example-items-rows">
+        <button *ngFor="let profile of profileList"
+                nbButton outline fullWidth status="info"
+                (click)="onProfileClick(profile)">
+            {{ profile }}
+        </button>
+        <!--<button nbButton outline fullWidth status="danger">-->
+            <!--Add Profile-->
+        <!--</button>-->
+        <button outline fullWidth status="danger" nbButton>
+            New Time- Profile
+        </button>
+    </nb-card-body>
+</nb-card>
+
