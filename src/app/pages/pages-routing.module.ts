@@ -6,6 +6,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 import {HHProfileComponent} from "./hhprofile/hhprofile.component";
 import {TimeProfileComponent} from "./timeprofile/timeprofile.component";
+import {MPANDetailsComponent} from "./mpandetails/mpandetails.component";
 
 const routes: Routes = [{
     path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [{
         {
             path: 'time-profile',
             component: TimeProfileComponent,
+        },
+        {
+            path: 'mpan-details',
+            component: MPANDetailsComponent,
         },
         {
             path: 'charts',

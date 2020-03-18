@@ -3,11 +3,13 @@ import {CommonModule} from "@angular/common";
 import {HHProfileService} from "./hhprofile.service";
 import {AuthGuard} from "./auth-guard.service";
 import {TimeProfileService} from "./timeprofile.service";
+import {MPANDetailsMockService} from "./mpan-mock.service";
 
 const SERVICES = [
     HHProfileService,
     TimeProfileService,
     AuthGuard,
+    MPANDetailsMockService,
 ];
 
 

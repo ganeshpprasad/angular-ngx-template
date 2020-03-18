@@ -8,6 +8,7 @@ import {PagesRoutingModule} from './pages-routing.module';
 import {MiscellaneousModule} from "./miscellaneous/miscellaneous.module";
 import {HHProfileModule} from "./hhprofile/hhprofile.module";
 import {TimeProfileModule} from "./timeprofile/timeprofile.module";
+import {MPANDetailsModule} from "./mpandetails/mpandetails.module";
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import {TimeProfileModule} from "./timeprofile/timeprofile.module";
         DashboardModule,
         MiscellaneousModule,
         HHProfileModule,
-        TimeProfileModule
+        TimeProfileModule,
+        MPANDetailsModule,
     ],
     declarations: [
         PagesComponent,

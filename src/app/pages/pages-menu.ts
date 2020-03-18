@@ -21,7 +21,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'MPAN-Details',
         icon: 'keypad-outline',
-        link: '/pages/dashboard',
+        link: '/pages/mpan-details',
     },
     {
         title: 'Event-Details',
