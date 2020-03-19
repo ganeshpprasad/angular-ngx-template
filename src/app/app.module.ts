@@ -17,6 +17,8 @@ import {
 } from '@nebular/theme';
 import {NbAuthModule, NbDummyAuthStrategy} from "@nebular/auth";
 import {FormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
     declarations: [AppComponent],
@@ -25,6 +27,7 @@ import {FormsModule} from "@angular/forms";
         BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
+        ReactiveFormsModule,
         AppRoutingModule,
         NbAuthModule.forRoot({
             strategies: [

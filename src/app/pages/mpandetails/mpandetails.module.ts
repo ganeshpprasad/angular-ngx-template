@@ -12,9 +12,9 @@ import {
     NbWindowModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MPANDetailsComponent} from "./mpandetails.component";
-import { MpanDetailsFormComponent } from './mpan-details-form/mpan-details-form.component';
+import {MpanDetailsFormComponent} from './mpan-details-form/mpan-details-form.component';
 
 const ENTRY_COMPONENTS = [
     MPANDetailsComponent,
@@ -23,6 +23,7 @@ const ENTRY_COMPONENTS = [
 @NgModule({
     imports: [
         FormsModule,
+        ReactiveFormsModule,
         ThemeModule,
         NbCardModule,
         NbUserModule,

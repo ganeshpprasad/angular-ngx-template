@@ -7,7 +7,7 @@ import {HHProfileService} from "./services/hhprofile.service";
 import {AuthGuard} from "./services/auth-guard.service";
 import {TimeProfile} from "./data/timeprofile";
 import {TimeProfileService} from "./services/timeprofile.service";
-import {MPANDetails} from "./data/mpandetails";
+import {IMPANDetailsAPIService} from "./data/mpandetails";
 import {MPANDetailsMockService} from "./services/mpan-mock.service";
 
 
@@ -15,7 +15,7 @@ const DATA_SERVICES = [
     {provide: HHProfile, useClass: HHProfileService},
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
-    {provide: MPANDetails, useClass: MPANDetailsMockService},
+    {provide: IMPANDetailsAPIService, useClass: MPANDetailsMockService},
 ];
 
 

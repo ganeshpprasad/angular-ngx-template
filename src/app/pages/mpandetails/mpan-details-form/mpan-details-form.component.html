@@ -1,3 +1,21 @@
 <div>
     <span> MPAN DETAILS FORM SHOW</span>
+    <form [formGroup]="form">
+
+        <label>
+            MPAN ID:
+            <input type="text" formControlName="mpan_id">
+        </label>
+
+        <label>
+            Customer Name:
+            <input type="text" formControlName="customer_name">
+        </label>
+
+    </form>
+</div>
+<div>
+    <p>
+        <!--Value: {{ profileForm.value.firstName }}-->
+    </p>
 </div>
