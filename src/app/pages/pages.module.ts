@@ -9,6 +9,7 @@ import {MiscellaneousModule} from "./miscellaneous/miscellaneous.module";
 import {HHProfileModule} from "./hhprofile/hhprofile.module";
 import {TimeProfileModule} from "./timeprofile/timeprofile.module";
 import {MPANDetailsModule} from "./mpandetails/mpandetails.module";
+import {SiteDetailsModule} from "./sitedetails/sitedetails.module";
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {MPANDetailsModule} from "./mpandetails/mpandetails.module";
         HHProfileModule,
         TimeProfileModule,
         MPANDetailsModule,
+        SiteDetailsModule,
     ],
     declarations: [
         PagesComponent,

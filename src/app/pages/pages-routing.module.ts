@@ -7,6 +7,7 @@ import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 import {HHProfileComponent} from "./hhprofile/hhprofile.component";
 import {TimeProfileComponent} from "./timeprofile/timeprofile.component";
 import {MPANDetailsComponent} from "./mpandetails/mpandetails.component";
+import {SiteDetailsComponent} from "./sitedetails/sitedetails.component";
 
 const routes: Routes = [{
     path: '',
@@ -27,6 +28,10 @@ const routes: Routes = [{
         {
             path: 'mpan-details',
             component: MPANDetailsComponent,
+        },
+        {
+            path: 'site-details',
+            component: SiteDetailsComponent,
         },
         {
             path: 'charts',
