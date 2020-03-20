@@ -1,6 +1,5 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {TimeProfile, TimeProfileData} from "../../../@providers/data/timeprofile";
-import {createForJitStub} from "@angular/compiler/src/aot/summary_serializer";
 
 
 @Component({

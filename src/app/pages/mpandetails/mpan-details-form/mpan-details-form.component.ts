@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IMPANDetailsAPIService, IMPANDetailsData} from "../../../@providers/data/mpandetails";
 import {FormControl, FormGroup} from "@angular/forms";
 import {IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
@@ -14,7 +14,9 @@ import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpa
 })
 export class MpanDetailsFormComponent implements OnInit {
 
-    mpandetails: IMPANDetailsData;
+    @Input() mpan_id: string;
+
+    private mpandetails: IMPANDetailsData;
 
     get form(): FormGroup {
         return this.mpanDetailsFormService.form;
