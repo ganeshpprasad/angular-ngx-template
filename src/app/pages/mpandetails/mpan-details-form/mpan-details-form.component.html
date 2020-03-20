@@ -1,21 +1,438 @@
-<div>
-    <span> MPAN DETAILS FORM SHOW</span>
-    <form [formGroup]="form">
+<div class="col-md-12 col-lg-12 col-sm-12">
+    <div class="row">
+        <!--MPAN DETAIL CARD-->
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <nb-card class="inline-form-card">
+                <nb-card-header>Metering Point Details Screen</nb-card-header>
+                <nb-card-body>
+                    <form class="form-inline" [formGroup]="form">
+                        <div class="col-md-12">
+                            <!--FIRST ROW - MAIN DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3 col-form-label">MPAN ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width status-danger size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="MPAN ID"
+                                               formControlName="mpan_id">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">Customer Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="Customer Name"
+                                               formControlName="customer_name">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">Site/ Cable ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="Site/ Cable ID"
+                                               formControlName="site_cable_id">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--SECOND ROW - ENERGISATION DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3 col-form-label">Energisation Status</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="status"
+                                               formControlName="energisation_status">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">EFD-Energisation</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="effective date"
+                                               formControlName="efd_energisation">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--THIRD ROW - LLFC DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3 col-form-label">Measurement Class</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="class.."
+                                               formControlName="measurement_class">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">LLFC Class ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="id.."
+                                               formControlName="line_loss_factor_class_id">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">Effective from Settlement Date (MSLLFC)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder="effective date"
+                                               formControlName="llfc_effective_settlement_date">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--ADDRESSES ROW-->
+                            <div class="row">
+                                <!--TABS-->
+                                <nb-tabset fullWidth>
+                                    <nb-tab tabTitle="Metering Point Address">
+                                        <form class="form-inline" [formGroup]="form.get('meter_point_address')">
+                                            <div class="col-md-12">
+                                                <!--ADDRESS LINES-->
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 1</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 2</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 3</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 4</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_4">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 5</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_5">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 6</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_6">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Metering address line 7</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_7">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </nb-tab>
+                                    <nb-tab tabTitle="Mailing Address">
+                                        <form class="form-inline" [formGroup]="form.get('mailing_address')">
+                                            <div class="col-md-12">
+                                                <!--ADDRESS LINES-->
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 1</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 2</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 3</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 4</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_4">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 5</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_5">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 6</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_6">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-md-9">
+                                                        <label class="label col-sm-3 col-form-label">Mailing address
+                                                            line 7</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text"
+                                                                   class="input-full-width size-medium shape-rectangle"
+                                                                   nbInput fullWidth
+                                                                   placeholder=""
+                                                                   formControlName="line_7">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </nb-tab>
+                                </nb-tabset>
+                            </div>
 
-        <label>
-            MPAN ID:
-            <input type="text" formControlName="mpan_id">
-        </label>
+                            <hr>
 
-        <label>
-            Customer Name:
-            <input type="text" formControlName="customer_name">
-        </label>
+                            <!--FOURTH ROW - METERING DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <nb-checkbox formControlName="unmetered" status="warning">Un-metered</nb-checkbox>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <nb-checkbox formControlName="export_mpan">Export MPAN</nb-checkbox>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <nb-checkbox formControlName="cont_supply_indicator" status="warning">Continuous
+                                        Supply Indicator
+                                    </nb-checkbox>
+                                </div>
+                            </div>
 
-    </form>
+                            <!--FIFTH ROW - SETTLEMENT DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3 col-form-label">Standard Settlement ID</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="std_settlement_id">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">Effective From (SCON)</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="effective_from_scon">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--SIXTH ROW - CUSTOMER DETAILS-->
+                            <div class="row">
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3 col-form-label">Customer Password</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="customer_pwd">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label class="label col-sm-3">Effective From</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="customer_pwd_efd">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--SEVENTH ROW -  Special Needs-->
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label class="label col-sm-3 col-form-label">Special Needs Code</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="special_needs_code">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="label col-sm-3">Effective Date From</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="efd_special_needs">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label col-sm-3">Special Needs Discription</label>
+                                    <div class="col-sm-9">
+                                        <textarea type="text"
+                                                  class="input-full-width size-medium shape-semi-round"
+                                                  nbInput fullWidth rows="5"
+                                                  placeholder="special needs description.."
+                                                  formControlName="special_needs_disc"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--EIGHT ROW -  Conn/Disconn Needs-->
+                            <div class="row">
+                                <div class="form-group col-md-3">
+                                    <label class="label col-sm-3 col-form-label">Connection Date</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="conn_date">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="label col-sm-3">Disconnection Date</label>
+                                    <div class="col-sm-9">
+                                        <input type="text"
+                                               class="input-full-width size-medium shape-semi-round"
+                                               nbInput fullWidth
+                                               placeholder=""
+                                               formControlName="disconn_date">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="label col-sm-3">UMSO ref Description</label>
+                                    <div class="col-sm-9">
+                                        <textarea type="text"
+                                                  class="input-full-width size-medium shape-semi-round"
+                                                  nbInput fullWidth rows="5"
+                                                  placeholder="ref description.."
+                                                  formControlName="umso_ref"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
 </div>
-<div>
-    <p>
-        <!--Value: {{ profileForm.value.firstName }}-->
-    </p>
-</div>
+
+<!--<div>-->
+<!--<p>-->
+<!--&lt;!&ndash;Value: {{ profileForm.value.firstName }}&ndash;&gt;-->
+<!--</p>-->
+<!--</div>-->
