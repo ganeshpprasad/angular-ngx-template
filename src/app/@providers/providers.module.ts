@@ -9,6 +9,8 @@ import {TimeProfile} from "./data/timeprofile";
 import {TimeProfileService} from "./services/timeprofile.service";
 import {IMPANDetailsAPIService} from "./data/mpandetails";
 import {MPANDetailsMockService} from "./services/mpan-mock.service";
+import {ISiteDetailsAPIService} from "./data/sitedetails";
+import {SiteDetailsService} from "./services/site-details.service";
 
 
 const DATA_SERVICES = [
@@ -16,6 +18,7 @@ const DATA_SERVICES = [
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: IMPANDetailsAPIService, useClass: MPANDetailsMockService},
+    {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
 ];
 
 
