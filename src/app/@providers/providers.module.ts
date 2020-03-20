@@ -11,6 +11,8 @@ import {IMPANDetailsAPIService} from "./data/mpandetails";
 import {MPANDetailsMockService} from "./services/mpan-mock.service";
 import {ISiteDetailsAPIService} from "./data/sitedetails";
 import {SiteDetailsService} from "./services/site-details.service";
+import {IMainCableDetailsAPIService} from "./data/main-cable-details";
+import {MainCableDetailsService} from "./services/main-cable-details.service";
 
 
 const DATA_SERVICES = [
@@ -19,6 +21,7 @@ const DATA_SERVICES = [
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: IMPANDetailsAPIService, useClass: MPANDetailsMockService},
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
+    {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
 ];
 
 
