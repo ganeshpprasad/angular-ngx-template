@@ -17,6 +17,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Main-Cable-Details',
         icon: 'keypad-outline',
         link: '/pages/dashboard',
+        home: true
     },
     {
         title: 'MPAN-Details',
@@ -72,24 +73,24 @@ export const MENU_ITEMS: NbMenuItem[] = [
     //     title: 'FEATURES',
     //     group: true,
     // },
-    {
-        title: 'Charts',
-        icon: 'pie-chart-outline',
-        children: [
-            {
-                title: 'Echarts',
-                link: '/pages/charts/echarts',
-            },
-            {
-                title: 'Charts.js',
-                link: '/pages/charts/chartjs',
-            },
-            {
-                title: 'D3',
-                link: '/pages/charts/d3',
-            },
-        ],
-    },
+    // {
+    //     title: 'Charts',
+    //     icon: 'pie-chart-outline',
+    //     children: [
+    //         {
+    //             title: 'Echarts',
+    //             link: '/pages/charts/echarts',
+    //         },
+    //         {
+    //             title: 'Charts.js',
+    //             link: '/pages/charts/chartjs',
+    //         },
+    //         {
+    //             title: 'D3',
+    //             link: '/pages/charts/d3',
+    //         },
+    //     ],
+    // },
     // {
     //     title: 'Miscellaneous',
     //     icon: 'shuffle-2-outline',

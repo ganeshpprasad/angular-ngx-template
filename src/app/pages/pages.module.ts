@@ -6,7 +6,6 @@ import {PagesComponent} from './pages.component';
 import {DashboardModule} from './dashboard/dashboard.module';
 import {PagesRoutingModule} from './pages-routing.module';
 import {MiscellaneousModule} from "./miscellaneous/miscellaneous.module";
-import {HHProfileModule} from "./hhprofile/hhprofile.module";
 import {TimeProfileModule} from "./timeprofile/timeprofile.module";
 import {MPANDetailsModule} from "./mpandetails/mpandetails.module";
 import {SiteDetailsModule} from "./sitedetails/sitedetails.module";
@@ -18,7 +17,6 @@ import {SiteDetailsModule} from "./sitedetails/sitedetails.module";
         ThemeModule,
         DashboardModule,
         MiscellaneousModule,
-        HHProfileModule,
         TimeProfileModule,
         MPANDetailsModule,
         SiteDetailsModule,
