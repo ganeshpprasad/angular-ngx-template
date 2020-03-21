@@ -17,7 +17,7 @@ import {
 } from '@nebular/theme';
 import {NbAuthModule, NbDummyAuthStrategy} from "@nebular/auth";
 import {FormsModule} from "@angular/forms";
-import { ReactiveFormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
             strategies: [
                 NbDummyAuthStrategy.setup({
                     name: 'email',
-                    delay: 500,
+                    delay: 250,
                 }),
             ],
             forms: {},

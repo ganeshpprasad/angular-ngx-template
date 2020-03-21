@@ -2,8 +2,6 @@ import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
-import {HHProfile} from "./data/hhprofile";
-import {HHProfileService} from "./services/hhprofile.service";
 import {AuthGuard} from "./services/auth-guard.service";
 import {TimeProfile} from "./data/timeprofile";
 import {TimeProfileService} from "./services/timeprofile.service";
@@ -16,7 +14,6 @@ import {MainCableDetailsService} from "./services/main-cable-details.service";
 
 
 const DATA_SERVICES = [
-    {provide: HHProfile, useClass: HHProfileService},
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: IMPANDetailsAPIService, useClass: MPANDetailsMockService},
