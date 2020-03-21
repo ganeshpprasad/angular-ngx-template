@@ -3,23 +3,20 @@ import {
     NbActionsModule,
     NbButtonModule,
     NbCardModule,
+    NbCheckboxModule,
     NbIconModule,
     NbListModule,
     NbRadioModule,
     NbSelectModule,
-    NbCheckboxModule,
     NbTabsetModule,
     NbUserModule,
     NbWindowModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MPANDetailsComponent} from "./mpandetails.component";
-import {MpanDetailsFormComponent} from './mpan-details-form/mpan-details-form.component';
+import {MpanDetailsRoutingModule, routedComponents} from "./mpandetails-routing.module";
 
-const ENTRY_COMPONENTS = [
-    MPANDetailsComponent,
-];
+const ENTRY_COMPONENTS = [];
 
 @NgModule({
     imports: [
@@ -38,14 +35,12 @@ const ENTRY_COMPONENTS = [
         NbIconModule,
         NbButtonModule,
         NbWindowModule.forChild(),
+        MpanDetailsRoutingModule,
     ],
     declarations: [
-        MPANDetailsComponent,
-        MpanDetailsFormComponent,
+        ...ENTRY_COMPONENTS, ...routedComponents
     ],
-    entryComponents: [
-        ...ENTRY_COMPONENTS,
-    ],
+    entryComponents: [],
 })
 export class MPANDetailsModule {
 }

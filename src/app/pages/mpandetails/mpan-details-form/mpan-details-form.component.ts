@@ -1,8 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMPANDetailsAPIService, IMPANDetailsData} from "../../../@providers/data/mpandetails";
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormGroup} from "@angular/forms";
 import {IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
+import {ActivatedRoute, ParamMap} from "@angular/router";
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 @Component({
     selector: 'ngx-mpan-details-form',
@@ -16,6 +19,7 @@ export class MpanDetailsFormComponent implements OnInit {
 
     @Input() mpan_id: string;
 
+    private routed_id$: Observable<string>;
     private mpandetails: IMPANDetailsData;
 
     get form(): FormGroup {
@@ -23,6 +27,7 @@ export class MpanDetailsFormComponent implements OnInit {
     }
 
     constructor(
+        private route: ActivatedRoute,
         private mpanDetailsAPIService: IMPANDetailsAPIService,
         private mpanDetailsFormService: IMPANDetailsFormService) {
 
@@ -34,6 +39,12 @@ export class MpanDetailsFormComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this.route);
+        this.routed_id$ = this.route.paramMap.pipe(
+            map((params: ParamMap) =>
+                params.get('id')
+            )
+        );
         this.mpanDetailsFormService.loadMPANDetails(this.mpandetails);
     }
 

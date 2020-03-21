@@ -27,7 +27,8 @@ const routes: Routes = [{
         },
         {
             path: 'mpan-details',
-            component: MPANDetailsComponent,
+            loadChildren: () => import('./mpandetails/mpandetails.module')
+                .then(m => m.MPANDetailsModule),
         },
         {
             path: 'site-details',

@@ -1,7 +1,13 @@
 <div class="col-md-12">
     <div class="row">
+        <h5>MPAN ADMIN</h5>
+        <nav>
+            <a routerLink="./MPANID-12345" routerLinkActive="active">Manage Heroes</a>
+        </nav>
+    </div>
+    <div class="row">
         <div class="col-md-12">
-            <ngx-mpan-details-form [mpan_id]="MPAN-ID-1234567"></ngx-mpan-details-form>
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>
