@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {SiteDetailsComponent} from "./sitedetails.component";
 import {SiteDetailsFormComponent} from "./site-details-form/site-details-form.component";
+import {SiteDetailsSearchComponent} from "./site-details-search/site-details-search.component";
 
 
 const routes: Routes = [{
@@ -12,10 +13,10 @@ const routes: Routes = [{
             path: ':id',
             component: SiteDetailsFormComponent,
         },
-        // {
-        //     path: '',
-        //     component: null,
-        // }
+        {
+            path: '',
+            component: SiteDetailsSearchComponent,
+        }
     ],
 }];
 
@@ -29,4 +30,5 @@ export class SiteDetailsRoutingModule {
 export const routedComponents = [
     SiteDetailsComponent,
     SiteDetailsFormComponent,
+    SiteDetailsSearchComponent,
 ];
