@@ -3,7 +3,7 @@ import {IMPANDetailsAPIService, IMPANDetailsData} from "../../../@providers/data
 import {FormGroup} from "@angular/forms";
 import {IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
 
@@ -28,6 +28,7 @@ export class MpanDetailsFormComponent implements OnInit {
 
     constructor(
         private route: ActivatedRoute,
+        private router: Router,
         private mpanDetailsAPIService: IMPANDetailsAPIService,
         private mpanDetailsFormService: IMPANDetailsFormService) {
 
@@ -46,6 +47,10 @@ export class MpanDetailsFormComponent implements OnInit {
             )
         );
         this.mpanDetailsFormService.loadMPANDetails(this.mpandetails);
+    }
+
+    onClickBack(){
+        this.router.navigate(['../', {}], { relativeTo: this.route });
     }
 
 }

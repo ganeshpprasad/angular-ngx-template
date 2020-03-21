@@ -7,6 +7,7 @@ import {
     NbIconModule,
     NbListModule,
     NbRadioModule,
+    NbSearchModule,
     NbSelectModule,
     NbTabsetModule,
     NbUserModule,
@@ -23,6 +24,7 @@ const ENTRY_COMPONENTS = [];
         FormsModule,
         ReactiveFormsModule,
         ThemeModule,
+        NbSearchModule,
         NbCardModule,
         NbUserModule,
         NbButtonModule,
@@ -38,7 +40,7 @@ const ENTRY_COMPONENTS = [];
         MpanDetailsRoutingModule,
     ],
     declarations: [
-        ...ENTRY_COMPONENTS, ...routedComponents
+        ...ENTRY_COMPONENTS, ...routedComponents,
     ],
     entryComponents: [],
 })
