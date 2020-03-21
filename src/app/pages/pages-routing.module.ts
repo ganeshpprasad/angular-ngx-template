@@ -5,7 +5,6 @@ import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 import {TimeProfileComponent} from "./timeprofile/timeprofile.component";
-import {SiteDetailsComponent} from "./sitedetails/sitedetails.component";
 
 const routes: Routes = [{
     path: '',
@@ -26,7 +25,8 @@ const routes: Routes = [{
         },
         {
             path: 'site-details',
-            component: SiteDetailsComponent,
+            loadChildren: () => import('./sitedetails/sitedetails.module')
+                .then(m => m.SiteDetailsModule),
         },
         {
             path: '',

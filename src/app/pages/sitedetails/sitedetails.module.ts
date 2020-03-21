@@ -15,11 +15,10 @@ import {
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SiteDetailsComponent} from "./sitedetails.component";
-import { SiteDetailsFormComponent } from './site-details-form/site-details-form.component';
+import {SiteDetailsFormComponent} from './site-details-form/site-details-form.component';
+import {routedComponents, SiteDetailsRoutingModule} from "./sitedetails-routing.module";
 
-const ENTRY_COMPONENTS = [
-    SiteDetailsComponent,
-];
+const ENTRY_COMPONENTS = [];
 
 @NgModule({
     imports: [
@@ -38,14 +37,12 @@ const ENTRY_COMPONENTS = [
         NbIconModule,
         NbButtonModule,
         NbWindowModule.forChild(),
+        SiteDetailsRoutingModule,
     ],
     declarations: [
-        SiteDetailsComponent,
-        SiteDetailsFormComponent,
+        ...ENTRY_COMPONENTS, ...routedComponents
     ],
-    entryComponents: [
-        ...ENTRY_COMPONENTS,
-    ],
+    entryComponents: [],
 })
 export class SiteDetailsModule {
 }
