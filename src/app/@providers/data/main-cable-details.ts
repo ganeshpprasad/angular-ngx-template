@@ -5,7 +5,7 @@ export interface IMainCableDetailsData {
     upstream_asset_identity: string,
     ref_2_plan: string,
     description: string,
-    parent_indicator: string,
+    parent_indicator: boolean,
     parent_mains_cable_identity: string,
 }
 

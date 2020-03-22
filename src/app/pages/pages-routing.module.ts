@@ -29,6 +29,11 @@ const routes: Routes = [{
                 .then(m => m.SiteDetailsModule),
         },
         {
+            path: 'main-cable-details',
+            loadChildren: () => import('./maincabledetails/maincabledetails.module')
+                .then(m => m.MainCableDetailsModule),
+        },
+        {
             path: '',
             redirectTo: 'dashboard',
             pathMatch: 'full',

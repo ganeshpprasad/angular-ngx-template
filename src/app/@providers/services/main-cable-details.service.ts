@@ -6,11 +6,11 @@ import {IMainCableDetailsAPIService, IMainCableDetailsData} from "../data/main-c
 export class MainCableDetailsService extends IMainCableDetailsAPIService {
 
     cable_details: IMainCableDetailsData = {
-        cable_identity: '10EAST01/M01',
+        cable_identity: '10EAST01-M01',
         upstream_asset_identity: '10EAST01',
         ref_2_plan: '',
         description: 'This is the description of the asset',
-        parent_indicator: '',
+        parent_indicator: true,
         parent_mains_cable_identity: 'CABLE-0111',
     };
 

@@ -16,7 +16,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Main-Cable-Details',
         icon: 'keypad-outline',
-        link: '/pages/dashboard',
+        link: '/pages/main-cable-details',
         home: true
     },
     {
