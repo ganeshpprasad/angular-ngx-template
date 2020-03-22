@@ -33,7 +33,7 @@ import {ReactiveFormsModule} from '@angular/forms';
             strategies: [
                 NbDummyAuthStrategy.setup({
                     name: 'email',
-                    delay: 250,
+                    delay: 200,
                 }),
             ],
             forms: {},
