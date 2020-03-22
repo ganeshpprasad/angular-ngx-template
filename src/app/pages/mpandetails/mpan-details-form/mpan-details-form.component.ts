@@ -19,7 +19,7 @@ export class MpanDetailsFormComponent implements OnInit {
 
     @Input() mpan_id: string;
 
-    private routed_id$: Observable<string>;
+    routed_id$: Observable<string>;
     private mpandetails: IMPANDetailsData;
 
     get form(): FormGroup {

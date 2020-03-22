@@ -17,7 +17,7 @@ import {map} from "rxjs/operators";
 })
 export class SiteDetailsFormComponent implements OnInit {
 
-    private routed_id$: Observable<string>;
+    routed_id$: Observable<string>;
     private siteDetails: ISiteDetailsData;
 
     get form(): FormGroup {
