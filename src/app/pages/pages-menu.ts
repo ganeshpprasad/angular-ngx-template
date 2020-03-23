@@ -1,9 +1,6 @@
 import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
-    // https://akveo.github.io/eva-icons/#/?type=outline
-    // Icon names from above link for ref.
-
     {
         title: 'Asset Details',
         group: true,
