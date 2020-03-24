@@ -6,23 +6,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
         group: true,
     },
     {
-        title: 'Site-Details',
+        title: 'Asset/Site Details',
         icon: 'keypad-outline',
         link: '/pages/site-details',
     },
     {
-        title: 'Main-Cable-Details',
+        title: 'Main Cable Details',
         icon: 'keypad-outline',
         link: '/pages/main-cable-details',
         home: true
     },
     {
-        title: 'MPAN-Details',
+        title: 'MPAN Details',
         icon: 'keypad-outline',
         link: '/pages/mpan-details',
     },
     {
-        title: 'Event-Details',
+        title: 'Event Details',
         icon: 'keypad-outline',
         link: '/pages/dashboard',
     },
@@ -38,7 +38,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Edit MPAN',
         icon: 'browser-outline',
-        link: '/pages/time-profile',
+        link: '/pages/mpan-details/1234567',
     },
     {
         title: 'Admin',

@@ -68,10 +68,20 @@ export interface IRelatesMpan2Mpid2Role {
     effective_to: string,
 }
 
+export interface IRelatedAsset {
+    business_reference: string,
+    description: string,
+    mpans: IShortMpan[],
+    plot_number: string,
+    property_type: string,
+    reference_to_plan: string,
+    supply_capacity: number,
+    supply_voltage: number
+}
+
 export interface IShortMpan {
     id: string,
-    mpan_address: string,
-    meter: string,
+    meter: IRelatedMeter,
 }
 
 export interface IMpanLists {
@@ -92,10 +102,7 @@ export interface IMpanDetailsResponse {
     export: boolean,
     umso_reference: string,
     unique_property_reference_number: string,
-    // plot_number: string,
-    // property_type: string,
-    // supply_voltage: string,
-    // supply_capacity: string,
+    asset: IRelatedAsset,
     //
     mpan_address: IRelatedAddress,
     mailing_address: IRelatedAddress,
@@ -157,5 +164,6 @@ export interface IMPANDetailsData {
 
 export abstract class IMPANDetailsAPIService {
     abstract getMpanDetails(): Observable<IMPANDetailsData>;
+
     abstract getMPANDetailsByAPI(id: string): Observable<IMpanDetailsResponse>;
 }

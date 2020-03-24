@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {IMPANDetailsFormService} from "../../data/form-data/mpandetailsform";
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {IMpanDetailsResponse} from "../../data/mpandetails";
+import {IMpanDetailsResponse, IShortMpan} from "../../data/mpandetails";
 
 
 @Injectable()
@@ -75,6 +75,16 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
         effective_to: null,
     });
 
+    private relatedAsset = this.fb.group({
+        business_reference: null,
+        description: null,
+        plot_number: null,
+        property_type: null,
+        reference_to_plan: null,
+        supply_capacity: null,
+        supply_voltage: null
+    });
+
     constructor(private fb: FormBuilder) {
 
         // this.form = this.fb.group({
@@ -124,6 +134,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             id: null,
             unmetered: null,
             umso_reference: null,
+            asset: this.relatedAsset,
             //
             ct_ratio: null,
             ct_class: null,
