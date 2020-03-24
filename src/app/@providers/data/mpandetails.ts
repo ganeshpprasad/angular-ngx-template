@@ -82,7 +82,6 @@ export interface IMpanLists {
 export interface IMpanDetailsResponse {
     id: string,
     unmetered: boolean,
-    umso_reference: string,
     //
     ct_ratio: string,
     ct_class: string,
@@ -91,11 +90,12 @@ export interface IMpanDetailsResponse {
     vt_class: string,
     vt_rating: string,
     export: boolean,
+    umso_reference: string,
     unique_property_reference_number: string,
-    plot_number: string,
-    property_type: string,
-    supply_voltage: string,
-    supply_capacity: string,
+    // plot_number: string,
+    // property_type: string,
+    // supply_voltage: string,
+    // supply_capacity: string,
     //
     mpan_address: IRelatedAddress,
     mailing_address: IRelatedAddress,
@@ -109,7 +109,6 @@ export interface IMpanDetailsResponse {
     dc_mpid: IRelatesMpan2Mpid2Role,
     mop_mpid: IRelatesMpan2Mpid2Role,
     supplier_mpid: IRelatesMpan2Mpid2Role,
-    //
     ssc: IRelatedSsc,
 }
 
