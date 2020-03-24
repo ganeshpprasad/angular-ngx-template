@@ -99,7 +99,7 @@ export interface IMpanDetailsResponse {
     //
     mpan_address: IRelatedAddress,
     mailing_address: IRelatedAddress,
-    asc: string,
+    asc: IRelatedAsc,
     energisation: IRelatedEnergisation,
     llfc: IRelatedLLFC,
     mc: IRelatedMeasurementClass,

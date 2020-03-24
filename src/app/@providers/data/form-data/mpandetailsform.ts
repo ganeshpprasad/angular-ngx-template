@@ -1,8 +1,8 @@
 import {FormGroup} from "@angular/forms";
-import {IMPANDetailsData} from "../mpandetails";
+import {IMpanDetailsResponse} from "../mpandetails";
 
 export abstract class IMPANDetailsFormService {
-    abstract form: FormGroup;
+    abstract mpan_form: FormGroup;
 
-    abstract loadMPANDetails(mpanDetails: IMPANDetailsData);
+    abstract loadMPANDetails(mpanDetailsResponse: IMpanDetailsResponse);
 }

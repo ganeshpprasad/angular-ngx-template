@@ -21,9 +21,10 @@ export class MpanDetailsFormComponent implements OnInit {
 
     routed_id$: Observable<string>;
     private mpandetails: IMPANDetailsData;
+    private mpanDetailsResponse: IMpanDetailsResponse;
 
     get form(): FormGroup {
-        return this.mpanDetailsFormService.form;
+        return this.mpanDetailsFormService.mpan_form;
     }
 
     constructor(
@@ -41,6 +42,10 @@ export class MpanDetailsFormComponent implements OnInit {
         this.mpanDetailsAPIService.getMPANDetailsByAPI('1234567')
             .subscribe((m: IMpanDetailsResponse) => {
                 console.log(m);
+                this.mpanDetailsResponse = m;
+                this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
+                console.log(this.form.getRawValue());
+
             });
     }
 
@@ -51,7 +56,7 @@ export class MpanDetailsFormComponent implements OnInit {
                 params.get('id')
             )
         );
-        this.mpanDetailsFormService.loadMPANDetails(this.mpandetails);
+        // this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
     }
 
     onClickBack() {

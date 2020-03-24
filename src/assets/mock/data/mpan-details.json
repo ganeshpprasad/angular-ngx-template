@@ -1,7 +1,11 @@
 {
   "message": "Mpan: - 3007530065919",
   "result": {
-    "asc": "300",
+    "asc": {
+      "effective_from": "2015-11-06",
+      "effective_to": null,
+      "value": "300"
+    },
     "asc_history": [
       {
         "effective_from": "2015-11-06",
@@ -38,6 +42,12 @@
     ],
     "export": true,
     "id": "3007530065919",
+    "llfc": {
+      "effective_from": "2019-07-02",
+      "effective_to": null,
+      "line_loss_factor_class_fk": "477",
+      "mpan_fk": "3007530065919"
+    },
     "llfc_history": [
       {
         "effective_from": "2019-07-02",
