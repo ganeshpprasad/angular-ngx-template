@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable, of as observableOf} from 'rxjs';
-import {IMPANDetailsAPIService, IMPANDetailsData} from "../data/mpandetails";
+import {IMPANDetailsAPIService, IMPANDetailsData, IMpanDetailsResponse} from "../data/mpandetails";
+import {HttpClient} from "@angular/common/http";
+import {ServerHTTPResponse} from "../../@core/data/http-response";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class MPANDetailsMockService extends IMPANDetailsAPIService {
@@ -47,8 +50,22 @@ export class MPANDetailsMockService extends IMPANDetailsAPIService {
         },
     };
 
+    configUrl = 'assets/mock/data/mpan-details.json';
+
+    constructor(private http: HttpClient) {
+        super();
+    }
+
     getMpanDetails(): Observable<IMPANDetailsData> {
         return observableOf(this.mpandetails);
+    }
+
+    getMPANDetailsByAPI(id: string): Observable<IMpanDetailsResponse> {
+        return this.http
+            .get<ServerHTTPResponse<IMpanDetailsResponse>>(this.configUrl)
+            .pipe(
+                map(r => r.result)
+            );
     }
 
 }

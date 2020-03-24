@@ -1,12 +1,79 @@
 import {Injectable} from "@angular/core";
 import {IMPANDetailsFormService} from "../../data/form-data/mpandetailsform";
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {IMPANDetailsData} from "../../data/mpandetails";
 
 
 @Injectable()
 export class MpanDetailsFormService implements IMPANDetailsFormService {
     public form: FormGroup;
+    public mpan_form: FormGroup;
+
+    private relatedLLFCForm = {
+        mpan_fk: null,
+        line_loss_factor_class_fk: null,
+        effective_from: null,
+        effective_to: null,
+    };
+
+    private relatedAddressForm = this.fb.group({
+        address_type: null,
+        address_1: null,
+        address_2: null,
+        address_3: null,
+        address_4: null,
+        address_5: null,
+        address_6: null,
+        address_7: null,
+        address_8: null,
+        address_9: null,
+        post_code: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatedMeasurementClassForm = this.fb.group({
+        measurement_class_fk: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatedEnergisationForm = this.fb.group({
+        state_fk: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatedMeterForm = this.fb.group({
+        meter_fk: null,
+        installation_date: null,
+        removal_date: null,
+    });
+
+    private relatedMeterClassForm = this.fb.group({
+        measurement_class_fk: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatedAscForm = this.fb.group({
+        value: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatedSscForm = this.fb.group({
+        ssc_fk: null,
+        effective_from: null,
+        effective_to: null,
+    });
+
+    private relatesMpan2Mpid2RoleForm = this.fb.group({
+        market_participant_fk: null,
+        role_fk: null,
+        effective_from: null,
+        effective_to: null,
+    });
 
     constructor(private fb: FormBuilder) {
 
@@ -51,17 +118,40 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
                 line_6: null,
                 line_7: null,
             }),
-            // customerDetails: this.fb.group({
-            //     firstName: [null, Validators.required],
-            //     lastName: [null, Validators.required],
-            //     phoneNumber: [null, Validators.required],
-            //     address: this.fb.group({
-            //         street: [null, Validators.required],
-            //         houseNum: [null, Validators.required],
-            //         city: [null, Validators.required],
-            //         floor: [null, Validators.required],
-            //     })
-            // })
+        });
+
+        this.mpan_form = this.fb.group({
+            id: null,
+            unmetered: null,
+            umso_reference: null,
+            //
+            ct_ratio: null,
+            ct_class: null,
+            ct_rating: null,
+            vt_ratio: null,
+            vt_class: null,
+            vt_rating: null,
+            export: null,
+            unique_property_reference_number: null,
+            plot_number: null,
+            property_type: null,
+            supply_voltage: null,
+            supply_capacity: null,
+            //
+            mpan_address: this.relatedAddressForm,
+            mailing_address: this.relatedAddressForm,
+            asc: null,
+            energisation: this.relatedEnergisationForm,
+            llfc: this.relatedLLFCForm,
+            mc: this.relatedMeasurementClassForm,
+            meter: this.relatedMeterForm,
+            //
+            da_mpid: this.relatesMpan2Mpid2RoleForm,
+            dc_mpid: this.relatesMpan2Mpid2RoleForm,
+            mop_mpid: this.relatesMpan2Mpid2RoleForm,
+            supplier_mpid: this.relatesMpan2Mpid2RoleForm,
+            //
+            ssc: this.relatedSscForm,
         });
     }
 

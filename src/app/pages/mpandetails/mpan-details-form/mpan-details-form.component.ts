@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IMPANDetailsAPIService, IMPANDetailsData} from "../../../@providers/data/mpandetails";
+import {IMPANDetailsAPIService, IMPANDetailsData, IMpanDetailsResponse} from "../../../@providers/data/mpandetails";
 import {FormGroup} from "@angular/forms";
 import {IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
@@ -37,6 +37,11 @@ export class MpanDetailsFormComponent implements OnInit {
                 console.log(mpan);
                 this.mpandetails = mpan;
             });
+
+        this.mpanDetailsAPIService.getMPANDetailsByAPI('1234567')
+            .subscribe((m: IMpanDetailsResponse) => {
+                console.log(m);
+            });
     }
 
     ngOnInit() {
@@ -49,8 +54,8 @@ export class MpanDetailsFormComponent implements OnInit {
         this.mpanDetailsFormService.loadMPANDetails(this.mpandetails);
     }
 
-    onClickBack(){
-        this.router.navigate(['../', {}], { relativeTo: this.route });
+    onClickBack() {
+        this.router.navigate(['../', {}], {relativeTo: this.route});
     }
 
 }
