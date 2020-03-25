@@ -1,10 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable, of as observableOf} from 'rxjs';
-import {IMPANDetailsAPIService, IMPANDetailsData, IMpanDetailsResponse} from "../data/mpandetails";
+import {
+    IMPANDetailsAPIService,
+    IMPANDetailsData,
+    IMpanDetailsResponse,
+    IMpanLists,
+    IShortMpan
+} from "../data/mpandetails";
 import {HttpClient} from "@angular/common/http";
 import {ServerHTTPResponse} from "../../@core/data/http-response";
 import {map} from "rxjs/operators";
-import {id} from "@swimlane/ngx-charts/release/utils";
 
 @Injectable()
 export class MPANDetailsMockService extends IMPANDetailsAPIService {
@@ -62,9 +67,18 @@ export class MPANDetailsMockService extends IMPANDetailsAPIService {
     }
 
     getMPANDetailsByAPI(mpanid: string): Observable<IMpanDetailsResponse> {
-        let mpanURL : string = this.configUrl + mpanid + '.json';
+        let mpanURL: string = this.configUrl + mpanid + '.json';
         return this.http
             .get<ServerHTTPResponse<IMpanDetailsResponse>>(mpanURL)
+            .pipe(
+                map(r => r.result)
+            );
+    }
+
+    searchMPAN(query: string): Observable<IMpanLists> {
+        let mpanURL: string = this.configUrl + 'mpan-search.json';
+        return this.http
+            .get<ServerHTTPResponse<IMpanLists>>(mpanURL)
             .pipe(
                 map(r => r.result)
             );

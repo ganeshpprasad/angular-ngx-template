@@ -3,11 +3,12 @@
         <nb-card>
             <nb-card-body>
                 <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
-                    <!--<h2 class="title">Search For MPAN</h2>-->
                     <nb-search type="rotate-layout"
-                               placeholder="Search MPAN .."
+                               tag="mpan-search"
+                               placeholder="search MPAN .."
                                hint="By ID/ Address/ "
                                class="hvr-grow"></nb-search>
+                    <i class="title offset-2">Search For MPAN ..</i>
                 </div>
             </nb-card-body>
         </nb-card>
@@ -21,23 +22,39 @@
             </nb-card-header>
             <nb-card-body>
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                    <nav>
-                        <div class="row">
-                            <a class="hvr-grow" routerLink="./3000311842220" routerLinkActive="active">MPAN -- 3000311842220</a>
-                        </div>
-                        <div class="row">
-                            <a class="hvr-grow" routerLink="./3007428567721" routerLinkActive="active">MPAN -- 3007428567721</a>
-                        </div>
-                        <div class="row">
-                            <a class="hvr-grow" routerLink="./3038647382451" routerLinkActive="active">MPAN -- 3038647382451</a>
-                        </div>
-                        <div class="row">
-                            <a class="hvr-grow" routerLink="./3052869536957" routerLinkActive="active">MPAN -- 3052869536957</a>
-                        </div>
-                        <div class="row">
-                            <a class="hvr-grow" routerLink="./3062232292802" routerLinkActive="active">MPAN -- 3062232292802</a>
-                        </div>
-                    </nav>
+                    <nb-list>
+                        <nb-list-item class="" *ngIf="searchResultVisible">
+                            <div class="row">
+                                <span class="col-md-4"> MPAN </span>
+                                <span class="col-md-4"> METER ID </span>
+                                <span class="col-md-4"> ADDRESS </span>
+                            </div>
+                        </nb-list-item>
+                        <nb-list-item class="" *ngFor="let mpan of searchMpanResults.result">
+                            <div class="row">
+                                <span class="col-md-4">
+                                    <a class="hvr-grow"
+                                       [routerLink]="'./' + mpan.id"
+                                       routerLinkActive="active">
+                                        <span>
+                                            <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
+                                            {{ 'MPAN ID -- ' + mpan.id }}
+                                        </span>
+                                    </a>
+                                </span>
+                                <span class="col-md-4">
+                                    <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
+                                    {{ mpan.meter.meter_fk }}
+                                </span>
+                                <span class="col-md-4">
+                                    <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>
+                                    {{ mpan.mpan_address.address_1 + ', '
+                                     + mpan.mpan_address.address_2 + ', '
+                                     + mpan.mpan_address.post_code }}
+                                </span>
+                            </div>
+                        </nb-list-item>
+                    </nb-list>
                 </div>
             </nb-card-body>
         </nb-card>

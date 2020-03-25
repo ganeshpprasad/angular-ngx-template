@@ -82,6 +82,7 @@ export interface IRelatedAsset {
 export interface IShortMpan {
     id: string,
     meter: IRelatedMeter,
+    mpan_address: IRelatedAddress,
 }
 
 export interface IMpanLists {
@@ -166,4 +167,6 @@ export abstract class IMPANDetailsAPIService {
     abstract getMpanDetails(): Observable<IMPANDetailsData>;
 
     abstract getMPANDetailsByAPI(id: string): Observable<IMpanDetailsResponse>;
+
+    abstract searchMPAN(query: string): Observable<IMpanLists>;
 }

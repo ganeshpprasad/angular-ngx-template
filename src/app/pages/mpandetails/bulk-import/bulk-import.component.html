@@ -8,20 +8,17 @@
         <!--Bulk Upload MPAN Details-->
         <!--</button>-->
         <div class="row">
-            <form (ngSubmit)="onSubmit()">
-
+            <form>
                 <input type="file"
                        class="input-full-width status-warning size-medium shape-semi-round"
                        nbInput fullWidth
-                       placeholder=".."
-                       (change)="onFileChange($event)"/>
+                       placeholder=".."/>
 
                 <!--<button type="submit">Upload</button>-->
                 <button nbButton status="success" class="hvr-bob">
                     <nb-icon icon="file-outline"></nb-icon>
                     Bulk Upload MPAN Details
                 </button>
-
             </form>
         </div>
     </nb-card-body>
