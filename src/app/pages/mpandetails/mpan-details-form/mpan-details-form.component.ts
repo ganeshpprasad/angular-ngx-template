@@ -33,30 +33,27 @@ export class MpanDetailsFormComponent implements OnInit {
         private mpanDetailsAPIService: IMPANDetailsAPIService,
         private mpanDetailsFormService: IMPANDetailsFormService) {
 
-        this.mpanDetailsAPIService.getMpanDetails()
-            .subscribe((mpan: IMPANDetailsData) => {
-                console.log(mpan);
-                this.mpandetails = mpan;
-            });
 
-        this.mpanDetailsAPIService.getMPANDetailsByAPI('1234567')
-            .subscribe((m: IMpanDetailsResponse) => {
-                console.log(m);
-                this.mpanDetailsResponse = m;
-                this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
-                console.log(this.form.getRawValue());
-
-            });
     }
 
     ngOnInit() {
         console.log(this.route);
+
         this.routed_id$ = this.route.paramMap.pipe(
             map((params: ParamMap) =>
                 params.get('id')
             )
         );
-        // this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
+
+        this.routed_id$.subscribe((mpanid: string) => {
+            this.mpanDetailsAPIService.getMPANDetailsByAPI(mpanid)
+                .subscribe((m: IMpanDetailsResponse) => {
+                    console.log(m);
+                    this.mpanDetailsResponse = m;
+                    this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
+                    console.log(this.form.getRawValue());
+                });
+        });
     }
 
     onClickBack() {

@@ -2,6 +2,11 @@ import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
     {
+        title: 'Dashboard',
+        icon: 'globe-2-outline',
+        link: '/pages/dashboard',
+    },
+    {
         title: 'Asset Details',
         group: true,
     },
@@ -10,12 +15,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'keypad-outline',
         link: '/pages/site-details',
     },
-    {
-        title: 'Main Cable Details',
-        icon: 'keypad-outline',
-        link: '/pages/main-cable-details',
-        home: true
-    },
+    // {
+    //     title: 'Main Cable Details',
+    //     icon: 'keypad-outline',
+    //     link: '/pages/main-cable-details',
+    //     home: true
+    // },
     {
         title: 'MPAN Details',
         icon: 'keypad-outline',
@@ -24,7 +29,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Event Details',
         icon: 'keypad-outline',
-        link: '/pages/dashboard',
+        link: '/pages/event-details',
     },
     {
         title: 'Import',
@@ -38,7 +43,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Edit MPAN',
         icon: 'browser-outline',
-        link: '/pages/mpan-details/1234567',
+        link: '/pages/mpan-details/3007428567721',
     },
     {
         title: 'Admin',
@@ -47,7 +52,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Admin',
         icon: 'settings-2-outline',
-        link: '/pages/time-profile',
+        link: '/pages/admin-dashboard',
     },
     //
 

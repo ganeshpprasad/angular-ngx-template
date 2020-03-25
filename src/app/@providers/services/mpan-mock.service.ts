@@ -4,6 +4,7 @@ import {IMPANDetailsAPIService, IMPANDetailsData, IMpanDetailsResponse} from "..
 import {HttpClient} from "@angular/common/http";
 import {ServerHTTPResponse} from "../../@core/data/http-response";
 import {map} from "rxjs/operators";
+import {id} from "@swimlane/ngx-charts/release/utils";
 
 @Injectable()
 export class MPANDetailsMockService extends IMPANDetailsAPIService {
@@ -50,7 +51,7 @@ export class MPANDetailsMockService extends IMPANDetailsAPIService {
         },
     };
 
-    configUrl = 'assets/mock/data/mpan-details.json';
+    configUrl = 'assets/mock/data/';
 
     constructor(private http: HttpClient) {
         super();
@@ -60,9 +61,10 @@ export class MPANDetailsMockService extends IMPANDetailsAPIService {
         return observableOf(this.mpandetails);
     }
 
-    getMPANDetailsByAPI(id: string): Observable<IMpanDetailsResponse> {
+    getMPANDetailsByAPI(mpanid: string): Observable<IMpanDetailsResponse> {
+        let mpanURL : string = this.configUrl + mpanid + '.json';
         return this.http
-            .get<ServerHTTPResponse<IMpanDetailsResponse>>(this.configUrl)
+            .get<ServerHTTPResponse<IMpanDetailsResponse>>(mpanURL)
             .pipe(
                 map(r => r.result)
             );
