@@ -6,7 +6,7 @@ import {AuthGuard} from "./services/auth-guard.service";
 import {TimeProfile} from "./data/timeprofile";
 import {TimeProfileService} from "./services/timeprofile.service";
 import {IMPANDetailsAPIService} from "./data/mpandetails";
-import {MPANDetailsMockService} from "./services/mpan-mock.service";
+import {MpanDetailsService} from "./services/mpan-details.service";
 import {ISiteDetailsAPIService} from "./data/sitedetails";
 import {SiteDetailsService} from "./services/site-details.service";
 import {IMainCableDetailsAPIService} from "./data/main-cable-details";
@@ -16,7 +16,7 @@ import {MainCableDetailsService} from "./services/main-cable-details.service";
 const DATA_SERVICES = [
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
-    {provide: IMPANDetailsAPIService, useClass: MPANDetailsMockService},
+    {provide: IMPANDetailsAPIService, useClass: MpanDetailsService},
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
 ];

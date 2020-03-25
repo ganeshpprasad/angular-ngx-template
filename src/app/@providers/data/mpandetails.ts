@@ -164,9 +164,8 @@ export interface IMPANDetailsData {
 }
 
 export abstract class IMPANDetailsAPIService {
-    abstract getMpanDetails(): Observable<IMPANDetailsData>;
 
-    abstract getMPANDetailsByAPI(id: string): Observable<IMpanDetailsResponse>;
+    abstract getMPANDetailsByID(id: string): Observable<IMpanDetailsResponse>;
 
     abstract searchMPAN(query: string): Observable<IMpanLists>;
 }

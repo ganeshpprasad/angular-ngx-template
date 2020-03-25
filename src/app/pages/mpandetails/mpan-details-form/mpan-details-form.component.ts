@@ -46,7 +46,7 @@ export class MpanDetailsFormComponent implements OnInit {
         );
 
         this.routed_id$.subscribe((mpanid: string) => {
-            this.mpanDetailsAPIService.getMPANDetailsByAPI(mpanid)
+            this.mpanDetailsAPIService.getMPANDetailsByID(mpanid)
                 .subscribe((m: IMpanDetailsResponse) => {
                     console.log(m);
                     this.mpanDetailsResponse = m;
