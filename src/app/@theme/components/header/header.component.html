@@ -1,6 +1,6 @@
 <div class="header-container">
     <div class="logo-container">
-        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+        <a (click)="toggleSidebar()" href="#" class="sidebar-toggle hvr-float-shadow">
             <nb-icon icon="menu-2-outline"></nb-icon>
         </a>
     </div>
@@ -13,8 +13,8 @@
 </div>
 <div class="header-container">
     <nb-actions size="small">
-        <nb-action class="control-item" icon="email-outline"></nb-action>
-        <nb-action class="user-action" *nbIsGranted="['view', 'user']">
+        <nb-action class="control-item hvr-float-shadow" icon="email-outline"></nb-action>
+        <nb-action class="user-action hvr-float-shadow" *nbIsGranted="['view', 'user']">
             <nb-user [nbContextMenu]="userMenu"
                      [onlyPicture]="userPictureOnly"
                      [name]="user?.name"

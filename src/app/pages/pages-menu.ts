@@ -33,7 +33,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     {
         title: 'Bulk Import',
         icon: 'browser-outline',
-        link: '/pages/time-profile',
+        link: '/pages/bulk-import',
     },
     {
         title: 'Edit MPAN',
