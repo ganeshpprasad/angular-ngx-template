@@ -9,7 +9,7 @@ import {
     NbRadioModule,
     NbSearchModule,
     NbSelectModule,
-    NbTabsetModule,
+    NbTabsetModule, NbTooltipModule,
     NbUserModule,
     NbWindowModule,
 } from '@nebular/theme';
@@ -36,6 +36,7 @@ const ENTRY_COMPONENTS = [];
         NbListModule,
         NbIconModule,
         NbButtonModule,
+        NbTooltipModule,
         NbWindowModule.forChild(),
         MpanDetailsRoutingModule,
     ],

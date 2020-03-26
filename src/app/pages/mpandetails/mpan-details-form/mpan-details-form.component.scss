@@ -11,3 +11,15 @@ nb-card.inline-form-card nb-card-body {
   padding-bottom: 0;
 }
 
+.label {
+  display: inline-block;
+  width: 3rem;
+  text-align: right;
+}
+
+.mpan-box {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+

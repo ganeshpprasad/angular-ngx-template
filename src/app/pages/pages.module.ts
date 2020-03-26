@@ -9,7 +9,6 @@ import {MiscellaneousModule} from "./miscellaneous/miscellaneous.module";
 import {TimeProfileModule} from "./timeprofile/timeprofile.module";
 import {MPANDetailsModule} from "./mpandetails/mpandetails.module";
 import {SiteDetailsModule} from "./sitedetails/sitedetails.module";
-import { BulkImportComponent } from './mpandetails/bulk-import/bulk-import.component';
 
 @NgModule({
     imports: [
