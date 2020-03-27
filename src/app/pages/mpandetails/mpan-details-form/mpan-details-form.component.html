@@ -22,14 +22,14 @@
                                 <!--FIRST ROW - MAIN DETAILS-->
                                 <div class="row">
                                     <!--<div class="form-group col-md-6">-->
-                                        <!--<label class="label col-sm-3 col-form-label">MPAN ID</label>-->
-                                        <!--<div class="col-sm-9">-->
-                                            <!--<input type="text"-->
-                                                   <!--class="input-full-width status-warning size-medium shape-semi-round"-->
-                                                   <!--nbInput fullWidth readonly-->
-                                                   <!--placeholder="MPAN ID"-->
-                                                   <!--formControlName="id">-->
-                                        <!--</div>-->
+                                    <!--<label class="label col-sm-3 col-form-label">MPAN ID</label>-->
+                                    <!--<div class="col-sm-9">-->
+                                    <!--<input type="text"-->
+                                    <!--class="input-full-width status-warning size-medium shape-semi-round"-->
+                                    <!--nbInput fullWidth readonly-->
+                                    <!--placeholder="MPAN ID"-->
+                                    <!--formControlName="id">-->
+                                    <!--</div>-->
                                     <!--</div>-->
                                     <div class="form-group col-md-6">
                                         <label class="label col-sm-3">Customer Name</label>
@@ -47,94 +47,154 @@
                                 <div class="row" [formGroup]="form.get('energisation')">
                                     <div class="form-group col-md-6">
                                         <label class="label col-sm-3 col-form-label">
-                                            Energisation Status</label>
+                                            {{formFieldAttributes['energisation.state_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   nbTooltip="Energisation status can be between x, y, & z"
                                                    nbTooltipStatus="info"
-                                                   placeholder="status"
-                                                   formControlName="state_fk">
+                                                   [placeholder]="formFieldAttributes['energisation.state_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['energisation.state_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['energisation.state_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['energisation.state_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">EFD-Energisation</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['energisation.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="effective date"
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['energisation.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['energisation.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['energisation.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['energisation.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
                                 <!--THIRD ROW - LLFC DETAILS-->
                                 <div class="row" [formGroup]="form.get('llfc')">
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">LLFC Class ID</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['llfc.line_loss_factor_class_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="id.."
-                                                   formControlName="line_loss_factor_class_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['llfc.line_loss_factor_class_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['llfc.line_loss_factor_class_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['llfc.line_loss_factor_class_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['llfc.line_loss_factor_class_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Effective from Settlement Date (MSLLFC)</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['llfc.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="effective date from.."
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['llfc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['llfc.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['llfc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['llfc.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
                                 <!--MEASUREMENT CLASS DETAILS-->
                                 <div class="row" [formGroup]="form.get('mc')">
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Measurement Class</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mc.measurement_class_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="id.."
-                                                   formControlName="measurement_class_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mc.measurement_class_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['mc.measurement_class_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mc.measurement_class_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mc.measurement_class_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Effective From Date</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mc.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="effective date from.."
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['mc.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mc.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
                                 <!--ASC!! CLASS DETAILS-->
                                 <div class="row" [formGroup]="form.get('asc')">
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Agreed Supply Capacity</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['asc.value'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="id.."
-                                                   formControlName="value">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['asc.value'].placeholder"
+                                                   [readonly]="formFieldAttributes['asc.value'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['asc.value'].tooltip"
+                                                   [formControlName]="formFieldAttributes['asc.value'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Effective From Date</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['asc.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder="effective date from.."
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['asc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['asc.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['asc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['asc.effective_from'].formControlName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--SETTLEMENT DETAILS-->
+                                <div class="row" [formGroup]="form.get('ssc')">
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['ssc.ssc_fk'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['ssc.ssc_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['ssc.ssc_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['ssc.ssc_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['ssc.ssc_fk'].formControlName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['ssc.effective_from'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['ssc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['ssc.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['ssc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['ssc.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
@@ -488,41 +548,28 @@
                                 <!--FOURTH ROW - METERING DETAILS-->
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <nb-checkbox formControlName="unmetered" status="warning">Un-metered
+                                        <nb-checkbox
+                                                [formControlName]="formFieldAttributes['unmetered'].formControlName"
+                                                [nbTooltip]="formFieldAttributes['unmetered'].tooltip"
+                                                nbTooltipStatus="info"
+                                                status="warning">
+                                            {{formFieldAttributes['unmetered'].label}}
                                         </nb-checkbox>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <nb-checkbox formControlName="export">Export MPAN</nb-checkbox>
+                                        <nb-checkbox
+                                                [formControlName]="formFieldAttributes['export'].formControlName"
+                                                [nbTooltip]="formFieldAttributes['export'].tooltip"
+                                                nbTooltipStatus="info"
+                                                status="warning">
+                                            Export MPAN
+                                        </nb-checkbox>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <!--UNDEFINED YET -->
+                                        <!--TODO UNDEFINED YET!!! -->
                                         <nb-checkbox status="warning">Continuous
                                             Supply Indicator
                                         </nb-checkbox>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!--FIFTH ROW - SETTLEMENT DETAILS-->
-                                <div class="row" [formGroup]="form.get('ssc')">
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3 col-form-label">Standard Settlement Config</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="ssc_fk">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Effective From (SCON)</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="effective_from">
-                                        </div>
                                     </div>
                                 </div>
                                 <hr>

@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMPANDetailsAPIService, IMPANDetailsData, IMpanDetailsResponse} from "../../../@providers/data/mpandetails";
 import {FormGroup} from "@angular/forms";
-import {IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
+import {IMPANDetailsFormService, IFieldAttributes} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {map} from "rxjs/operators";
@@ -22,6 +22,7 @@ export class MpanDetailsFormComponent implements OnInit {
     routed_id$: Observable<string>;
     private mpandetails: IMPANDetailsData;
     private mpanDetailsResponse: IMpanDetailsResponse;
+    private formFieldAttributes: {[key:string]: IFieldAttributes};
 
     get form(): FormGroup {
         return this.mpanDetailsFormService.mpan_form;
@@ -33,7 +34,7 @@ export class MpanDetailsFormComponent implements OnInit {
         private mpanDetailsAPIService: IMPANDetailsAPIService,
         private mpanDetailsFormService: IMPANDetailsFormService) {
 
-
+        this.formFieldAttributes = this.mpanDetailsFormService.getFieldAttributes()
     }
 
     ngOnInit() {
