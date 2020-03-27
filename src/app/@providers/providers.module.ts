@@ -11,6 +11,9 @@ import {ISiteDetailsAPIService} from "./data/sitedetails";
 import {SiteDetailsService} from "./services/site-details.service";
 import {IMainCableDetailsAPIService} from "./data/main-cable-details";
 import {MainCableDetailsService} from "./services/main-cable-details.service";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {LoggingInterceptor} from "./interceptors/logging-interceptor";
+import {HttpErrorInterceptor} from "./interceptors/http-error-interceptor";
 
 
 const DATA_SERVICES = [
@@ -20,6 +23,11 @@ const DATA_SERVICES = [
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
 ];
+
+const NGX_HTTP_INTERCEPTORS = [
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
+]
 
 
 export const NB_CORE_PROVIDERS = [
@@ -43,6 +51,7 @@ export class ProvidersModule {
             ngModule: ProvidersModule,
             providers: [
                 ...NB_CORE_PROVIDERS,
+                ...NGX_HTTP_INTERCEPTORS
             ],
         };
     }
