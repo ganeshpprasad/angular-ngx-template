@@ -171,6 +171,13 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
 
     private setFieldAttributes() {
 
+        this.formFieldAttributes['mpan.id'] = {
+            label: 'MPAN ID',
+            placeholder: '',
+            tooltip: '',
+            isReadOnly: true,
+            formControlName:'id',
+        };
         this.formFieldAttributes['energisation.state_fk'] = {
             label: 'Energisation Status',
             placeholder: 'energisation status',

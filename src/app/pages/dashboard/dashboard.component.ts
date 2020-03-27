@@ -6,6 +6,7 @@ interface CardSettings {
     title: string;
     iconClass: string;
     type: string;
+    url: string,
 }
 
 @Component({
@@ -21,24 +22,28 @@ export class DashboardComponent implements OnDestroy {
         title: 'MPANs',
         iconClass: 'nb-lightbulb',
         type: 'primary',
+        url: '/pages/mpan-details',
     };
     siteDetails: CardSettings = {
-        title: 'Site Details',
-        iconClass: 'nb-roller-shades',
+        title: 'Asset/ Site Details',
+        iconClass: 'nb-power-circled',
         type: 'success',
+        url: '/pages/site-details',
     };
     cableDetails: CardSettings = {
-        title: 'Cable Details',
-        iconClass: 'nb-audio',
+        title: 'Event Logs',
+        iconClass: 'nb-list',
         type: 'info',
+        url: '/pages/event-details',
     };
     admin: CardSettings = {
         title: 'Admin Details',
-        iconClass: 'nb-cube-outline',
+        iconClass: 'nb-gear',
         type: 'warning',
+        url: '/pages/',
     };
 
-    statusCards: string;
+    statusCards: CardSettings[];
 
     commonStatusCardsSet: CardSettings[] = [
         this.mpanCard,

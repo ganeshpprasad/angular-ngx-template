@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'ngx-status-card',
     styleUrls: ['./status-card.component.scss'],
     template: `
-        <nb-card (click)="on = !on" [ngClass]="{'off': !on}">
+        <nb-card (click)="onClick()" class="hvr-underline-from-center">
             <div class="icon-container">
                 <div class="icon status-{{ type }}">
                     <ng-content></ng-content>
@@ -13,7 +14,6 @@ import {Component, Input} from '@angular/core';
 
             <div class="details">
                 <div class="title h5">{{ title }}</div>
-                <!--<div class="status paragraph-2">{{ on ? 'ON' : 'OFF' }}</div>-->
             </div>
         </nb-card>
     `,
@@ -22,9 +22,13 @@ export class StatusCardComponent {
 
     @Input() title: string;
     @Input() type: string;
-    @Input() on = true;
+    @Input() route2Link = true;
+
+    constructor(private router: Router) {
+
+    }
 
     onClick() {
-        return;
+        this.router.navigate([this.route2Link]);
     }
 }
