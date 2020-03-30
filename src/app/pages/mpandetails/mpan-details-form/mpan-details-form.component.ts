@@ -28,6 +28,10 @@ export class MpanDetailsFormComponent implements OnInit {
         return this.mpanDetailsFormService.mpan_form;
     }
 
+    get rawFormValue(): any {
+        return this.form.getRawValue();
+    }
+
     constructor(
         private route: ActivatedRoute,
         private router: Router,

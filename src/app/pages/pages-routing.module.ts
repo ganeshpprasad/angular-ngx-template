@@ -24,9 +24,9 @@ const routes: Routes = [{
                 .then(m => m.MPANDetailsModule),
         },
         {
-            path: 'site-details',
-            loadChildren: () => import('./sitedetails/sitedetails.module')
-                .then(m => m.SiteDetailsModule),
+            path: 'asset-details',
+            loadChildren: () => import('./asset-details/asset-details.module')
+                .then(m => m.AssetDetailsModule),
         },
         {
             path: 'main-cable-details',

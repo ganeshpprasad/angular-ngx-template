@@ -22,7 +22,7 @@ export interface IRelatedAddress {
     post_code: string,
     effective_from: string,
     effective_to: string,
-
+    id: string,
 }
 
 export interface IRelatedMeasurementClass {
@@ -77,6 +77,7 @@ export interface IRelatedAsset {
     reference_to_plan: string,
     supply_capacity: number,
     supply_voltage: number
+    address: IRelatedAddress,
 }
 
 export interface IShortMpan {

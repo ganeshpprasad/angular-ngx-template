@@ -76,13 +76,30 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     });
 
     private relatedAsset = this.fb.group({
+        id: null,
         business_reference: null,
         description: null,
         plot_number: null,
-        property_type: null,
         reference_to_plan: null,
+        property_type: null,
         supply_capacity: null,
-        supply_voltage: null
+        supply_voltage: null,
+        address: this.fb.group({
+            address_type: null,
+            address_1: null,
+            address_2: null,
+            address_3: null,
+            address_4: null,
+            address_5: null,
+            address_6: null,
+            address_7: null,
+            address_8: null,
+            address_9: null,
+            post_code: null,
+            effective_from: null,
+            effective_to: null,
+            id: null,
+        }),
     });
 
     private formFieldAttributes: { [key: string]: IFieldAttributes } = {};
