@@ -12,9 +12,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
         group: true,
     },
     {
-        title: 'Asset/ Site Details',
+        title: 'Asset Details',
         icon: 'cube-outline',
-        link: '/pages/site-details',
+        link: '/pages/asset-details',
     },
     {
         title: 'MPAN Details',

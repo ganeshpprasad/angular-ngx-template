@@ -25,7 +25,7 @@ export class AssetDetailsService extends IAssetDetailsAPIService {
     }
 
     searchAssetDetails(query: string): Observable<IAssetDetailsList> {
-        let assetURL: string = this.configUrl + 'asset-search.json';
+        let assetURL: string = this.configUrl + 'asset-details-search.json';
         return this.http
             .get<ServerHTTPResponse<IAssetDetailsList>>(assetURL)
             .pipe(

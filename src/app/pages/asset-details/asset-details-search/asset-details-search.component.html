@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-body>
+                <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 hvr-underline-from-center">
+                    <nb-search type="rotate-layout"
+                               tag="asset-details-search"
+                               placeholder="search for asset details .."
+                               hint="By ID/ "
+                               class="hvr-grow"></nb-search>
+                    <i class="title offset-2">Search for asset details ..</i>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <nb-card>
+            <nb-card-header>
+                <h6 class="text-muted"> search results .. </h6>
+            </nb-card-header>
+            <nb-card-body>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <nb-list>
+                        <nb-list-item class="" *ngIf="searchResultVisible">
+                            <div class="row">
+                                <span class="col-md-4"> ASSET </span>
+                                <span class="col-md-4"> BUS ID </span>
+                                <span class="col-md-4"> DESCRIPTION </span>
+                            </div>
+                        </nb-list-item>
+                        <nb-list-item class="" *ngFor="let asset of searchResults.result">
+                            <div class="row">
+                                <span class="col-md-4">
+                                    <a class="hvr-grow"
+                                       [routerLink]="'./' + asset.id"
+                                       routerLinkActive="active">
+                                        <span>
+                                            <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
+                                            {{ 'ASSET REF ID -- ' + asset.id }}
+                                        </span>
+                                    </a>
+                                </span>
+                                <span class="col-md-4">
+                                    <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
+                                    {{ asset.business_reference }}
+                                </span>
+                                <span class="col-md-4">
+                                    <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>
+                                    {{ asset.description }}
+                                </span>
+                            </div>
+                        </nb-list-item>
+                    </nb-list>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

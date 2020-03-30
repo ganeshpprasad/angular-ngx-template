@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {AssetDetailsComponent} from "./asset-details.component";
 import {AssetDetailsViewComponent} from "./asset-details-view/asset-details-view.component";
+import {AssetDetailsSearchComponent} from "./asset-details-search/asset-details-search.component";
 
 
 const routes: Routes = [{
@@ -12,10 +13,10 @@ const routes: Routes = [{
             path: ':id',
             component: AssetDetailsViewComponent,
         },
-        // {
-        //     path: '',
-        //     component: SiteDetailsSearchComponent,
-        // }
+        {
+            path: '',
+            component: AssetDetailsSearchComponent,
+        }
     ],
 }];
 
@@ -29,4 +30,5 @@ export class AssetDetailsRoutingModule {
 export const routedComponents = [
     AssetDetailsComponent,
     AssetDetailsViewComponent,
+    AssetDetailsSearchComponent,
 ];

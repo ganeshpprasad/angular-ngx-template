@@ -28,7 +28,7 @@ export class DashboardComponent implements OnDestroy {
         title: 'Asset/ Site Details',
         iconClass: 'nb-power-circled',
         type: 'success',
-        url: '/pages/site-details',
+        url: '/pages/asset-details',
     };
     cableDetails: CardSettings = {
         title: 'Event Logs',
