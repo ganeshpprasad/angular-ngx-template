@@ -14,6 +14,8 @@ import {MainCableDetailsService} from "./services/main-cable-details.service";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {LoggingInterceptor} from "./interceptors/logging-interceptor";
 import {HttpErrorInterceptor} from "./interceptors/http-error-interceptor";
+import {IAssetDetailsAPIService} from "./data/assetdetails";
+import {AssetDetailsService} from "./services/asset-details.service";
 
 
 const DATA_SERVICES = [
@@ -22,12 +24,13 @@ const DATA_SERVICES = [
     {provide: IMPANDetailsAPIService, useClass: MpanDetailsService},
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
+    {provide: IAssetDetailsAPIService, useClass: AssetDetailsService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
     {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
-]
+];
 
 
 export const NB_CORE_PROVIDERS = [
