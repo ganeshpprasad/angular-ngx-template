@@ -92,6 +92,7 @@ export interface IMpanLists {
 
 export interface IMpanDetailsResponse {
     id: string,
+    customer_name: string,
     unmetered: boolean,
     //
     ct_ratio: string,
@@ -103,6 +104,8 @@ export interface IMpanDetailsResponse {
     export: boolean,
     umso_reference: string,
     unique_property_reference_number: string,
+    connection_date: string,
+    disconnection_date: string,
     asset: IRelatedAsset,
     //
     mpan_address: IRelatedAddress,

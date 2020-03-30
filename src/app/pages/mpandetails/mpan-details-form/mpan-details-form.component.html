@@ -35,12 +35,17 @@
                                     <!--</div>-->
                                     <!--</div>-->
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">Customer Name</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.customer_name'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth [readonly]="20 > 10"
-                                                   placeholder="Customer Name">
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.customer_name'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.customer_name'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.customer_name'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.customer_name'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -201,8 +206,39 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!--CONNECTION DISCONNECTION DATE-->
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.connection_date'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.connection_date'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.connection_date'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.connection_date'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.connection_date'].formControlName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.disconnection_date'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.disconnection_date'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.disconnection_date'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.disconnection_date'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.disconnection_date'].formControlName">
+                                        </div>
+                                    </div>
+                                </div>
                                 <hr>
-                                <!--ROW TABSET-->
+                                <!--ROW ADDRESS TABSET-->
                                 <div class="row">
                                     <!--TABS-->
                                     <nb-tabset fullWidth>
@@ -579,33 +615,45 @@
                                 <!--Data Aggregator-->
                                 <div class="row" [formGroup]="form.get('da_mpid')">
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3 col-form-label">Data Aggregator</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['da_mpid.market_participant_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="market_participant_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['da_mpid.market_participant_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['da_mpid.market_participant_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['da_mpid.market_participant_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['da_mpid.market_participant_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Effective From</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['da_mpid.role_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['da_mpid.role_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['da_mpid.role_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['da_mpid.role_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['da_mpid.role_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Role</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['da_mpid.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="role_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['da_mpid.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['da_mpid.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['da_mpid.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['da_mpid.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
@@ -613,33 +661,45 @@
                                 <!--Data Collector-->
                                 <div class="row" [formGroup]="form.get('dc_mpid')">
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3 col-form-label">Data Collector</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['dc_mpid.market_participant_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="market_participant_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['dc_mpid.market_participant_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['dc_mpid.market_participant_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['dc_mpid.market_participant_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['dc_mpid.market_participant_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Effective From</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['dc_mpid.role_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['dc_mpid.role_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['dc_mpid.role_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['dc_mpid.role_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['dc_mpid.role_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Role</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['dc_mpid.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="role_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['dc_mpid.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['dc_mpid.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['dc_mpid.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['dc_mpid.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
@@ -647,33 +707,91 @@
                                 <!--Meter Point Operator-->
                                 <div class="row" [formGroup]="form.get('mop_mpid')">
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3 col-form-label">Meter Point Operator</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mop_mpid.market_participant_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="market_participant_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mop_mpid.market_participant_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['mop_mpid.market_participant_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mop_mpid.market_participant_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mop_mpid.market_participant_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Effective From</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mop_mpid.role_fk'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="effective_from">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mop_mpid.role_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['mop_mpid.role_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mop_mpid.role_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mop_mpid.role_fk'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">Role</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mop_mpid.effective_from'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="role_fk">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mop_mpid.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['mop_mpid.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mop_mpid.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mop_mpid.effective_from'].formControlName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!--SUPPLIER ID-->
+                                <div class="row" [formGroup]="form.get('supplier_mpid')">
+                                    <div class="form-group col-md-4">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['supplier_mpid.market_participant_fk'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['supplier_mpid.market_participant_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.market_participant_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['supplier_mpid.market_participant_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.market_participant_fk'].formControlName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['supplier_mpid.role_fk'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['supplier_mpid.role_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.role_fk'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['supplier_mpid.role_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.role_fk'].formControlName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['supplier_mpid.effective_from'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['supplier_mpid.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.effective_from'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['supplier_mpid.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.effective_from'].formControlName">
                                         </div>
                                     </div>
                                 </div>
@@ -681,33 +799,45 @@
                                 <!--CT CLass-->
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3 col-form-label">CT Ratio</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.ct_class'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="ct_ratio">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.ct_class'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.ct_class'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.ct_class'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.ct_class'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">CT Class</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.ct_rating'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="ct_class">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.ct_rating'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.ct_rating'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.ct_rating'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.ct_rating'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">CT Rating</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.ct_ratio'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="ct_rating">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.ct_ratio'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.ct_ratio'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.ct_ratio'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.ct_ratio'].formControlName">
                                         </div>
                                     </div>
                                 </div>
@@ -715,63 +845,84 @@
                                 <!--VT CLass-->
                                 <div class="row">
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3 col-form-label">VT Ratio</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.vt_class'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="vt_ratio">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.vt_class'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.vt_class'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.vt_class'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.vt_class'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">VT Class</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.vt_rating'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="vt_class">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.vt_rating'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.vt_rating'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.vt_rating'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.vt_rating'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label class="label col-sm-3">VT Rating</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.vt_ratio'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="vt_rating">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.vt_ratio'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.vt_ratio'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.vt_ratio'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.vt_ratio'].formControlName">
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
                                 <!--UMSO-->
                                 <div class="row">
-                                    <div class="form-group col-md-3">
-                                        <label class="label col-sm-3 col-form-label">UMSO Ref</label>
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.umso_reference'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="umso_reference">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.umso_reference'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.umso_reference'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.umso_reference'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.umso_reference'].formControlName">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="label col-sm-3">USMO Property Ref #</label>
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mpan.unique_property_reference_number'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
                                                    nbInput fullWidth
-                                                   placeholder=""
-                                                   formControlName="unique_property_reference_number">
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mpan.unique_property_reference_number'].placeholder"
+                                                   [readonly]="formFieldAttributes['mpan.unique_property_reference_number'].isReadOnly"
+                                                   [nbTooltip]="formFieldAttributes['mpan.unique_property_reference_number'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mpan.unique_property_reference_number'].formControlName">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </nb-tab>
+                    <!--ASSET DETAILS TAB-->
                     <nb-tab tabTitle="ASSET Details" tabIcon="file-text-outline" responsive>
                         <form class="form-inline">
                             <div class="col-md-12" [formGroup]="form.get('asset')">
