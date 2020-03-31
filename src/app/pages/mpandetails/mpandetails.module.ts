@@ -17,7 +17,7 @@ import {
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MpanDetailsRoutingModule, routedComponents} from "./mpandetails-routing.module";
-import {CommonModule} from "../../@common/common.module";
+import {CommonComponentsModule} from "../../@common-components/common-components.module";
 
 const ENTRY_COMPONENTS = [];
 const EXPORT_COMPONENTS = [];
@@ -41,7 +41,7 @@ const EXPORT_COMPONENTS = [];
         NbButtonModule,
         NbTooltipModule,
         NbWindowModule.forChild(),
-        CommonModule,
+        CommonComponentsModule,
         MpanDetailsRoutingModule,
     ],
     declarations: [

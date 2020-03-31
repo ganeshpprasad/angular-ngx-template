@@ -16,7 +16,7 @@ import {
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {routedComponents, AssetDetailsRoutingModule} from "./asset-details.routing.module";
-import {CommonModule} from "../../@common/common.module";
+import {CommonComponentsModule} from "../../@common-components/common-components.module";
 
 const ENTRY_COMPONENTS = [
 ];
@@ -42,7 +42,7 @@ const EXPORT_COMPONENTS = [
         NbIconModule,
         NbButtonModule,
         NbWindowModule.forChild(),
-        CommonModule,
+        CommonComponentsModule,
         AssetDetailsRoutingModule,
     ],
     declarations: [

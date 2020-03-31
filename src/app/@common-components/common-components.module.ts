@@ -11,12 +11,12 @@ import {
 } from "@nebular/theme";
 import {AssetDetailsFormComponent} from "./forms/asset-details-form/asset-details-form.component";
 
-const ENTRY_COMPONENTS = [
-];
+const ENTRY_COMPONENTS = [];
 
 const EXPORT_COMPONENTS = [
     AssetDetailsFormComponent,
 ];
+
 @NgModule({
     imports: [
         FormsModule,
@@ -47,4 +47,5 @@ const EXPORT_COMPONENTS = [
         ...EXPORT_COMPONENTS,
     ],
 })
-export class CommonModule { }
+export class CommonComponentsModule {
+}
