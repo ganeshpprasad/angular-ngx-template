@@ -1,29 +1,22 @@
 import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ThemeModule} from "../@theme/theme.module";
 import {
     NbActionsModule,
     NbButtonModule,
-    NbCardModule,
-    NbCheckboxModule,
-    NbIconModule,
-    NbListModule,
-    NbRadioModule,
-    NbSearchModule,
-    NbSelectModule,
-    NbTabsetModule,
-    NbUserModule,
-    NbWindowModule,
-} from '@nebular/theme';
-import {ThemeModule} from '../../@theme/theme.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {routedComponents, AssetDetailsRoutingModule} from "./asset-details.routing.module";
-import {CommonModule} from "../../@common/common.module";
+    NbCardModule, NbCheckboxModule, NbIconModule, NbListModule, NbRadioModule,
+    NbSearchModule, NbSelectModule,
+    NbTabsetModule, NbTooltipModule,
+    NbUserModule, NbWindowModule
+} from "@nebular/theme";
+import {AssetDetailsFormComponent} from "./forms/asset-details-form/asset-details-form.component";
 
 const ENTRY_COMPONENTS = [
 ];
 
 const EXPORT_COMPONENTS = [
+    AssetDetailsFormComponent,
 ];
-
 @NgModule({
     imports: [
         FormsModule,
@@ -41,12 +34,11 @@ const EXPORT_COMPONENTS = [
         NbListModule,
         NbIconModule,
         NbButtonModule,
+        NbTooltipModule,
         NbWindowModule.forChild(),
-        CommonModule,
-        AssetDetailsRoutingModule,
     ],
     declarations: [
-        ...ENTRY_COMPONENTS, ...routedComponents, ...EXPORT_COMPONENTS,
+        ...ENTRY_COMPONENTS, ...EXPORT_COMPONENTS,
     ],
     entryComponents: [
         ...ENTRY_COMPONENTS
@@ -55,5 +47,4 @@ const EXPORT_COMPONENTS = [
         ...EXPORT_COMPONENTS,
     ],
 })
-export class AssetDetailsModule {
-}
+export class CommonModule { }

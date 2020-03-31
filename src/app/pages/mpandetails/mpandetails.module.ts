@@ -9,15 +9,18 @@ import {
     NbRadioModule,
     NbSearchModule,
     NbSelectModule,
-    NbTabsetModule, NbTooltipModule,
+    NbTabsetModule,
+    NbTooltipModule,
     NbUserModule,
     NbWindowModule,
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MpanDetailsRoutingModule, routedComponents} from "./mpandetails-routing.module";
+import {CommonModule} from "../../@common/common.module";
 
 const ENTRY_COMPONENTS = [];
+const EXPORT_COMPONENTS = [];
 
 @NgModule({
     imports: [
@@ -38,12 +41,18 @@ const ENTRY_COMPONENTS = [];
         NbButtonModule,
         NbTooltipModule,
         NbWindowModule.forChild(),
+        CommonModule,
         MpanDetailsRoutingModule,
     ],
     declarations: [
-        ...ENTRY_COMPONENTS, ...routedComponents,
+        ...ENTRY_COMPONENTS, ...routedComponents, ...EXPORT_COMPONENTS
     ],
-    entryComponents: [],
+    entryComponents: [
+        ...ENTRY_COMPONENTS,
+    ],
+    exports:[
+        ...EXPORT_COMPONENTS,
+    ],
 })
 export class MPANDetailsModule {
 }
