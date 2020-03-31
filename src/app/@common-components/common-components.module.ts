@@ -10,11 +10,13 @@ import {
     NbUserModule, NbWindowModule
 } from "@nebular/theme";
 import {AssetDetailsFormComponent} from "./forms/asset-details-form/asset-details-form.component";
+import { AddressFormComponent } from './forms/address-form/address-form.component';
 
 const ENTRY_COMPONENTS = [];
 
 const EXPORT_COMPONENTS = [
     AssetDetailsFormComponent,
+    AddressFormComponent,
 ];
 
 @NgModule({
