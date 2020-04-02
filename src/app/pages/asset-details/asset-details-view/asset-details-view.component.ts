@@ -20,8 +20,8 @@ import {IAssetDetailsAPIService} from "../../../@providers/data/assetdetails";
 export class AssetDetailsViewComponent implements OnInit {
 
     routed_id$: Observable<string>;
-    private assetDetailsResponse: IRelatedAsset;
-    private formFieldAttributes: { [key: string]: IFieldAttributes };
+    assetDetailsResponse: IRelatedAsset;
+    formFieldAttributes: { [key: string]: IFieldAttributes };
 
     get form(): FormGroup {
         return this.assetDetailsFormService.asset_details_form;
@@ -63,4 +63,17 @@ export class AssetDetailsViewComponent implements OnInit {
     onClickBack() {
         this.router.navigate(['../', {}], {relativeTo: this.route});
     }
+
+    onClickHome() {
+        this.router.navigate(['/pages/dashboard', {}], {relativeTo: this.route});
+    }
+
+    onClickSave() {
+        return;
+    }
+
+    onClickReset() {
+        return;
+    }
+
 }

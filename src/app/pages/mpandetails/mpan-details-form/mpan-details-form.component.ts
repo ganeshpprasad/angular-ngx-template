@@ -20,8 +20,8 @@ export class MpanDetailsFormComponent implements OnInit {
     @Input() mpan_id: string;
 
     routed_id$: Observable<string>;
-    private mpanDetailsResponse: IMpanDetailsResponse;
-    private formFieldAttributes: {[key:string]: IFieldAttributes};
+    mpanDetailsResponse: IMpanDetailsResponse;
+    formFieldAttributes: {[key:string]: IFieldAttributes};
 
     get form(): FormGroup {
         return this.mpanDetailsFormService.mpan_form;
@@ -62,6 +62,15 @@ export class MpanDetailsFormComponent implements OnInit {
 
     onClickBack() {
         this.router.navigate(['../', {}], {relativeTo: this.route});
+    }
+    onClickHome() {
+        this.router.navigate(['/pages/dashboard', {}], {relativeTo: this.route});
+    }
+    onClickSave() {
+        return;
+    }
+    onClickReset() {
+        return;
     }
 
 }
