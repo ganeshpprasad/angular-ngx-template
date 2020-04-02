@@ -87,7 +87,7 @@ export interface IShortMpan {
 }
 
 export interface IMpanLists {
-    result: IShortMpan[],
+    mpans: IShortMpan[],
 }
 
 

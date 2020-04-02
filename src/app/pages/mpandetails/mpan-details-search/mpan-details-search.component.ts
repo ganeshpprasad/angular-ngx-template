@@ -12,7 +12,7 @@ export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
 
     private searchSubmit: Subscription;
     searchMpanResults: IMpanLists = {
-        result: [],
+        mpans: [],
     };
     searchResultVisible: boolean = false;
 

@@ -1,32 +1,45 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from "../data/mpandetails";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ServerHTTPResponse} from "../../@core/data/http-response";
 import {map} from "rxjs/operators";
+import {environment} from "../../../environments/environment";
 
 @Injectable()
 export class MpanDetailsService extends IMPANDetailsAPIService {
 
-    configUrl = 'assets/mock/data/';
+    private mpan_url = environment.baseUrl + '/v1/mpan';
+
+    private httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+        })
+    };
 
     constructor(private http: HttpClient) {
         super();
     }
 
     getMPANDetailsByID(mpanid: string): Observable<IMpanDetailsResponse> {
-        let mpanURL: string = this.configUrl + mpanid + '.json';
+        let details_url: string = this.mpan_url + '/detail';
+        let post_body = {
+            'mpan_id': mpanid,
+        };
         return this.http
-            .get<ServerHTTPResponse<IMpanDetailsResponse>>(mpanURL)
+            .post<ServerHTTPResponse<IMpanDetailsResponse>>(details_url, post_body, this.httpOptions)
             .pipe(
                 map(r => r.result)
             );
     }
 
     searchMPAN(query: string): Observable<IMpanLists> {
-        let mpanURL: string = this.configUrl + 'mpan-search.json';
+        let search_url: string = this.mpan_url + '/search';
+        let post_body = {
+            'free_text': query,
+        };
         return this.http
-            .get<ServerHTTPResponse<IMpanLists>>(mpanURL)
+            .post<ServerHTTPResponse<IMpanLists>>(search_url, post_body, this.httpOptions)
             .pipe(
                 map(r => r.result)
             );
