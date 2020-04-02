@@ -676,11 +676,11 @@
                                             </span>
                                         </a>
                                     </span>
-                                            <span class="col-md-4">
+                                    <span class="col-md-4"  *ngIf="mpan.meter">
                                         <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
                                         {{ mpan.meter.meter_fk }}
                                     </span>
-                                            <span class="col-md-4">
+                                    <span class="col-md-4"  *ngIf="mpan.mpan_address">
                                         <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>
                                         {{ mpan.mpan_address.address_1 + ', '
                                          + mpan.mpan_address.address_2 + ', '
