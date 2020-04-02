@@ -9,7 +9,7 @@ import {environment} from "../../../environments/environment";
 @Injectable()
 export class MpanDetailsService extends IMPANDetailsAPIService {
 
-    private mpan_url = environment.baseUrl + '/v1/mpan';
+    private mpan_url = environment.baseUrl + '/api/v1/mpan';
 
     private httpOptions = {
         headers: new HttpHeaders({

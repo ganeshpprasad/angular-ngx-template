@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:4200/api', // for DEV this gets re-routed by proxy check proxy.conf.json
+  baseUrl: 'http://localhost:4200', // for DEV this gets re-routed by proxy check proxy.conf.json
 };

@@ -10,7 +10,7 @@ import {environment} from "../../../environments/environment";
 @Injectable()
 export class AssetDetailsService extends IAssetDetailsAPIService {
 
-    private asset_url = environment.baseUrl + '/v1/asset';
+    private asset_url = environment.baseUrl + '/api/v1/asset';
 
     private httpOptions = {
         headers: new HttpHeaders({
