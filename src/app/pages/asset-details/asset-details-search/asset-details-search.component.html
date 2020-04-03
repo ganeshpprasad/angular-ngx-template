@@ -3,12 +3,13 @@
         <nb-card>
             <nb-card-body>
                 <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 hvr-underline-from-center">
-                    <nb-search type="rotate-layout"
-                               tag="asset-details-search"
-                               placeholder="search for asset details .."
-                               hint="By ID/ "
-                               class="hvr-grow"></nb-search>
-                    <i class="title offset-2">Search for asset details ..</i>
+                    <div (click)="onClickSearchForAsset($event)">
+                        <nb-search type="rotate-layout"
+                                   tag="asset-details-search"
+                                   placeholder="search asset details .."
+                                   hint="By ID/ "></nb-search>
+                        <i class="title offset-2">Search for asset details ..</i>
+                    </div>
                 </div>
             </nb-card-body>
         </nb-card>

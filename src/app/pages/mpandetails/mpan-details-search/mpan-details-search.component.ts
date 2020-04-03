@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {NbSearchService} from "@nebular/theme";
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {NbSearchComponent, NbSearchService} from "@nebular/theme";
 import {Subscription} from "rxjs";
 import {IMPANDetailsAPIService, IMpanLists} from "../../../@providers/data/mpandetails";
 
@@ -10,15 +10,13 @@ import {IMPANDetailsAPIService, IMpanLists} from "../../../@providers/data/mpand
 })
 export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
 
-    private searchSubmit: Subscription;
-    searchMpanResults: IMpanLists = {
-        mpans: [],
-    };
+    @ViewChild(NbSearchComponent, {static: false}) searchButton: NbSearchComponent;
+    searchMpanResults: IMpanLists = {mpans: [],};
     searchResultVisible: boolean = false;
+    private searchSubmit: Subscription;
 
     constructor(private searchService: NbSearchService,
                 private mpanAPIService: IMPANDetailsAPIService) {
-
     }
 
     ngOnInit() {
@@ -46,6 +44,10 @@ export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.searchSubmit.unsubscribe();
+    }
+
+    onClickSearchForMpan($event: any): void {
+        this.searchButton.openSearch()
     }
 
 }

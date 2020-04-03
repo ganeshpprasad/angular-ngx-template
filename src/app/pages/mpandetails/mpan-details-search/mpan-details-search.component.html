@@ -3,12 +3,13 @@
         <nb-card>
             <nb-card-body>
                 <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 hvr-underline-from-center">
-                    <nb-search type="rotate-layout"
-                               tag="mpan-search"
-                               placeholder="search MPAN .."
-                               hint="By ID/ Address/ "
-                               class="hvr-grow"></nb-search>
-                    <i class="title offset-2">Search For MPAN ..</i>
+                    <div (click)="onClickSearchForMpan($event)">
+                        <nb-search type="rotate-layout"
+                                   tag="mpan-search"
+                                   placeholder="search MPAN .."
+                                   hint="By ID/ Address/ "></nb-search>
+                        <i class="title offset-2">Search For MPAN ..</i>
+                    </div>
                 </div>
             </nb-card-body>
         </nb-card>

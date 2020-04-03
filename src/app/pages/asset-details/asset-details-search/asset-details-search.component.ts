@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
-import {NbSearchService} from "@nebular/theme";
+import {NbSearchComponent, NbSearchService} from "@nebular/theme";
 import {IAssetDetailsAPIService, IAssetDetailsList} from "../../../@providers/data/assetdetails";
 
 @Component({
@@ -10,11 +10,10 @@ import {IAssetDetailsAPIService, IAssetDetailsList} from "../../../@providers/da
 })
 export class AssetDetailsSearchComponent implements OnInit, OnDestroy {
 
-    private searchSubmit: Subscription;
-    searchResults: IAssetDetailsList = {
-        result: [],
-    };
+    @ViewChild(NbSearchComponent, {static: false}) searchButton: NbSearchComponent;
+    searchResults: IAssetDetailsList = {result: [],};
     searchResultVisible: boolean = false;
+    private searchSubmit: Subscription;
 
     constructor(private searchService: NbSearchService,
                 private assetDetailsAPIService: IAssetDetailsAPIService) {
@@ -46,5 +45,9 @@ export class AssetDetailsSearchComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.searchSubmit.unsubscribe();
+    }
+
+    onClickSearchForAsset($event: any): void {
+        this.searchButton.openSearch()
     }
 }
