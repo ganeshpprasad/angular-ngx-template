@@ -16,7 +16,7 @@ export class LoggingInterceptor implements HttpInterceptor {
             .pipe(
                 tap(
                     // Succeeds when there is a response; ignore other events
-                    event => ok = event instanceof HttpResponse ? `SUCCESS MSG: ${event.body.message}` : '',
+                    event => ok = event instanceof HttpResponse ? `SUCCESS MSG: ${event.body}` : '',
                     // Operation failed; error is an HttpErrorResponse
                     error => ok = 'failed'
                 ),

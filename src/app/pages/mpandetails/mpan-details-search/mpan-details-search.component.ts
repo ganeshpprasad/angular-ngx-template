@@ -13,6 +13,7 @@ export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
     @ViewChild(NbSearchComponent, {static: false}) searchButton: NbSearchComponent;
     searchMpanResults: IMpanLists = {mpans: [],};
     searchResultVisible: boolean = false;
+    spinner_loading = false;
     private searchSubmit: Subscription;
 
     constructor(private searchService: NbSearchService,
@@ -33,12 +34,18 @@ export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
     // noinspection JSMethodCanBeStatic
     onMpanSearchSubmit(term: string) {
         //
+        this.spinner_loading = true;
         this.mpanAPIService
             .searchMPAN(term)
             .subscribe((results: IMpanLists) => {
-                this.searchResultVisible = true;
-                this.searchMpanResults = results;
-            });
+                    this.searchResultVisible = true;
+                    this.searchMpanResults = results;
+                    setTimeout(() => this.spinner_loading = false, 900);
+                },
+                (err) => {
+                    console.log(err);
+                    this.spinner_loading = false;
+                });
         return;
     }
 

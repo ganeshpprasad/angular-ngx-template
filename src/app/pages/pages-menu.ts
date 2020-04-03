@@ -22,7 +22,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/mpan-details',
     },
     {
-        title: 'Event Logss',
+        title: 'Event Logs',
         icon: 'pantone-outline',
         link: '/pages/event-details',
     },

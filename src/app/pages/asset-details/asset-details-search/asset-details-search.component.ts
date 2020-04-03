@@ -13,6 +13,7 @@ export class AssetDetailsSearchComponent implements OnInit, OnDestroy {
     @ViewChild(NbSearchComponent, {static: false}) searchButton: NbSearchComponent;
     searchResults: IAssetDetailsList = {result: [],};
     searchResultVisible: boolean = false;
+    spinner_loading = false;
     private searchSubmit: Subscription;
 
     constructor(private searchService: NbSearchService,
@@ -34,12 +35,18 @@ export class AssetDetailsSearchComponent implements OnInit, OnDestroy {
     // noinspection JSMethodCanBeStatic
     onSearchSubmit(term: string) {
         //
+        this.spinner_loading = true;
         this.assetDetailsAPIService
             .searchAssetDetails(term)
             .subscribe((results: IAssetDetailsList) => {
-                this.searchResultVisible = true;
-                this.searchResults = results;
-            });
+                    this.searchResultVisible = true;
+                    this.searchResults = results;
+                    setTimeout(() => this.spinner_loading = false, 900);
+                },
+                (err) => {
+                    console.log(err);
+                    this.spinner_loading = false;
+                });
         return;
     }
 

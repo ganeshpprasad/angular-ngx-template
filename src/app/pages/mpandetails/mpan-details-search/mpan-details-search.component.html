@@ -17,7 +17,10 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <nb-card>
+        <nb-card accent="danger" size="large"
+                 [nbSpinner]="spinner_loading"
+                 nbSpinnerStatus="danger"
+                 nbSpinnerSize="large">
             <nb-card-header>
                 <h6 class="text-muted"> search results .. </h6>
             </nb-card-header>
