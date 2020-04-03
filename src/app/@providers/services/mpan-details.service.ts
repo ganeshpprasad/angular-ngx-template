@@ -45,4 +45,16 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
             );
     }
 
+    updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<string> {
+        let update_url: string = this.mpan_url + '/update';
+        let post_body = {
+            'result': updateBody,
+        };
+        return this.http
+            .put<ServerHTTPResponse<string>>(update_url, post_body, this.httpOptions)
+            .pipe(
+                map(r => r.message)
+            );
+    }
+
 }

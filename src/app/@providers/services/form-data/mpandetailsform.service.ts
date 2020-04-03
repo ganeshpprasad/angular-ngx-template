@@ -202,7 +202,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Customer Name',
             placeholder: '',
             tooltip: '',
-            isReadOnly: true,
+            isReadOnly: false,
             formControlName: 'customer_name',
         };
         this.formFieldAttributes['energisation.state_fk'] = {

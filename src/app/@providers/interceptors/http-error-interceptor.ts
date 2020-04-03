@@ -29,9 +29,9 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 
     private showToast(title: string, body: string) {
         const config: Partial<NbToastrConfig> = {
-            status: 'warning',
+            status: 'danger',
             destroyByClick: true,
-            duration: 10000,
+            duration: 7500,
             hasIcon: true,
             position: NbGlobalPhysicalPosition.TOP_RIGHT,
             preventDuplicates: false,

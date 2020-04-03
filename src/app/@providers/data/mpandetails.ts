@@ -130,4 +130,6 @@ export abstract class IMPANDetailsAPIService {
     abstract getMPANDetailsByID(id: string): Observable<IMpanDetailsResponse>;
 
     abstract searchMPAN(query: string): Observable<IMpanLists>;
+
+    abstract updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<string>;
 }
