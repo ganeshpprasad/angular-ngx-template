@@ -21,6 +21,13 @@ chmod +x *.sh
 ```
 
 * ```nginx -s stop```
+___
+
+#### Docker
+
+* ```docker build --tag ngx-ldso-app .```
+* ```docker network create <network_name>```
+* ```docker run -d -p 8080:8080 --network=<network_name> --name ngx-ldso-app-1 ngx-ldso-app```
 
 
 ##### NOTES 
