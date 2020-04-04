@@ -93,6 +93,7 @@ export class MpanDetailsFormComponent implements OnInit {
             .updateMPANDetails(post_body)
             .subscribe((r: string) => {
                 console.log('Response from mpan update: ', r);
+                this.form.reset();
                 this.loadServerMpanDetails();
                 this.showToast('INFO: Save MPAN Details', `${r}`, 'info', 'save-outline')
             });
@@ -101,13 +102,11 @@ export class MpanDetailsFormComponent implements OnInit {
 
     onClickReset() {
 
-        console.log('MPAN form value -->', this.form.getRawValue());
         // reset and reload details from server
         this.form.reset();
         this.loadServerMpanDetails();
-        console.log('MPAN form value after reset -->', this.form.getRawValue());
+        // show message
         this.showToast('INFO: Reset MPAN Details', ``, 'info', 'refresh-outline');
-
         return;
     }
 
@@ -127,6 +126,16 @@ export class MpanDetailsFormComponent implements OnInit {
             body,
             `${titleContent}`,
             config);
+    }
+
+    getFieldStatus(fieldName: string, groupName?: string) {
+        let formCtrlName = this.formFieldAttributes[fieldName].formControlName;
+        let formGroup = groupName ? this.form.get(groupName) : this.form;
+        let fieldStatus = this.formFieldAttributes[fieldName].isReadOnly ? '' : '';
+
+        fieldStatus = formGroup.get(formCtrlName).dirty ? 'warning' : fieldStatus;
+        fieldStatus = formGroup.get(formCtrlName).invalid ? 'danger' : fieldStatus;
+        return fieldStatus;
     }
 
 }

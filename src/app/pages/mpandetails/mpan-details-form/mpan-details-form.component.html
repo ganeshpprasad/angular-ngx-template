@@ -46,28 +46,20 @@
                                 <hr>
                                 <!--FIRST ROW - MAIN DETAILS-->
                                 <div class="row">
-                                    <!--<div class="form-group col-md-6">-->
-                                    <!--<label class="label col-sm-3 col-form-label">MPAN ID</label>-->
-                                    <!--<div class="col-sm-9">-->
-                                    <!--<input type="text"-->
-                                    <!--class="input-full-width status-warning size-medium shape-semi-round"-->
-                                    <!--nbInput fullWidth readonly-->
-                                    <!--placeholder="MPAN ID"-->
-                                    <!--formControlName="id">-->
-                                    <!--</div>-->
-                                    <!--</div>-->
                                     <div class="form-group col-md-6">
                                         <label class="label col-sm-3 col-form-label">
                                             {{formFieldAttributes['mpan.customer_name'].label}}</label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
+                                                   nbInput
+                                                   fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.customer_name'].placeholder"
                                                    [readonly]="formFieldAttributes['mpan.customer_name'].isReadOnly"
                                                    [nbTooltip]="formFieldAttributes['mpan.customer_name'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.customer_name'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.customer_name'].formControlName"
+                                                   [status]="getFieldStatus('mpan.customer_name')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -86,7 +78,8 @@
                                                    [placeholder]="formFieldAttributes['energisation.state_fk'].placeholder"
                                                    [readonly]="formFieldAttributes['energisation.state_fk'].isReadOnly"
                                                    [nbTooltip]="formFieldAttributes['energisation.state_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['energisation.state_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['energisation.state_fk'].formControlName"
+                                                   [status]="getFieldStatus('energisation.state_fk', 'energisation')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -677,11 +670,11 @@
                                             </span>
                                         </a>
                                     </span>
-                                    <span class="col-md-4"  *ngIf="mpan.meter">
+                                            <span class="col-md-4" *ngIf="mpan.meter">
                                         <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
                                         {{ mpan.meter.meter_fk }}
                                     </span>
-                                    <span class="col-md-4"  *ngIf="mpan.mpan_address">
+                                            <span class="col-md-4" *ngIf="mpan.mpan_address">
                                         <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>
                                         {{ mpan.mpan_address.address_1 + ', '
                                          + mpan.mpan_address.address_2 + ', '
