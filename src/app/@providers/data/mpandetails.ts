@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs';
+import {ServerHTTPResponse} from "../../@core/data/http-response";
 
 export interface IRelatedLLFC {
     mpan_fk: string,
@@ -124,6 +125,23 @@ export interface IMpanDetailsResponse {
     ssc: IRelatedSsc,
 }
 
+export interface IImportErr {
+    error: string,
+    row_id: string
+}
+export interface IImportMpans {
+    Address_1: string
+    Customer_Name: string,
+    Mpan_no: string,
+    Postcode: string,
+}
+
+export interface IBulkImportResponse {
+    Mpans : IImportMpans[],
+    errors: IImportErr[],
+}
+
+
 
 export abstract class IMPANDetailsAPIService {
 
@@ -132,4 +150,6 @@ export abstract class IMPANDetailsAPIService {
     abstract searchMPAN(query: string): Observable<IMpanLists>;
 
     abstract updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<string>;
+
+    abstract bulkUploadMpans(fileList: FileList): Observable<ServerHTTPResponse<IBulkImportResponse>>;
 }

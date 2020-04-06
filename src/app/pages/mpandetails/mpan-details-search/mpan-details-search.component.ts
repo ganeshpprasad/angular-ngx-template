@@ -37,7 +37,8 @@ export class MpanDetailsSearchComponent implements OnInit, OnDestroy {
         this.spinner_loading = true;
         this.mpanAPIService
             .searchMPAN(term)
-            .subscribe((results: IMpanLists) => {
+            .subscribe(
+                (results: IMpanLists) => {
                     this.searchResultVisible = true;
                     this.searchMpanResults = results;
                     setTimeout(() => this.spinner_loading = false, 900);

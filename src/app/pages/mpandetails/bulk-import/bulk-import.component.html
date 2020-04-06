@@ -3,16 +3,9 @@
         <h1 class="text-info">BULK UPLOAD</h1>
     </nb-card-header>
     <nb-card-body class="">
-        <!--<button nbButton status="success" class="hvr-bob">-->
-        <!--<nb-icon icon="file-outline"></nb-icon>-->
-        <!--Bulk Upload MPAN Details-->
-        <!--</button>-->
         <div class="row">
             <form>
-                <input type="file"
-                       class="input-full-width status-warning size-medium shape-semi-round"
-                       nbInput fullWidth
-                       placeholder=".."/>
+                <input type="file" (change)="fileChange($event)" placeholder="Upload file ..." accept=".xlsx">
 
                 <!--<button type="submit">Upload</button>-->
                 <button nbButton status="success" class="hvr-bob">
@@ -20,6 +13,11 @@
                     Bulk Upload MPAN Details
                 </button>
             </form>
+        </div>
+        <div class="row">
+            <span *ngIf="serverResponse.message">
+                SERVER MESSAGE: {{serverResponse.message}}
+            </span>
         </div>
     </nb-card-body>
 </nb-card>

@@ -16,13 +16,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     let errorMessage = '';
                     if (error.error instanceof ErrorEvent) {
                         // client-side error
-                        errorMessage = `ERR: ${error.error.message}`;
+                        errorMessage = `CLIENT ERR: ${error.error.message}`;
                     } else {
                         // server-side error
-                        errorMessage = `ERR CODE: ${error.status}\nMessage: ${error.message}`;
+                        errorMessage = `SERVER ERR CODE: ${error.status}\n`;
+                        if (error.error.message){
+                            errorMessage += `ERR MSG: ${error.error.message}`
+                        }
+
                     }
-                    this.showToast('SERVER ERR', errorMessage);
-                    return throwError(errorMessage);
+                    console.log(errorMessage);
+                    this.showToast('REQUEST ERR', errorMessage);
+                    // throw the original error since body has useful info app could be using
+                    return throwError(error);
                 })
             );
     }

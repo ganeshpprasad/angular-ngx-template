@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from "../data/mpandetails";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable, throwError} from 'rxjs';
+import {IBulkImportResponse, IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from "../data/mpandetails";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {ServerHTTPResponse} from "../../@core/data/http-response";
-import {map} from "rxjs/operators";
+import {catchError, map, tap} from "rxjs/operators";
 import {environment} from "../../../environments/environment";
 
 @Injectable()
@@ -55,6 +55,41 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
             .pipe(
                 map(r => r.message)
             );
+    }
+
+    bulkUploadMpans(fileList: FileList): Observable<ServerHTTPResponse<IBulkImportResponse>> {
+        let import_url: string = this.mpan_url + '/bulk_import';
+        //
+        let file: File = fileList[0];
+        let formData: FormData = new FormData();
+        formData.append('file', file, file.name);
+        //
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'enctype': 'multipart/form-data',
+            }),
+        };
+        return this.http
+            .post<ServerHTTPResponse<IBulkImportResponse>>(import_url, formData, httpOptions)
+            .pipe(
+                catchError(this.handleUploadError)
+            );
+    }
+
+    private handleUploadError(error: HttpErrorResponse) {
+        if (error.error instanceof ErrorEvent) {
+            // A client-side or network error occurred. Handle it accordingly.
+            console.log('ERROR occurred on upload at client:', error.error.message);
+            return;
+        }
+
+        // The backend returned an unsuccessful response code.
+        // The response body may contain clues as to what went wrong,
+        console.error(
+            `Backend returned code ${error.status}, ` +
+            `body was: ${error.error.message}`);
+        // Return just the error body
+        return throwError(error.error);
     }
 
 }
