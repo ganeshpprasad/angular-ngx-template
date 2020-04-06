@@ -29,9 +29,12 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <span *ngIf="serverResponse.message">
-                        SERVER MESSAGE: {{serverResponse.message}}
-                    </span>
+                    <div class="font-italic text-danger" *ngIf="displayErr">
+                         Error on import : {{serverResponse.message}}
+                    </div>
+                    <div class="font-italic text-success" *ngIf="displayMpans">
+                        Import Successful: {{serverResponse.message}}
+                    </div>
                 </div>
             </nb-card-body>
         </nb-card>
