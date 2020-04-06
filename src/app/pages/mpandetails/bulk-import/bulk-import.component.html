@@ -1,23 +1,67 @@
-<nb-card>
-    <nb-card-header>
-        <h1 class="text-info">BULK UPLOAD</h1>
-    </nb-card-header>
-    <nb-card-body class="">
-        <div class="row">
-            <form>
-                <input type="file" (change)="fileChange($event)" placeholder="Upload file ..." accept=".xlsx">
+<div class="row">
+    <div class="col-md-9">
+        <nb-card [nbSpinner]="spinner_loading"
+                 nbSpinnerStatus="danger">
+            <nb-card-header>
+                <h1 class="text-primary">BULK UPLOAD MPAN(s)</h1>
+            </nb-card-header>
+            <nb-card-body class="">
+                <div class="row">
+                    <input #inputFile type="file"
+                           (change)="fileChange($event)"
+                           placeholder="Upload file ..."
+                           accept=".xlsx">
+                </div>
+                <hr>
+                <div class="row">
+                    <button nbButton status="success"
+                            [disabled]="!isSelectedFile"
+                            class="hvr-bob" (click)="onUploadFiles()">
+                        <nb-icon icon="file-outline"></nb-icon>
+                        Bulk Upload MPAN Details
+                    </button>
+                    <button nbButton status="danger"
+                            [disabled]="!isSelectedFile"
+                            class="hvr-bob" (click)="clearSelectedFile()">
+                        <nb-icon icon="refresh-outline"></nb-icon>
+                        Clear Selected File
+                    </button>
+                </div>
+                <hr>
+                <div class="row">
+                    <span *ngIf="serverResponse.message">
+                        SERVER MESSAGE: {{serverResponse.message}}
+                    </span>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row" *ngIf="displayMpans">
+    <div class="col-md-12">
+        <nb-card accent="success" fullWidth>
+            <nb-card-header>
+                Import MPAN Details
+            </nb-card-header>
 
-                <!--<button type="submit">Upload</button>-->
-                <button nbButton status="success" class="hvr-bob">
-                    <nb-icon icon="file-outline"></nb-icon>
-                    Bulk Upload MPAN Details
-                </button>
-            </form>
-        </div>
-        <div class="row">
-            <span *ngIf="serverResponse.message">
-                SERVER MESSAGE: {{serverResponse.message}}
-            </span>
-        </div>
-    </nb-card-body>
-</nb-card>
+            <nb-card-body>
+                <ng2-smart-table [settings]="mpanTableSettings" [source]="mpansDatasource">
+                </ng2-smart-table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>
+<div class="row" *ngIf="displayErr">
+    <div class="col-md-12">
+        <nb-card accent="danger" fullWidth>
+            <nb-card-header>
+                Error(s) in MPAN Import
+            </nb-card-header>
+
+            <nb-card-body>
+                <ng2-smart-table [settings]="errTableSettings" [source]="errDatasource">
+                </ng2-smart-table>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

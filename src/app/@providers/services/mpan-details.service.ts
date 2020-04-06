@@ -3,7 +3,7 @@ import {Observable, throwError} from 'rxjs';
 import {IBulkImportResponse, IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from "../data/mpandetails";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {ServerHTTPResponse} from "../../@core/data/http-response";
-import {catchError, map, tap} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {environment} from "../../../environments/environment";
 
 @Injectable()

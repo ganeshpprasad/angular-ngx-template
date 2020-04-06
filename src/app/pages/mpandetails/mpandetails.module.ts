@@ -4,11 +4,13 @@ import {
     NbButtonModule,
     NbCardModule,
     NbCheckboxModule,
-    NbIconModule, NbInputModule,
+    NbIconModule,
+    NbInputModule,
     NbListModule,
     NbRadioModule,
     NbSearchModule,
-    NbSelectModule, NbSpinnerModule,
+    NbSelectModule,
+    NbSpinnerModule,
     NbTabsetModule,
     NbTooltipModule,
     NbUserModule,
@@ -18,9 +20,11 @@ import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MpanDetailsRoutingModule, routedComponents} from "./mpandetails-routing.module";
 import {CommonComponentsModule} from "../../@common-components/common-components.module";
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {MpanDetailsTableRouteComponent} from "./mpan-details-table-route/mpan-details-table-route.component";
 
-const ENTRY_COMPONENTS = [];
-const EXPORT_COMPONENTS = [];
+const ENTRY_COMPONENTS = [MpanDetailsTableRouteComponent];
+const EXPORT_COMPONENTS = [MpanDetailsTableRouteComponent];
 
 @NgModule({
     imports: [
@@ -42,6 +46,7 @@ const EXPORT_COMPONENTS = [];
         NbButtonModule,
         NbTooltipModule,
         NbSpinnerModule,
+        Ng2SmartTableModule,
         NbWindowModule.forChild(),
         CommonComponentsModule,
         MpanDetailsRoutingModule,
@@ -52,7 +57,7 @@ const EXPORT_COMPONENTS = [];
     entryComponents: [
         ...ENTRY_COMPONENTS,
     ],
-    exports:[
+    exports: [
         ...EXPORT_COMPONENTS,
     ],
 })
