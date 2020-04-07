@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {IFieldAttributes, IMPANDetailsFormService} from "../../data/form-data/mpandetailsform";
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IMpanDetailsResponse} from "../../data/mpandetails";
 
 
@@ -11,9 +11,9 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
 
     private relatedLLFCForm = this.fb.group({
         mpan_fk: null,
-        line_loss_factor_class_fk: null,
-        effective_from: null,
-        effective_to: null,
+        line_loss_factor_class_fk: [null, Validators.pattern('[0-9]*')],
+        effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+        effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
     });
 
     private relatedMeasurementClassForm = this.fb.group({
@@ -35,9 +35,9 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     });
 
     private relatedAscForm = this.fb.group({
-        value: null,
-        effective_from: null,
-        effective_to: null,
+        value: [null, Validators.pattern('[0-9]*')],
+        effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+        effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
     });
 
     private relatedSscForm = this.fb.group({
@@ -48,13 +48,13 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
 
     private relatedAsset = this.fb.group({
         id: null,
-        business_reference: null,
-        description: null,
-        plot_number: null,
+        business_reference: [null, Validators.minLength(3)],
+        description: [null, Validators.minLength(5)],
+        plot_number: [null, Validators.minLength(1)],
         reference_to_plan: null,
         property_type: null,
-        supply_capacity: null,
-        supply_voltage: null,
+        supply_capacity: [null, Validators.pattern('[0-9]*')],
+        supply_voltage: [null, Validators.pattern('[0-9]*')],
         address: this.fb.group({
             address_type: null,
             address_1: null,
@@ -67,8 +67,8 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             address_8: null,
             address_9: null,
             post_code: null,
-            effective_from: null,
-            effective_to: null,
+            effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+            effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             id: null,
         }),
     });
@@ -78,7 +78,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     constructor(private fb: FormBuilder) {
         this.mpan_form = this.fb.group({
             id: null,
-            customer_name: null,
+            customer_name: [null, Validators.minLength(3)],
             energisation: this.relatedEnergisationForm,
             llfc: this.relatedLLFCForm,
             mc: this.relatedMeasurementClassForm,
@@ -87,8 +87,8 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             meter: this.relatedMeterForm,
             unmetered: null,
             export: null,
-            connection_date: null,
-            disconnection_date: null,
+            connection_date: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+            disconnection_date: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             asset: this.relatedAsset,
             //
             mpan_address: this.fb.group({
@@ -103,8 +103,8 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
                 address_8: null,
                 address_9: null,
                 post_code: null,
-                effective_from: null,
-                effective_to: null,
+                effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+                effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             }),
             mailing_address: this.fb.group({
                 address_type: null,
@@ -118,10 +118,10 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
                 address_8: null,
                 address_9: null,
                 post_code: null,
-                effective_from: null,
-                effective_to: null,
+                effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
+                effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             }),
-            //
+            // NON EDITABLE FIELDS DONT NEED VALIDATION
             da_mpid: this.fb.group({
                 market_participant_fk: null,
                 role_fk: null,

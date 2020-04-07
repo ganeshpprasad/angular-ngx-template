@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {IMPANDetailsAPIService, IMpanDetailsResponse} from "../../../@providers/data/mpandetails";
-import {FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, ValidationErrors} from "@angular/forms";
 import {IFieldAttributes, IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
@@ -77,16 +77,19 @@ export class MpanDetailsFormComponent implements OnInit {
     onClickSave() {
         console.log('MPAN form value -->', this.form.getRawValue());
         console.log('MPAN form status -->', this.form.status);
+        console.log('MPAN form validity -->', this.form.valid);
+
+        if (!this.form.valid) {
+            this.showToast('ERR: MPAN edit details not valid!',
+                'Please correct edited field values',
+                'danger',
+                'save-outline');
+            return;
+        }
 
         // Initialize with original body and only update relevant fields
         // TODO Reset 'Effective From Fields' + Field History
-        let post_body = this.mpanDetailsResponse;
-        let form_value = this.form.getRawValue();
-        post_body['customer_name'] = form_value['customer_name'] ? form_value['customer_name'] : '';
-        post_body['connection_date'] = form_value['connection_date'] ? form_value['connection_date'] : '';
-        post_body['disconnection_date'] = form_value['disconnection_date'] ? form_value['disconnection_date'] : '';
-        // post_body['asset_fk'] = form_value['asset_fk'] ? form_value['asset_fk'] : '';
-
+        let post_body = this.getSavePostBody();
         console.log('POST BODY -->', post_body);
         this.mpanDetailsAPIService
             .updateMPANDetails(post_body)
@@ -115,7 +118,7 @@ export class MpanDetailsFormComponent implements OnInit {
         const config: Partial<NbToastrConfig> = {
             status: status,
             destroyByClick: true,
-            duration: 7500,
+            duration: 5400,
             hasIcon: true,
             icon: icon,
             position: NbGlobalPhysicalPosition.TOP_RIGHT,
@@ -138,6 +141,21 @@ export class MpanDetailsFormComponent implements OnInit {
         fieldStatus = formGroup.get(formCtrlName).dirty ? 'success' : fieldStatus;
         fieldStatus = formGroup.get(formCtrlName).invalid ? 'danger' : fieldStatus;
         return fieldStatus;
+    }
+
+    getSavePostBody() {
+        // get the original response body..
+        let post_body = this.mpanDetailsResponse;
+        // get the form data with edited values..
+        let form_value = this.form.getRawValue();
+        // Only capture the fields that are allowed to be edited
+        // We update the original mpan details to override with new field values
+        post_body['customer_name'] = form_value['customer_name'] ? form_value['customer_name'] : '';
+        post_body['connection_date'] = form_value['connection_date'] ? form_value['connection_date'] : '';
+        post_body['disconnection_date'] = form_value['disconnection_date'] ? form_value['disconnection_date'] : '';
+        // post_body['asset'] = form_value['asset'] ? form_value['asset'] : {};
+
+        return post_body;
     }
 
 }
