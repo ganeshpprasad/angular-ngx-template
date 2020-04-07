@@ -24,31 +24,31 @@ export class DashboardComponent implements OnDestroy {
         type: 'primary',
         url: '/pages/mpan-details',
     };
-    siteDetails: CardSettings = {
+    assetDetails: CardSettings = {
         title: 'Asset/ Site Details',
         iconClass: 'nb-power-circled',
         type: 'success',
         url: '/pages/asset-details',
     };
-    cableDetails: CardSettings = {
-        title: 'Event Logs',
+    bulkImport: CardSettings = {
+        title: 'Bulk Import',
         iconClass: 'nb-list',
         type: 'info',
-        url: '/pages/event-details',
+        url: '/pages/bulk-import',
     };
     admin: CardSettings = {
         title: 'Admin Details',
         iconClass: 'nb-gear',
         type: 'warning',
-        url: '/pages/',
+        url: '/pages/dashboard',
     };
 
     statusCards: CardSettings[];
 
     commonStatusCardsSet: CardSettings[] = [
         this.mpanCard,
-        this.siteDetails,
-        this.cableDetails,
+        this.assetDetails,
+        this.bulkImport,
         this.admin,
     ];
 

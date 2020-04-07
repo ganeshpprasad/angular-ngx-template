@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService} from '@nebular/theme';
 
 import {UserData} from '../../../@core/data/users';
@@ -12,7 +12,7 @@ import {NbAuthService} from "@nebular/auth";
     styleUrls: ['./header.component.scss'],
     templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
 
     private destroy$: Subject<void> = new Subject<void>();
     userPictureOnly: boolean = false;
@@ -92,5 +92,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     navigateHome() {
         this.menuService.navigateHome();
         return false;
+    }
+
+    ngAfterViewInit(): void {
+        this.toggleSidebar();
     }
 }

@@ -7,10 +7,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/dashboard',
         home: true,
     },
-    {
-        title: 'Asset Details',
-        group: true,
-    },
+    // {
+    //     title: 'Asset Details',
+    //     group: true,
+    // },
     {
         title: 'Asset Details',
         icon: 'cube-outline',
@@ -35,11 +35,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'browser-outline',
         link: '/pages/bulk-import',
     },
-    {
-        title: 'Edit MPAN',
-        icon: 'browser-outline',
-        link: '/pages/mpan-details/3007428567721',
-    },
+    // {
+    //     title: 'Edit MPAN',
+    //     icon: 'browser-outline',
+    //     link: '/pages/mpan-details/3007428567721',
+    // },
     {
         title: 'Admin',
         group: true,
