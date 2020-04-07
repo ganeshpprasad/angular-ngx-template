@@ -24,12 +24,17 @@
             <nb-icon icon="refresh-outline" status="primary"></nb-icon>
             Reset
         </button>
+        <nb-checkbox [(checked)]="isFormEditable" status="primary">
+            Edit Details
+        </nb-checkbox>
     </div>
 
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
             <nb-card accent="primary">
-                <ngx-asset-details-form [form]="form"></ngx-asset-details-form>
+                <ngx-asset-details-form
+                        [form]="form"
+                        [isReadOnly]="!isFormEditable"></ngx-asset-details-form>
                 <hr>
                 <div class="row">
                     <div class="ref-id-container">
@@ -58,11 +63,11 @@
                                             </span>
                                         </a>
                                     </span>
-                                    <span class="col-md-4">
+                                    <span class="col-md-4" *ngIf="mpan.meter">
                                         <nb-icon icon="arrow-right" pack="eva" status="info"></nb-icon>
                                         {{ mpan.meter.meter_fk }}
                                     </span>
-                                    <span class="col-md-4">
+                                    <span class="col-md-4" *ngIf="mpan.mpan_address">
                                         <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>
                                         {{ mpan.mpan_address.address_1 + ', '
                                          + mpan.mpan_address.address_2 + ', '

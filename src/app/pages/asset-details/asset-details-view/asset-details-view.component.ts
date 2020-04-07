@@ -22,6 +22,7 @@ export class AssetDetailsViewComponent implements OnInit {
     routed_id$: Observable<string>;
     assetDetailsResponse: IRelatedAsset;
     formFieldAttributes: { [key: string]: IFieldAttributes };
+    isFormEditable: boolean = false;
 
     get form(): FormGroup {
         return this.assetDetailsFormService.asset_details_form;
@@ -41,8 +42,6 @@ export class AssetDetailsViewComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.route);
-
         this.routed_id$ = this.route.paramMap.pipe(
             map((params: ParamMap) =>
                 params.get('id')
