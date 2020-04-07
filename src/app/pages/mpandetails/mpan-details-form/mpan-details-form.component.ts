@@ -5,7 +5,7 @@ import {IFieldAttributes, IMPANDetailsFormService} from "../../../@providers/dat
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {map} from "rxjs/operators";
-import {Observable} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 import {NbComponentStatus, NbGlobalPhysicalPosition, NbToastrConfig, NbToastrService} from "@nebular/theme";
 
 @Component({
@@ -24,6 +24,9 @@ export class MpanDetailsFormComponent implements OnInit {
     routed_id$: Observable<string>;
     mpanDetailsResponse: IMpanDetailsResponse;
     formFieldAttributes: { [key: string]: IFieldAttributes };
+    llfcObserver: Subscription;
+    ascObserver: Subscription;
+
 
     get form(): FormGroup {
         return this.mpanDetailsFormService.mpan_form;
@@ -62,8 +65,32 @@ export class MpanDetailsFormComponent implements OnInit {
                     this.mpanDetailsResponse = m;
                     this.mpanDetailsFormService.loadMPANDetails(this.mpanDetailsResponse);
                     console.log(this.form.getRawValue());
+                    this.setupObservers();
                 });
         });
+    }
+
+    private setupObservers() {
+        //TODO combine in an array of observers
+        this.llfcObserver = this.form.get('llfc')
+            .get('line_loss_factor_class_fk')
+            .valueChanges.subscribe(
+                () => {
+                    this.form.get('llfc').get('effective_from').setValue('x');
+                }
+            );
+        this.ascObserver = this.form.get('asc')
+            .get('value')
+            .valueChanges.subscribe(
+                () => {
+                    this.form.get('asc').get('effective_from').setValue('x');
+                }
+            );
+    }
+
+    private clearObservers() {
+        this.llfcObserver.unsubscribe();
+        this.ascObserver.unsubscribe();
     }
 
     onClickBack() {
@@ -107,6 +134,7 @@ export class MpanDetailsFormComponent implements OnInit {
 
         // reset and reload details from server
         this.isFormEditable = false;
+        this.clearObservers();
         this.form.reset();
         this.loadServerMpanDetails();
         // show message

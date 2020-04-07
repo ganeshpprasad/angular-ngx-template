@@ -114,7 +114,8 @@
                                                    [readonly]="formFieldAttributes['llfc.line_loss_factor_class_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['llfc.line_loss_factor_class_fk'].tooltip"
                                                    [formControlName]="formFieldAttributes['llfc.line_loss_factor_class_fk'].formControlName"
-                                                   [status]="getFieldStatus('llfc.line_loss_factor_class_fk', 'llfc')">
+                                                   [status]="getFieldStatus('llfc.line_loss_factor_class_fk', 'llfc')"
+                                                   (keydown.enter)="$event.target.blur();">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
