@@ -17,11 +17,15 @@ import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {routedComponents, AssetDetailsRoutingModule} from "./asset-details.routing.module";
 import {CommonComponentsModule} from "../../@common-components/common-components.module";
+import {Ng2SmartTableModule} from "ng2-smart-table";
+import {AssetDetailsTableRouteComponent} from "./asset-details-table-route/asset-details-table-route.component";
 
 const ENTRY_COMPONENTS = [
+    AssetDetailsTableRouteComponent,
 ];
 
 const EXPORT_COMPONENTS = [
+    AssetDetailsTableRouteComponent,
 ];
 
 @NgModule({
@@ -42,6 +46,7 @@ const EXPORT_COMPONENTS = [
         NbIconModule,
         NbButtonModule,
         NbSpinnerModule,
+        Ng2SmartTableModule,
         NbWindowModule.forChild(),
         CommonComponentsModule,
         AssetDetailsRoutingModule,
