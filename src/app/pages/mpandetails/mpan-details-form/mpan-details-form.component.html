@@ -25,6 +25,9 @@
             <nb-icon icon="refresh-outline" status="primary"></nb-icon>
             Reset
         </button>
+        <nb-checkbox [(checked)]="isFormEditable" status="primary">
+            Edit form
+        </nb-checkbox>
     </div>
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12">
@@ -56,7 +59,7 @@
                                                    fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.customer_name'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.customer_name'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.customer_name'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.customer_name'].tooltip"
                                                    [formControlName]="formFieldAttributes['mpan.customer_name'].formControlName"
                                                    [status]="getFieldStatus('mpan.customer_name')">
@@ -76,7 +79,7 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['energisation.state_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['energisation.state_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['energisation.state_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['energisation.state_fk'].tooltip"
                                                    [formControlName]="formFieldAttributes['energisation.state_fk'].formControlName"
                                                    [status]="getFieldStatus('energisation.state_fk', 'energisation')">
@@ -91,7 +94,7 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['energisation.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['energisation.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['energisation.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['energisation.effective_from'].tooltip"
                                                    [formControlName]="formFieldAttributes['energisation.effective_from'].formControlName">
                                         </div>
@@ -108,9 +111,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['llfc.line_loss_factor_class_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['llfc.line_loss_factor_class_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['llfc.line_loss_factor_class_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['llfc.line_loss_factor_class_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['llfc.line_loss_factor_class_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['llfc.line_loss_factor_class_fk'].formControlName"
+                                                   [status]="getFieldStatus('llfc.line_loss_factor_class_fk', 'llfc')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -122,40 +126,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['llfc.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['llfc.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['llfc.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['llfc.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['llfc.effective_from'].formControlName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--MEASUREMENT CLASS DETAILS-->
-                                <div class="row" [formGroup]="form.get('mc')">
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3 col-form-label">
-                                            {{formFieldAttributes['mc.measurement_class_fk'].label}}</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   nbTooltipStatus="info"
-                                                   [placeholder]="formFieldAttributes['mc.measurement_class_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['mc.measurement_class_fk'].isReadOnly"
-                                                   [nbTooltip]="formFieldAttributes['mc.measurement_class_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mc.measurement_class_fk'].formControlName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3 col-form-label">
-                                            {{formFieldAttributes['mc.effective_from'].label}}</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   nbTooltipStatus="info"
-                                                   [placeholder]="formFieldAttributes['mc.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['mc.effective_from'].isReadOnly"
-                                                   [nbTooltip]="formFieldAttributes['mc.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mc.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['llfc.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('llfc.effective_from', 'llfc')">
                                         </div>
                                     </div>
                                 </div>
@@ -170,9 +144,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['asc.value'].placeholder"
-                                                   [readonly]="formFieldAttributes['asc.value'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['asc.value'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['asc.value'].tooltip"
-                                                   [formControlName]="formFieldAttributes['asc.value'].formControlName">
+                                                   [formControlName]="formFieldAttributes['asc.value'].formControlName"
+                                                   [status]="getFieldStatus('asc.value', 'asc')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -184,40 +159,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['asc.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['asc.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['asc.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['asc.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['asc.effective_from'].formControlName">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--SETTLEMENT DETAILS-->
-                                <div class="row" [formGroup]="form.get('ssc')">
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3 col-form-label">
-                                            {{formFieldAttributes['ssc.ssc_fk'].label}}</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   nbTooltipStatus="info"
-                                                   [placeholder]="formFieldAttributes['ssc.ssc_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['ssc.ssc_fk'].isReadOnly"
-                                                   [nbTooltip]="formFieldAttributes['ssc.ssc_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['ssc.ssc_fk'].formControlName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="label col-sm-3 col-form-label">
-                                            {{formFieldAttributes['ssc.effective_from'].label}}</label>
-                                        <div class="col-sm-9">
-                                            <input type="text"
-                                                   class="input-full-width size-medium shape-semi-round"
-                                                   nbInput fullWidth
-                                                   nbTooltipStatus="info"
-                                                   [placeholder]="formFieldAttributes['ssc.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['ssc.effective_from'].isReadOnly"
-                                                   [nbTooltip]="formFieldAttributes['ssc.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['ssc.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['asc.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('asc.effective_from', 'asc')">
                                         </div>
                                     </div>
                                 </div>
@@ -232,9 +177,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.connection_date'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.connection_date'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.connection_date'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.connection_date'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.connection_date'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.connection_date'].formControlName"
+                                                   [status]="getFieldStatus('mpan.connection_date')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -246,9 +192,76 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.disconnection_date'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.disconnection_date'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.disconnection_date'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.disconnection_date'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.disconnection_date'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.disconnection_date'].formControlName"
+                                                   [status]="getFieldStatus('mpan.disconnection_date')">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--MEASUREMENT CLASS DETAILS-->
+                                <div class="row" [formGroup]="form.get('mc')">
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mc.measurement_class_fk'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mc.measurement_class_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['mc.measurement_class_fk'].isReadOnly || !isFormEditable"
+                                                   [nbTooltip]="formFieldAttributes['mc.measurement_class_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mc.measurement_class_fk'].formControlName"
+                                                   [status]="getFieldStatus('mc.measurement_class_fk', 'mc')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['mc.effective_from'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['mc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['mc.effective_from'].isReadOnly || !isFormEditable"
+                                                   [nbTooltip]="formFieldAttributes['mc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['mc.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('mc.effective_from', 'mc')">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--SETTLEMENT DETAILS-->
+                                <div class="row" [formGroup]="form.get('ssc')">
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['ssc.ssc_fk'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['ssc.ssc_fk'].placeholder"
+                                                   [readonly]="formFieldAttributes['ssc.ssc_fk'].isReadOnly || !isFormEditable"
+                                                   [nbTooltip]="formFieldAttributes['ssc.ssc_fk'].tooltip"
+                                                   [formControlName]="formFieldAttributes['ssc.ssc_fk'].formControlName"
+                                                   [status]="getFieldStatus('ssc.ssc_fk', 'ssc')">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="label col-sm-3 col-form-label">
+                                            {{formFieldAttributes['ssc.effective_from'].label}}</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"
+                                                   class="input-full-width size-medium shape-semi-round"
+                                                   nbInput fullWidth
+                                                   nbTooltipStatus="info"
+                                                   [placeholder]="formFieldAttributes['ssc.effective_from'].placeholder"
+                                                   [readonly]="formFieldAttributes['ssc.effective_from'].isReadOnly || !isFormEditable"
+                                                   [nbTooltip]="formFieldAttributes['ssc.effective_from'].tooltip"
+                                                   [formControlName]="formFieldAttributes['ssc.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('ssc.effective_from', 'ssc')">
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +273,7 @@
                                         <nb-tab tabTitle="Metering Point Address">
                                             <ngx-address-form
                                                     [form]="form.get('mpan_address')"
-                                                    [isReadOnly]="false"></ngx-address-form>
+                                                    [(isReadOnly)]="!isFormEditable"></ngx-address-form>
                                         </nb-tab>
                                         <nb-tab tabTitle="Mailing Address">
                                             <ngx-address-form
@@ -306,8 +319,7 @@
                                         <nb-checkbox
                                                 [formControlName]="formFieldAttributes['unmetered'].formControlName"
                                                 [nbTooltip]="formFieldAttributes['unmetered'].tooltip"
-                                                nbTooltipStatus="info"
-                                                status="warning">
+                                                nbTooltipStatus="info">
                                             {{formFieldAttributes['unmetered'].label}}
                                         </nb-checkbox>
                                     </div>
@@ -315,8 +327,7 @@
                                         <nb-checkbox
                                                 [formControlName]="formFieldAttributes['export'].formControlName"
                                                 [nbTooltip]="formFieldAttributes['export'].tooltip"
-                                                nbTooltipStatus="info"
-                                                status="warning">
+                                                nbTooltipStatus="info">
                                             Export MPAN
                                         </nb-checkbox>
                                     </div>
@@ -339,9 +350,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['da_mpid.market_participant_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['da_mpid.market_participant_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['da_mpid.market_participant_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['da_mpid.market_participant_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['da_mpid.market_participant_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['da_mpid.market_participant_fk'].formControlName"
+                                                   [status]="getFieldStatus('da_mpid.market_participant_fk', 'da_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -353,9 +365,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['da_mpid.role_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['da_mpid.role_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['da_mpid.role_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['da_mpid.role_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['da_mpid.role_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['da_mpid.role_fk'].formControlName"
+                                                   [status]="getFieldStatus('da_mpid.role_fk', 'da_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -367,9 +380,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['da_mpid.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['da_mpid.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['da_mpid.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['da_mpid.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['da_mpid.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['da_mpid.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('da_mpid.effective_from', 'da_mpid')">
                                         </div>
                                     </div>
                                 </div>
@@ -385,9 +399,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['dc_mpid.market_participant_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['dc_mpid.market_participant_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['dc_mpid.market_participant_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['dc_mpid.market_participant_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['dc_mpid.market_participant_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['dc_mpid.market_participant_fk'].formControlName"
+                                                   [status]="getFieldStatus('dc_mpid.market_participant_fk', 'dc_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -399,9 +414,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['dc_mpid.role_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['dc_mpid.role_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['dc_mpid.role_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['dc_mpid.role_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['dc_mpid.role_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['dc_mpid.role_fk'].formControlName"
+                                                   [status]="getFieldStatus('dc_mpid.role_fk', 'dc_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -413,9 +429,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['dc_mpid.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['dc_mpid.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['dc_mpid.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['dc_mpid.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['dc_mpid.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['dc_mpid.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('dc_mpid.effective_from', 'dc_mpid')">
                                         </div>
                                     </div>
                                 </div>
@@ -431,9 +448,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mop_mpid.market_participant_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['mop_mpid.market_participant_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mop_mpid.market_participant_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mop_mpid.market_participant_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mop_mpid.market_participant_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mop_mpid.market_participant_fk'].formControlName"
+                                                   [status]="getFieldStatus('mop_mpid.market_participant_fk', 'mop_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -445,9 +463,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mop_mpid.role_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['mop_mpid.role_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mop_mpid.role_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mop_mpid.role_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mop_mpid.role_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mop_mpid.role_fk'].formControlName"
+                                                   [status]="getFieldStatus('mop_mpid.role_fk', 'mop_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -459,9 +478,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mop_mpid.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['mop_mpid.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mop_mpid.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mop_mpid.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mop_mpid.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mop_mpid.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('mop_mpid.effective_from', 'mop_mpid')">
                                         </div>
                                     </div>
                                 </div>
@@ -477,9 +497,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['supplier_mpid.market_participant_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['supplier_mpid.market_participant_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.market_participant_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['supplier_mpid.market_participant_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['supplier_mpid.market_participant_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.market_participant_fk'].formControlName"
+                                                   [status]="getFieldStatus('supplier_mpid.market_participant_fk', 'supplier_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -491,9 +512,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['supplier_mpid.role_fk'].placeholder"
-                                                   [readonly]="formFieldAttributes['supplier_mpid.role_fk'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.role_fk'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['supplier_mpid.role_fk'].tooltip"
-                                                   [formControlName]="formFieldAttributes['supplier_mpid.role_fk'].formControlName">
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.role_fk'].formControlName"
+                                                   [status]="getFieldStatus('supplier_mpid.role_fk', 'supplier_mpid')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -505,9 +527,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['supplier_mpid.effective_from'].placeholder"
-                                                   [readonly]="formFieldAttributes['supplier_mpid.effective_from'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['supplier_mpid.effective_from'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['supplier_mpid.effective_from'].tooltip"
-                                                   [formControlName]="formFieldAttributes['supplier_mpid.effective_from'].formControlName">
+                                                   [formControlName]="formFieldAttributes['supplier_mpid.effective_from'].formControlName"
+                                                   [status]="getFieldStatus('supplier_mpid.effective_from', 'supplier_mpid')">
                                         </div>
                                     </div>
                                 </div>
@@ -523,9 +546,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.ct_class'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.ct_class'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.ct_class'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.ct_class'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.ct_class'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.ct_class'].formControlName"
+                                                   [status]="getFieldStatus('mpan.ct_class')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -537,9 +561,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.ct_rating'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.ct_rating'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.ct_rating'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.ct_rating'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.ct_rating'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.ct_rating'].formControlName"
+                                                   [status]="getFieldStatus('mpan.ct_rating')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -551,9 +576,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.ct_ratio'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.ct_ratio'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.ct_ratio'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.ct_ratio'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.ct_ratio'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.ct_ratio'].formControlName"
+                                                   [status]="getFieldStatus('mpan.ct_ratio')">
                                         </div>
                                     </div>
                                 </div>
@@ -569,9 +595,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.vt_class'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.vt_class'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.vt_class'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.vt_class'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.vt_class'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.vt_class'].formControlName"
+                                                   [status]="getFieldStatus('mpan.vt_class')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -583,9 +610,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.vt_rating'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.vt_rating'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.vt_rating'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.vt_rating'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.vt_rating'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.vt_rating'].formControlName"
+                                                   [status]="getFieldStatus('mpan.vt_rating')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-4">
@@ -597,9 +625,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.vt_ratio'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.vt_ratio'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.vt_ratio'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.vt_ratio'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.vt_ratio'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.vt_ratio'].formControlName"
+                                                   [status]="getFieldStatus('mpan.vt_ratio')">
                                         </div>
                                     </div>
                                 </div>
@@ -615,9 +644,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.umso_reference'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.umso_reference'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.umso_reference'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.umso_reference'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.umso_reference'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.umso_reference'].formControlName"
+                                                   [status]="getFieldStatus('mpan.umso_reference')">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -629,9 +659,10 @@
                                                    nbInput fullWidth
                                                    nbTooltipStatus="info"
                                                    [placeholder]="formFieldAttributes['mpan.unique_property_reference_number'].placeholder"
-                                                   [readonly]="formFieldAttributes['mpan.unique_property_reference_number'].isReadOnly"
+                                                   [readonly]="formFieldAttributes['mpan.unique_property_reference_number'].isReadOnly || !isFormEditable"
                                                    [nbTooltip]="formFieldAttributes['mpan.unique_property_reference_number'].tooltip"
-                                                   [formControlName]="formFieldAttributes['mpan.unique_property_reference_number'].formControlName">
+                                                   [formControlName]="formFieldAttributes['mpan.unique_property_reference_number'].formControlName"
+                                                   [status]="getFieldStatus('mpan.unique_property_reference_number')">
                                         </div>
                                     </div>
                                 </div>

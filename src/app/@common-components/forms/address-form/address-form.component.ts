@@ -17,4 +17,12 @@ export class AddressFormComponent implements OnInit {
     ngOnInit() {
     }
 
+    getFieldStatus(fieldCtrlName: string) {
+        let fieldStatus = this.isReadOnly? '' : 'info';
+
+        fieldStatus = this.form.get(fieldCtrlName).dirty ? 'success' : fieldStatus;
+        fieldStatus = this.form.get(fieldCtrlName).invalid ? 'danger' : fieldStatus;
+        return fieldStatus;
+    }
+
 }

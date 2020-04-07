@@ -9,35 +9,6 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     // public form: FormGroup;
     public mpan_form: FormGroup;
 
-    private relatedAddressForm = this.fb.group({
-        address_type: null,
-        address_1: null,
-        address_2: null,
-        address_3: null,
-        address_4: null,
-        address_5: null,
-        address_6: null,
-        address_7: null,
-        address_8: null,
-        address_9: null,
-        post_code: null,
-        effective_from: null,
-        effective_to: null,
-    });
-
-    private relatedMeterClassForm = this.fb.group({
-        measurement_class_fk: null,
-        effective_from: null,
-        effective_to: null,
-    });
-
-    private relatesMpan2Mpid2RoleForm = this.fb.group({
-        market_participant_fk: null,
-        role_fk: null,
-        effective_from: null,
-        effective_to: null,
-    });
-
     private relatedLLFCForm = this.fb.group({
         mpan_fk: null,
         line_loss_factor_class_fk: null,
@@ -200,8 +171,8 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
         };
         this.formFieldAttributes['mpan.customer_name'] = {
             label: 'Customer Name',
-            placeholder: '',
-            tooltip: '',
+            placeholder: 'MPAN customer name',
+            tooltip: 'MPAN customer name',
             isReadOnly: false,
             formControlName: 'customer_name',
         };
@@ -209,7 +180,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Energisation Status',
             placeholder: 'energisation status',
             tooltip: 'Code for the energisation status',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'state_fk',
         };
         this.formFieldAttributes['energisation.effective_from'] = {
@@ -230,14 +201,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Effective Date',
             placeholder: 'effective date of llfc',
             tooltip: 'Effective date of new Line Loss Factor class',
-            isReadOnly: true,
+            isReadOnly: false,
             formControlName: 'effective_from',
         };
         this.formFieldAttributes['mc.measurement_class_fk'] = {
             label: 'Measurement Class',
             placeholder: 'Measurement class',
             tooltip: 'Applicable measurement class for the meter',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'measurement_class_fk',
         };
         this.formFieldAttributes['mc.effective_from'] = {
@@ -259,15 +230,15 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Effective Date',
             placeholder: 'effective date of ASC',
             tooltip: 'Effective date of new agreed supply capacity',
-            isReadOnly: true,
+            isReadOnly: false,
             formControlName: 'effective_from',
         };
         //
         this.formFieldAttributes['ssc.ssc_fk'] = {
-            label: 'STD Settlement Code',
+            label: 'Settlement Code',
             placeholder: 'std settlement code',
-            tooltip: 'Standard Settlement code applicabe to mpan',
-            isReadOnly: false,
+            tooltip: 'Standard Settlement code applicable to mpan',
+            isReadOnly: true,
             formControlName: 'ssc_fk',
         };
         this.formFieldAttributes['ssc.effective_from'] = {
@@ -298,14 +269,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Un-metered',
             placeholder: '',
             tooltip: 'Check if MPAN is un-metered',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'unmetered',
         };
         this.formFieldAttributes['export'] = {
             label: 'Export MPAN',
             placeholder: '',
             tooltip: 'Check if MPAN needs to be exported',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'export',
         };
         //
@@ -314,14 +285,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Data Aggregator',
             placeholder: 'Data aggregator code',
             tooltip: 'DA assigned to mpan',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'market_participant_fk',
         };
         this.formFieldAttributes['da_mpid.role_fk'] = {
             label: 'Role',
             placeholder: 'role',
             tooltip: 'ROLE',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'role_fk',
         };
         this.formFieldAttributes['da_mpid.effective_from'] = {
@@ -336,14 +307,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Data Collector',
             placeholder: 'Data collector code',
             tooltip: 'DC assigned to mpan',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'market_participant_fk',
         };
         this.formFieldAttributes['dc_mpid.role_fk'] = {
             label: 'Role',
             placeholder: 'role',
             tooltip: 'ROLE',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'role_fk',
         };
         this.formFieldAttributes['dc_mpid.effective_from'] = {
@@ -358,14 +329,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Meter Point Operator',
             placeholder: 'Meter point operator',
             tooltip: 'Meter Point Operator',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'market_participant_fk',
         };
         this.formFieldAttributes['mop_mpid.role_fk'] = {
             label: 'Role',
             placeholder: 'role',
             tooltip: 'ROLE',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'role_fk',
         };
         this.formFieldAttributes['mop_mpid.effective_from'] = {
@@ -380,14 +351,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'Supplier ID',
             placeholder: 'supplier..',
             tooltip: 'Supplier ID ',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'market_participant_fk',
         };
         this.formFieldAttributes['supplier_mpid.role_fk'] = {
             label: 'Role',
             placeholder: 'role',
             tooltip: 'ROLE',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'role_fk',
         };
         this.formFieldAttributes['supplier_mpid.effective_from'] = {
@@ -402,21 +373,21 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'CT Class',
             placeholder: 'ct class ',
             tooltip: 'CT CLass',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'ct_class',
         };
         this.formFieldAttributes['mpan.ct_rating'] = {
             label: 'CT Rating',
             placeholder: 'ct rating ',
             tooltip: 'CT Rating',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'ct_rating',
         };
         this.formFieldAttributes['mpan.ct_ratio'] = {
             label: 'CT Ratio',
             placeholder: 'ct ratio ',
             tooltip: 'CT ratio',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'ct_ratio',
         };
         //
@@ -424,21 +395,21 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'VT Class',
             placeholder: 'vt class ',
             tooltip: 'VT CLass',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'vt_class',
         };
         this.formFieldAttributes['mpan.vt_rating'] = {
             label: 'VT Rating',
             placeholder: 'vt rating ',
             tooltip: 'VT Rating',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'vt_rating',
         };
         this.formFieldAttributes['mpan.vt_ratio'] = {
             label: 'VT Ratio',
             placeholder: 'vt ratio ',
             tooltip: 'VT ratio',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'vt_ratio',
         };
         //
@@ -446,14 +417,14 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             label: 'UMSO Reference #',
             placeholder: 'UMSO REF ',
             tooltip: 'UMSO Reference Number',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'umso_reference',
         };
         this.formFieldAttributes['mpan.unique_property_reference_number'] = {
             label: 'Unique Property Ref #',
             placeholder: 'ref number..',
             tooltip: 'Unique Property Reference Number',
-            isReadOnly: false,
+            isReadOnly: true,
             formControlName: 'unique_property_reference_number',
         };
     }
