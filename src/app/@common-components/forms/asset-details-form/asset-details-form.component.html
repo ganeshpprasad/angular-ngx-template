@@ -4,8 +4,8 @@
             <div class="ref-id-container">
                 <span class="text-basic h3">Business Ref #</span>
                 <span class="text-primary h3">
-                                    {{ rawFormValue['business_reference'] }}
-                                </span>
+                    {{ rawFormValue['business_reference'] }}
+                </span>
             </div>
         </div>
         <hr>
@@ -17,7 +17,9 @@
                            class="input-full-width status-warning size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder="Ref ID.."
-                           formControlName="business_reference">
+                           [readonly]="isReadOnly"
+                           formControlName="business_reference"
+                           [status]="getFieldStatus('business_reference')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -27,7 +29,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder="description"
-                           formControlName="description">
+                           [readonly]="isReadOnly"
+                           formControlName="description"
+                           [status]="getFieldStatus('description')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -37,7 +41,9 @@
                            class="input-full-width status-warning size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=".."
-                           formControlName="plot_number">
+                           [readonly]="isReadOnly"
+                           formControlName="plot_number"
+                           [status]="getFieldStatus('plot_number')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -47,7 +53,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=""
-                           formControlName="property_type">
+                           [readonly]="isReadOnly"
+                           formControlName="property_type"
+                           [status]="getFieldStatus('property_type')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -57,7 +65,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=""
-                           formControlName="reference_to_plan">
+                           [readonly]="isReadOnly"
+                           formControlName="reference_to_plan"
+                           [status]="getFieldStatus('reference_to_plan')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -67,7 +77,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=".."
-                           formControlName="supply_capacity">
+                           [readonly]="isReadOnly"
+                           formControlName="supply_capacity"
+                           [status]="getFieldStatus('supply_capacity')">
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -77,7 +89,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=""
-                           formControlName="supply_voltage">
+                           [readonly]="isReadOnly"
+                           formControlName="supply_voltage"
+                           [status]="getFieldStatus('supply_voltage')">
                 </div>
             </div>
         </div>
@@ -91,7 +105,7 @@
             <div class="col-md-12">
                 <ngx-address-form
                         [form]="form.get('address')"
-                        [isReadOnly]="false"></ngx-address-form>
+                        [isReadOnly]="isReadOnly"></ngx-address-form>
             </div>
         </div>
     </div>

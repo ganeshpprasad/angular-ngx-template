@@ -26,7 +26,7 @@
             Reset
         </button>
         <nb-checkbox [(checked)]="isFormEditable" status="primary">
-            Edit form
+            Edit Details
         </nb-checkbox>
     </div>
     <div class="row">
@@ -671,7 +671,9 @@
                     </nb-tab>
                     <!--ASSET DETAILS TAB-->
                     <nb-tab tabTitle="ASSET Details" tabIcon="file-text-outline" responsive>
-                        <ngx-asset-details-form [form]="form.get('asset')"></ngx-asset-details-form>
+                        <ngx-asset-details-form
+                                [form]="form.get('asset')"
+                                [isReadOnly]="!isFormEditable"></ngx-asset-details-form>
                         <hr>
                         <!--RELATED MPANS-->
                         <div class="row">

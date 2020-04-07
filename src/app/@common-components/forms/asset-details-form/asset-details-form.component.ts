@@ -9,6 +9,7 @@ import {FormGroup} from "@angular/forms";
 export class AssetDetailsFormComponent implements OnInit {
 
     @Input() form: FormGroup;
+    @Input() isReadOnly: boolean = true;
 
     get rawFormValue(): any {
         return this.form.getRawValue();
@@ -18,6 +19,14 @@ export class AssetDetailsFormComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    getFieldStatus(fieldCtrlName: string) {
+        let fieldStatus = this.isReadOnly ? '' : 'info';
+
+        fieldStatus = this.form.get(fieldCtrlName).dirty ? 'success' : fieldStatus;
+        fieldStatus = this.form.get(fieldCtrlName).invalid ? 'danger' : fieldStatus;
+        return fieldStatus;
     }
 
 }
