@@ -95,6 +95,6 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.toggleSidebar();
+        // this.toggleSidebar();
     }
 }
