@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IMPANDetailsAPIService, IMpanDetailsResponse} from "../../../@providers/data/mpandetails";
+import {IMPANDetailsAPIService, IMpanDetailsResponse, IRelatedAddress} from "../../../@providers/data/mpandetails";
 import {FormControl, FormGroup, ValidationErrors} from "@angular/forms";
 import {IFieldAttributes, IMPANDetailsFormService} from "../../../@providers/data/form-data/mpandetailsform";
 import {MpanDetailsFormService} from "../../../@providers/services/form-data/mpandetailsform.service";
@@ -222,6 +222,38 @@ export class MpanDetailsFormComponent implements OnInit {
             post_body['asc_history'].push(changed_asc);
         }
         // TODO Address update
+        // we have existing address
+        let newAddress = form_value['mpan_address']['address_1'] ? form_value['mpan_address']['address_1'] : '';
+        newAddress += form_value['mpan_address']['address_2'] ? form_value['mpan_address']['address_2'] : '';
+        newAddress += form_value['mpan_address']['address_3'] ? form_value['mpan_address']['address_3'] : '';
+        newAddress += form_value['mpan_address']['address_4'] ? form_value['mpan_address']['address_4'] : '';
+        newAddress += form_value['mpan_address']['address_5'] ? form_value['mpan_address']['address_5'] : '';
+        newAddress += form_value['mpan_address']['address_6'] ? form_value['mpan_address']['address_6'] : '';
+        newAddress += form_value['mpan_address']['address_7'] ? form_value['mpan_address']['address_7'] : '';
+        newAddress += form_value['mpan_address']['address_8'] ? form_value['mpan_address']['address_8'] : '';
+        newAddress += form_value['mpan_address']['address_9'] ? form_value['mpan_address']['address_9'] : '';
+        newAddress += form_value['mpan_address']['post_code'] ? form_value['mpan_address']['post_code'] : '';
+        if ('mpan_address' in post_body) {
+            let lastAddress = post_body['mpan_address']['address_1'] ? post_body['mpan_address']['address_1'] : '';
+            lastAddress += post_body['mpan_address']['address_2'] ? post_body['mpan_address']['address_2'] : '';
+            lastAddress += post_body['mpan_address']['address_3'] ? post_body['mpan_address']['address_3'] : '';
+            lastAddress += post_body['mpan_address']['address_4'] ? post_body['mpan_address']['address_4'] : '';
+            lastAddress += post_body['mpan_address']['address_5'] ? post_body['mpan_address']['address_5'] : '';
+            lastAddress += post_body['mpan_address']['address_6'] ? post_body['mpan_address']['address_6'] : '';
+            lastAddress += post_body['mpan_address']['address_7'] ? post_body['mpan_address']['address_7'] : '';
+            lastAddress += post_body['mpan_address']['address_8'] ? post_body['mpan_address']['address_8'] : '';
+            lastAddress += post_body['mpan_address']['address_9'] ? post_body['mpan_address']['address_9'] : '';
+            lastAddress += post_body['mpan_address']['post_code'] ? form_value['mpan_address']['post_code'] : '';
+
+            let hasAddressChanged = lastAddress != newAddress;
+            let hasEffFromDateChanged = form_value['mpan_address']['effective_from'] != post_body['mpan_address']['effective_from'];
+
+            if (hasAddressChanged || hasEffFromDateChanged) {
+                let changed_address = form_value['mpan_address'];
+                post_body.mpan_address_history.push(changed_address);
+            }
+            // TODO check for case where only one value changes or effective date is brought forward.
+        }
         return post_body;
     }
 

@@ -35,6 +35,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     });
 
     private relatedAscForm = this.fb.group({
+        mpan_fk: null,
         value: [null, Validators.pattern('[0-9]*')],
         effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
         effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
@@ -92,6 +93,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             asset: this.relatedAsset,
             //
             mpan_address: this.fb.group({
+                mpan_fk: null,
                 address_type: null,
                 address_1: null,
                 address_2: null,
@@ -107,6 +109,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
                 effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             }),
             mailing_address: this.fb.group({
+                mpan_fk: null,
                 address_type: null,
                 address_1: null,
                 address_2: null,

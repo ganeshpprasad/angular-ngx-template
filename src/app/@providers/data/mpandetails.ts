@@ -111,6 +111,7 @@ export interface IMpanDetailsResponse {
     asset: IRelatedAsset,
     //
     mpan_address: IRelatedAddress,
+    mpan_address_history: IRelatedAsset[],
     mailing_address: IRelatedAddress,
     asc: IRelatedAsc,
     energisation: IRelatedEnergisation,
