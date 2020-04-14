@@ -10,6 +10,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     public mpan_form: FormGroup;
 
     private relatedLLFCForm = this.fb.group({
+        id: null,
         mpan_fk: null,
         line_loss_factor_class_fk: [null, Validators.pattern('[0-9]*')],
         effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
@@ -17,24 +18,28 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     });
 
     private relatedMeasurementClassForm = this.fb.group({
+        id: null,
         measurement_class_fk: null,
         effective_from: null,
         effective_to: null,
     });
 
     private relatedEnergisationForm = this.fb.group({
+        id: null,
         state_fk: null,
         effective_from: null,
         effective_to: null,
     });
 
     private relatedMeterForm = this.fb.group({
+        id: null,
         meter_fk: null,
         installation_date: null,
         removal_date: null,
     });
 
     private relatedAscForm = this.fb.group({
+        id: null,
         mpan_fk: null,
         value: [null, Validators.pattern('[0-9]*')],
         effective_from: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
@@ -42,6 +47,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
     });
 
     private relatedSscForm = this.fb.group({
+        id: null,
         ssc_fk: null,
         effective_from: null,
         effective_to: null,
@@ -93,6 +99,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             asset: this.relatedAsset,
             //
             mpan_address: this.fb.group({
+                id: null,
                 mpan_fk: null,
                 address_type: null,
                 address_1: null,
@@ -109,6 +116,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
                 effective_to: [null, Validators.pattern('\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])')],
             }),
             mailing_address: this.fb.group({
+                id: null,
                 mpan_fk: null,
                 address_type: null,
                 address_1: null,
@@ -126,24 +134,28 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
             }),
             // NON EDITABLE FIELDS DONT NEED VALIDATION
             da_mpid: this.fb.group({
+                id: null,
                 market_participant_fk: null,
                 role_fk: null,
                 effective_from: null,
                 effective_to: null,
             }),
             dc_mpid: this.fb.group({
+                id: null,
                 market_participant_fk: null,
                 role_fk: null,
                 effective_from: null,
                 effective_to: null,
             }),
             mop_mpid: this.fb.group({
+                id: null,
                 market_participant_fk: null,
                 role_fk: null,
                 effective_from: null,
                 effective_to: null,
             }),
             supplier_mpid: this.fb.group({
+                id: null,
                 market_participant_fk: null,
                 role_fk: null,
                 effective_from: null,

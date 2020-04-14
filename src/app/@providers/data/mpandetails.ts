@@ -4,9 +4,8 @@ import {ServerHTTPResponse} from "../../@core/data/http-response";
 export interface IRelatedLLFC {
     mpan_fk: string,
     line_loss_factor_class_fk: string,
+    id: string,
     effective_from: string,
-    effective_to: string,
-
 }
 
 export interface IRelatedAddress {
@@ -27,42 +26,49 @@ export interface IRelatedAddress {
 }
 
 export interface IRelatedMeasurementClass {
+    id: string,
     measurement_class_fk: string,
     effective_from: string,
     effective_to: string,
 }
 
 export interface IRelatedEnergisation {
+    id: string,
     state_fk: string,
     effective_from: string,
     effective_to: string,
 }
 
 export interface IRelatedMeter {
+    id: string,
     meter_fk: string,
     installation_date: string,
     removal_date: string,
 }
 
 export interface IRelatedMeterClass {
+    id: string,
     measurement_class_fk: string,
     effective_from: string,
     effective_to: string,
 }
 
 export interface IRelatedAsc {
+    id: string,
     value: string,
     effective_from: string,
     effective_to: string,
 }
 
 export interface IRelatedSsc {
+    id: string,
     ssc_fk: string,
     effective_from: string,
     effective_to: string
 }
 
 export interface IRelatesMpan2Mpid2Role {
+    id: string,
     market_participant_fk: string,
     role_fk: string,
     effective_from: string,
@@ -70,6 +76,7 @@ export interface IRelatesMpan2Mpid2Role {
 }
 
 export interface IRelatedAsset {
+    id: string,
     business_reference: string,
     description: string,
     mpans: IShortMpan[],
@@ -108,6 +115,8 @@ export interface IMpanDetailsResponse {
     unique_property_reference_number: string,
     connection_date: string,
     disconnection_date: string,
+    phase_fk: string,
+    asset_fk: string,
     asset: IRelatedAsset,
     //
     mpan_address: IRelatedAddress,
@@ -150,7 +159,7 @@ export abstract class IMPANDetailsAPIService {
 
     abstract searchMPAN(query: string): Observable<IMpanLists>;
 
-    abstract updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<string>;
+    abstract updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<ServerHTTPResponse<string>>;
 
     abstract bulkUploadMpans(fileList: FileList): Observable<ServerHTTPResponse<IBulkImportResponse>>;
 }

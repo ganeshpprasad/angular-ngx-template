@@ -1,5 +1,6 @@
 export interface ServerHTTPResponse<T> {
     message: string,
     result: T,
-    success: boolean
+    success: boolean,
+    errors: any[],
 }
