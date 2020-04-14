@@ -29,16 +29,6 @@ import {ReactiveFormsModule} from '@angular/forms';
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,
-        NbAuthModule.forRoot({
-            strategies: [
-                NbDummyAuthStrategy.setup({
-                    name: 'email',
-                    delay: 200,
-                }),
-            ],
-            forms: {},
-        }),
-
         ThemeModule.forRoot(),
         NbSidebarModule.forRoot(),
         NbMenuModule.forRoot(),
