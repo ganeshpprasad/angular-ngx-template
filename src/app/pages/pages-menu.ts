@@ -35,11 +35,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'browser-outline',
         link: '/pages/bulk-import',
     },
-    // {
-    //     title: 'Edit MPAN',
-    //     icon: 'browser-outline',
-    //     link: '/pages/mpan-details/3007428567721',
-    // },
+    {
+        title: 'Export',
+        group: true,
+    },
+    {
+        title: 'MPAN Report',
+        icon: 'cloud-download-outline',
+        link: '/pages/mpan-report',
+    },
     {
         title: 'Admin',
         group: true,

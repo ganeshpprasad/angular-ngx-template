@@ -1,0 +1,37 @@
+<div class="col-md-12 col-lg-12 col-xl-12">
+    <div class="row">
+        <div class="col-md-4">
+            <nb-card>
+                <nb-card-body>
+                    <button nbButton fullWidth status="danger"
+                            (click)="generateNewReport()">
+                        <nb-icon icon="code-download-outline" pack="eva"></nb-icon>
+                        Request MPAN Report
+                    </button>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xl-12">
+            <nb-progress-bar [value]="progress_value" status="primary" fullWidth>
+                {{progress_text}}
+            </nb-progress-bar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <nb-card accent="primary" fullWidth>
+                <nb-card-header>
+                    MPAN REPORT TASK(s)
+                </nb-card-header>
+                <nb-card-body>
+                    <ng2-smart-table
+                            [settings]="tasksTableSettings"
+                            [source]="tasksDatasource">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,7 @@ export class DashboardComponent implements OnDestroy {
     mpanCard: CardSettings = {
         title: 'MPANs',
         iconClass: 'nb-lightbulb',
-        type: 'primary',
+        type: 'success',
         url: '/pages/mpan-details',
     };
     assetDetails: CardSettings = {
@@ -36,6 +36,12 @@ export class DashboardComponent implements OnDestroy {
         type: 'info',
         url: '/pages/bulk-import',
     };
+    mpanReport: CardSettings = {
+        title: 'MPAN Report',
+        iconClass: 'nb-expand',
+        type: 'info',
+        url: '/pages/mpan-report',
+    };
     admin: CardSettings = {
         title: 'Admin Details',
         iconClass: 'nb-gear',
@@ -49,6 +55,7 @@ export class DashboardComponent implements OnDestroy {
         this.mpanCard,
         this.assetDetails,
         this.bulkImport,
+        this.mpanReport,
         this.admin,
     ];
 

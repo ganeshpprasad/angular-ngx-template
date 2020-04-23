@@ -46,7 +46,7 @@ export class BulkImportComponent implements OnInit, OnDestroy {
                 editable: false,
             },
             created: {
-                title: 'Create On',
+                title: 'Created On',
                 type: 'string',
                 editable: false,
             },
@@ -129,12 +129,15 @@ export class BulkImportComponent implements OnInit, OnDestroy {
                     console.log(state);
                     if (state === 'Finished') {
                         this.progress_text = `Bulk Import: Finished Task ${this.fetch_task_id}`;
+                        this.progress_value = 100;
+                        this.update_task = false;
+                        this.fetch_task_id = undefined;
                     } else if (state === 'Error') {
                         this.progress_text = `Bulk Import: Error on Task ${this.fetch_task_id}`;
+                        this.progress_value = 100;
+                        this.update_task = false;
+                        this.fetch_task_id = undefined;
                     }
-                    this.progress_value = 100;
-                    this.update_task = false;
-                    this.fetch_task_id = undefined;
                 },
                 (err: any) => {
                     // Something went wrong in calling the RESTAPI

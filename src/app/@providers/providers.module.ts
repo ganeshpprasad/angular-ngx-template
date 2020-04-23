@@ -18,6 +18,8 @@ import {IAssetDetailsAPIService} from './data/assetdetails';
 import {AssetDetailsService} from './services/asset-details.service';
 import {IMpanImportApiService} from './data/mpanimport';
 import {MpanImportApiService} from './services/mpan-import.service';
+import {IMpanReportApiService} from './data/mpanreport';
+import {MpanReportService} from './services/mpan-report.service';
 
 
 const DATA_SERVICES = [
@@ -28,6 +30,7 @@ const DATA_SERVICES = [
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
     {provide: IAssetDetailsAPIService, useClass: AssetDetailsService},
+    {provide: IMpanReportApiService, useClass: MpanReportService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [

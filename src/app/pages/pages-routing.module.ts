@@ -39,6 +39,11 @@ const routes: Routes = [{
             pathMatch: 'full',
         },
         {
+            path: 'mpan-report',
+            loadChildren: () => import('./mpan-report/mpanreport.module')
+                .then(m => m.MPANReportModule),
+        },
+        {
             path: '**',
             component: NotFoundComponent,
         },
