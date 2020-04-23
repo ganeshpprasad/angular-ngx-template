@@ -6,8 +6,7 @@ import {
     NbCheckboxModule,
     NbIconModule,
     NbInputModule,
-    NbListModule,
-    NbProgressBarModule,
+    NbListModule, NbProgressBarModule,
     NbRadioModule,
     NbSearchModule,
     NbSelectModule,
@@ -19,13 +18,13 @@ import {
 } from '@nebular/theme';
 import {ThemeModule} from '../../@theme/theme.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MpanDetailsRoutingModule, routedComponents} from './mpandetails-routing.module';
 import {CommonComponentsModule} from '../../@common-components/common-components.module';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
-import {MpanDetailsTableRouteComponent} from './mpan-details-table-route/mpan-details-table-route.component';
+import {BulkImportRoutingModule, routedComponents} from './bulkimport-routing.module';
+import {MpanImportTaskTableRouteComponent} from './mpan-import-task-table-route/mpan-import-task-table-route.component';
 
-const ENTRY_COMPONENTS = [MpanDetailsTableRouteComponent];
-const EXPORT_COMPONENTS = [MpanDetailsTableRouteComponent];
+const ENTRY_COMPONENTS = [MpanImportTaskTableRouteComponent];
+const EXPORT_COMPONENTS = [MpanImportTaskTableRouteComponent];
 
 @NgModule({
     imports: [
@@ -51,10 +50,10 @@ const EXPORT_COMPONENTS = [MpanDetailsTableRouteComponent];
         NbProgressBarModule,
         NbWindowModule.forChild(),
         CommonComponentsModule,
-        MpanDetailsRoutingModule,
+        BulkImportRoutingModule,
     ],
     declarations: [
-        ...ENTRY_COMPONENTS, ...routedComponents, ...EXPORT_COMPONENTS,
+        ...ENTRY_COMPONENTS, ...EXPORT_COMPONENTS, ...routedComponents,
     ],
     entryComponents: [
         ...ENTRY_COMPONENTS,
@@ -63,5 +62,5 @@ const EXPORT_COMPONENTS = [MpanDetailsTableRouteComponent];
         ...EXPORT_COMPONENTS,
     ],
 })
-export class MPANDetailsModule {
+export class BulkImportModule {
 }

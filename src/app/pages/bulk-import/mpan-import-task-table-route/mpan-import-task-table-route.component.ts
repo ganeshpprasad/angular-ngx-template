@@ -4,7 +4,7 @@ import {Component, Input, OnInit} from '@angular/core';
     selector: 'ngx-mpan-import-task-table-route',
     template: `
         <a class="hvr-grow"
-           [routerLink]="'/pages/mpan-details/bulk_import_result/' + value"
+           [routerLink]="'/pages/bulk-import/result/' + value"
            routerLinkActive="active">
             <span>
                 <nb-icon icon="arrow-right" pack="eva" status="warning"></nb-icon>

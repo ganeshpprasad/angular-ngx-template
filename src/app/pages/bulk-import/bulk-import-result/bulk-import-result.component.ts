@@ -4,7 +4,7 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {IBulkImportResponse, IMpanImportApiService} from '../../../@providers/data/mpanimport';
 import {LocalDataSource} from 'ng2-smart-table';
-import {MpanDetailsTableRouteComponent} from '../mpan-details-table-route/mpan-details-table-route.component';
+import {MpanDetailsTableRouteComponent} from '../../mpandetails/mpan-details-table-route/mpan-details-table-route.component';
 
 @Component({
     selector: 'ngx-bulk-import-result',

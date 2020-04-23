@@ -1,11 +1,9 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {ServerHTTPResponse} from '../../../@core/data/http-response';
 import {LocalDataSource} from 'ng2-smart-table';
-import {IMpanImportApiService, IMpanImportTask} from '../../../@providers/data/mpanimport';
 import {timer} from 'rxjs';
-import {
-    MpanImportTaskTableRouteComponent,
-} from '../mpan-import-task-table-route/mpan-import-task-table-route.component';
+import {IMpanImportApiService, IMpanImportTask} from '../../@providers/data/mpanimport';
+import {ServerHTTPResponse} from '../../@core/data/http-response';
+import {MpanImportTaskTableRouteComponent} from './mpan-import-task-table-route/mpan-import-task-table-route.component';
 
 @Component({
     selector: 'ngx-bulk-import',
@@ -27,6 +25,9 @@ export class BulkImportComponent implements OnInit, OnDestroy {
             add: false,
             edit: false,
             delete: false,
+        },
+        pager: {
+            perPage: 5,
         },
         columns: {
             id: {

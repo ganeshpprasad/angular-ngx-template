@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {PagesComponent} from './pages.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
-import {BulkImportComponent} from './mpandetails/bulk-import/bulk-import.component';
 
 const routes: Routes = [{
     path: '',
@@ -16,7 +15,8 @@ const routes: Routes = [{
         },
         {
             path: 'bulk-import',
-            component: BulkImportComponent,
+            loadChildren: () => import('./bulk-import/bulkimport.module')
+                .then(m => m.BulkImportModule),
         },
         {
             path: 'mpan-details',
