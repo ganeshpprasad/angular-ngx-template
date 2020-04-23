@@ -2,26 +2,29 @@ import {ModuleWithProviders, NgModule, Optional, SkipSelf} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
-import {AuthGuard} from "./services/auth-guard.service";
-import {TimeProfile} from "./data/timeprofile";
-import {TimeProfileService} from "./services/timeprofile.service";
-import {IMPANDetailsAPIService} from "./data/mpandetails";
-import {MpanDetailsService} from "./services/mpan-details.service";
-import {ISiteDetailsAPIService} from "./data/sitedetails";
-import {SiteDetailsService} from "./services/site-details.service";
-import {IMainCableDetailsAPIService} from "./data/main-cable-details";
-import {MainCableDetailsService} from "./services/main-cable-details.service";
-import {HTTP_INTERCEPTORS} from "@angular/common/http";
-import {LoggingInterceptor} from "./interceptors/logging-interceptor";
-import {HttpErrorInterceptor} from "./interceptors/http-error-interceptor";
-import {IAssetDetailsAPIService} from "./data/assetdetails";
-import {AssetDetailsService} from "./services/asset-details.service";
+import {AuthGuard} from './services/auth-guard.service';
+import {TimeProfile} from './data/timeprofile';
+import {TimeProfileService} from './services/timeprofile.service';
+import {IMPANDetailsAPIService} from './data/mpandetails';
+import {MpanDetailsService} from './services/mpan-details.service';
+import {ISiteDetailsAPIService} from './data/sitedetails';
+import {SiteDetailsService} from './services/site-details.service';
+import {IMainCableDetailsAPIService} from './data/main-cable-details';
+import {MainCableDetailsService} from './services/main-cable-details.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {LoggingInterceptor} from './interceptors/logging-interceptor';
+import {HttpErrorInterceptor} from './interceptors/http-error-interceptor';
+import {IAssetDetailsAPIService} from './data/assetdetails';
+import {AssetDetailsService} from './services/asset-details.service';
+import {IMpanImportApiService} from './data/mpanimport';
+import {MpanImportApiService} from './services/mpan-import.service';
 
 
 const DATA_SERVICES = [
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: IMPANDetailsAPIService, useClass: MpanDetailsService},
+    {provide: IMpanImportApiService, useClass: MpanImportApiService},
     {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
     {provide: IAssetDetailsAPIService, useClass: AssetDetailsService},
@@ -54,7 +57,7 @@ export class ProvidersModule {
             ngModule: ProvidersModule,
             providers: [
                 ...NB_CORE_PROVIDERS,
-                ...NGX_HTTP_INTERCEPTORS
+                ...NGX_HTTP_INTERCEPTORS,
             ],
         };
     }

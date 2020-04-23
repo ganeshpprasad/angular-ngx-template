@@ -1,0 +1,44 @@
+<div class="col-md-12 col-lg-12">
+    <!--ACTION BUTTONS-->
+    <div class="row">
+        <button (click)="onClickHome()"
+                ghost size="small" status="primary"
+                class="hvr-bob" nbButton>
+            <nb-icon icon="home-outline" status="primary"></nb-icon>
+            Home
+        </button>
+        <button (click)="onClickBack()"
+                ghost size="small" status="primary"
+                class="hvr-bob" nbButton>
+            <nb-icon icon="arrowhead-left-outline" status="primary"></nb-icon>
+            Back
+        </button>
+    </div>
+    <div class="row" *ngIf="displayMpans">
+        <div class="col-md-12">
+            <nb-card accent="success" fullWidth>
+                <nb-card-header>
+                    Successfully Imported New MPAN(s)
+                </nb-card-header>
+                <nb-card-body>
+                    <ng2-smart-table [settings]="mpanTableSettings" [source]="mpansDatasource">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+    <div class="row" *ngIf="displayErr">
+        <div class="col-md-12">
+            <nb-card accent="danger" fullWidth>
+                <nb-card-header>
+                    Error(s) in MPAN Import
+                </nb-card-header>
+
+                <nb-card-body>
+                    <ng2-smart-table [settings]="errTableSettings" [source]="errDatasource">
+                    </ng2-smart-table>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
-import {IBulkImportResponse, IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from "../data/mpandetails";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {ServerHTTPResponse} from "../../@core/data/http-response";
-import {catchError, map} from "rxjs/operators";
-import {environment} from "../../../environments/environment";
+import {IBulkImportResponse, IMPANDetailsAPIService, IMpanDetailsResponse, IMpanLists} from '../data/mpandetails';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {ServerHTTPResponse} from '../../@core/data/http-response';
+import {catchError, map} from 'rxjs/operators';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class MpanDetailsService extends IMPANDetailsAPIService {
@@ -14,7 +14,7 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
     private httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
-        })
+        }),
     };
 
     constructor(private http: HttpClient) {
@@ -22,32 +22,32 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
     }
 
     getMPANDetailsByID(mpanid: string): Observable<IMpanDetailsResponse> {
-        let details_url: string = this.mpan_url + '/detail';
-        let post_body = {
+        const details_url: string = this.mpan_url + '/detail';
+        const post_body = {
             'mpan_id': mpanid,
         };
         return this.http
             .post<ServerHTTPResponse<IMpanDetailsResponse>>(details_url, post_body, this.httpOptions)
             .pipe(
-                map(r => r.result)
+                map(r => r.result),
             );
     }
 
     searchMPAN(query: string): Observable<IMpanLists> {
-        let search_url: string = this.mpan_url + '/search';
-        let post_body = {
+        const search_url: string = this.mpan_url + '/search';
+        const post_body = {
             'free_text': query,
         };
         return this.http
             .post<ServerHTTPResponse<IMpanLists>>(search_url, post_body, this.httpOptions)
             .pipe(
-                map(r => r.result)
+                map(r => r.result),
             );
     }
 
     updateMPANDetails(updateBody: IMpanDetailsResponse): Observable<ServerHTTPResponse<string>> {
-        let update_url: string = this.mpan_url + '/update';
-        let post_body = {
+        const update_url: string = this.mpan_url + '/update';
+        const post_body = {
             'result': updateBody,
         };
         return this.http
@@ -58,13 +58,13 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
     }
 
     bulkUploadMpans(fileList: FileList): Observable<ServerHTTPResponse<IBulkImportResponse>> {
-        let import_url: string = this.mpan_url + '/bulk_import';
+        const import_url: string = this.mpan_url + '/bulk_import';
         //
-        let file: File = fileList[0];
-        let formData: FormData = new FormData();
+        const file: File = fileList[0];
+        const formData: FormData = new FormData();
         formData.append('file', file, file.name);
         //
-        let httpOptions = {
+        const httpOptions = {
             headers: new HttpHeaders({
                 'enctype': 'multipart/form-data',
             }),
@@ -72,7 +72,7 @@ export class MpanDetailsService extends IMPANDetailsAPIService {
         return this.http
             .post<ServerHTTPResponse<IBulkImportResponse>>(import_url, formData, httpOptions)
             .pipe(
-                catchError(this.handleUploadError)
+                catchError(this.handleUploadError),
             );
     }
 
