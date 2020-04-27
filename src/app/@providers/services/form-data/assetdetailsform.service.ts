@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {IAssetDetailsFormService} from '../../data/form-data/assetdetailsform';
 import {IFieldAttributes} from '../../data/form-data/mpandetailsform';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {IRelatedAsset} from '../../data/mpandetails';
 
 
@@ -13,13 +13,13 @@ export class AssetDetailsFormService implements IAssetDetailsFormService {
     constructor(private fb: FormBuilder) {
         this.asset_details_form = this.fb.group({
             id: null,
-            business_reference: null,
-            description: null,
-            plot_number: null,
+            business_reference: [null, Validators.minLength(3)],
+            description: [null, Validators.minLength(5)],
+            plot_number: [null, Validators.minLength(1)],
             reference_to_plan: null,
             property_type: null,
-            supply_capacity: null,
-            supply_voltage: null,
+            supply_capacity: [null, Validators.pattern('[0-9]*')],
+            supply_voltage: [null, Validators.pattern('[0-9]*')],
             address: this.fb.group({
                 address_type: null,
                 address_1: null,
