@@ -1,8 +1,8 @@
-import {Injectable} from "@angular/core";
-import {IAssetDetailsFormService} from "../../data/form-data/assetdetailsform";
-import {IFieldAttributes} from "../../data/form-data/mpandetailsform";
-import {FormBuilder, FormGroup} from "@angular/forms";
-import {IRelatedAsset} from "../../data/mpandetails";
+import {Injectable} from '@angular/core';
+import {IAssetDetailsFormService} from '../../data/form-data/assetdetailsform';
+import {IFieldAttributes} from '../../data/form-data/mpandetailsform';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {IRelatedAsset} from '../../data/mpandetails';
 
 
 @Injectable()
@@ -48,9 +48,7 @@ export class AssetDetailsFormService implements IAssetDetailsFormService {
     }
 
     loadAssetDetails(assetDetailsResponse: IRelatedAsset) {
-        this.asset_details_form.patchValue({
-            ...assetDetailsResponse
-        })
+        this.asset_details_form.patchValue({...assetDetailsResponse});
     }
 
 

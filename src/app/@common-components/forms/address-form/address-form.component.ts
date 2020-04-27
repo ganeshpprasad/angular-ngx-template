@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
+import {FormGroup} from '@angular/forms';
 
 @Component({
     selector: 'ngx-address-form',
     templateUrl: './address-form.component.html',
-    styleUrls: ['./address-form.component.scss']
+    styleUrls: ['./address-form.component.scss'],
 })
 export class AddressFormComponent implements OnInit {
 
@@ -18,7 +18,7 @@ export class AddressFormComponent implements OnInit {
     }
 
     getFieldStatus(fieldCtrlName: string) {
-        let fieldStatus = this.isReadOnly? '' : 'info';
+        let fieldStatus = this.isReadOnly ? '' : 'info';
 
         fieldStatus = this.form.get(fieldCtrlName).dirty ? 'success' : fieldStatus;
         fieldStatus = this.form.get(fieldCtrlName).invalid ? 'danger' : fieldStatus;

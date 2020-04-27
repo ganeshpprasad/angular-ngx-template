@@ -53,9 +53,9 @@
                            class="input-full-width size-medium shape-semi-round"
                            nbInput fullWidth
                            placeholder=""
-                           [readonly]="isReadOnly"
-                           formControlName="property_type"
-                           [status]="getFieldStatus('property_type')">
+                           [readonly]="true"
+                           formControlName="property_type">
+<!--                           [status]="getFieldStatus('property_type')">-->
                 </div>
             </div>
             <div class="form-group col-md-6">
@@ -105,7 +105,7 @@
             <div class="col-md-12">
                 <ngx-address-form
                         [form]="form.get('address')"
-                        [isReadOnly]="isReadOnly"></ngx-address-form>
+                        [isReadOnly]="true"></ngx-address-form>
             </div>
         </div>
     </div>

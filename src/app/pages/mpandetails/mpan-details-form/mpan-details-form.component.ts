@@ -49,9 +49,7 @@ export class MpanDetailsFormComponent implements OnInit {
 
     ngOnInit() {
         this.routed_id$ = this.route.paramMap.pipe(
-            map((params: ParamMap) =>
-                params.get('id'),
-            ),
+            map((params: ParamMap) => params.get('id')),
         );
         // Load data from server api
         this.loadServerMpanDetails();

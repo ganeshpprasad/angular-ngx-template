@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {IFieldAttributes, IMPANDetailsFormService} from "../../data/form-data/mpandetailsform";
+import {Injectable} from '@angular/core';
+import {IFieldAttributes, IMPANDetailsFormService} from '../../data/form-data/mpandetailsform';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {IMpanDetailsResponse} from "../../data/mpandetails";
+import {IMpanDetailsResponse} from '../../data/mpandetails';
 
 
 @Injectable()
@@ -446,9 +446,7 @@ export class MpanDetailsFormService implements IMPANDetailsFormService {
 
     // loader service for MPAN details
     public loadMPANDetails(mpanDetailsResponse: IMpanDetailsResponse) {
-        this.mpan_form.patchValue({
-            ...mpanDetailsResponse
-        })
+        this.mpan_form.patchValue({...mpanDetailsResponse});
     }
 
     getFieldAttributes() {
