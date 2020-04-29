@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IFieldAttributes} from "../../../@providers/data/form-data/mpandetailsform";
-import {AbstractControl} from "@angular/forms";
+import {IFieldAttributes} from '../../../@providers/data/form-data/mpandetailsform';
+import {AbstractControl} from '@angular/forms';
 
 @Component({
     selector: 'ngx-form-text-input',
@@ -22,7 +22,7 @@ import {AbstractControl} from "@angular/forms";
             </div>
         </div>
     `,
-    styleUrls: ['./form-text-input.component.scss']
+    styleUrls: ['./form-text-input.component.scss'],
 })
 export class FormTextInputComponent implements OnInit {
 

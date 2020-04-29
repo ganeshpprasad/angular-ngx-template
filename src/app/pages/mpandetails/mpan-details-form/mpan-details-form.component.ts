@@ -6,8 +6,15 @@ import {MpanDetailsFormService} from '../../../@providers/services/form-data/mpa
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {map} from 'rxjs/operators';
 import {Observable, Subscription} from 'rxjs';
-import {NbComponentStatus, NbGlobalPhysicalPosition, NbToastrConfig, NbToastrService} from '@nebular/theme';
+import {
+    NbComponentStatus,
+    NbDialogService,
+    NbGlobalPhysicalPosition,
+    NbToastrConfig,
+    NbToastrService,
+} from '@nebular/theme';
 import {ServerHTTPResponse} from '../../../@core/data/http-response';
+import {LlfcSelectionComponent} from '../../../@common-components/form-inputs/llfc-selection/llfc-selection.component';
 
 @Component({
     selector: 'ngx-mpan-details-form',
@@ -42,7 +49,8 @@ export class MpanDetailsFormComponent implements OnInit {
         private router: Router,
         private mpanDetailsAPIService: IMPANDetailsAPIService,
         private mpanDetailsFormService: IMPANDetailsFormService,
-        private toastrService: NbToastrService) {
+        private toastrService: NbToastrService,
+        private dialogService: NbDialogService) {
 
         this.formFieldAttributes = this.mpanDetailsFormService.getFieldAttributes();
     }
@@ -187,4 +195,26 @@ export class MpanDetailsFormComponent implements OnInit {
         return fieldStatus;
     }
 
+    openLlfcDialog() {
+        //
+        this.isFormEditable = true;
+        //
+        const llfc_value = this.form.get('llfc').get('line_loss_factor_class_fk').value;
+        // console.log('llfc', llfc_value);
+        this.dialogService
+            .open(LlfcSelectionComponent, {
+                context: {
+                    input_llfc: llfc_value,
+                },
+            })
+            .onClose
+            .subscribe(res => {
+                if (res !== undefined) {
+                    // res is Number type so we need to cast it to string..
+                    const res_str = res.toString();
+                    this.form.get('llfc').get('line_loss_factor_class_fk').setValue(res_str);
+                }
+            });
+        return;
+    }
 }

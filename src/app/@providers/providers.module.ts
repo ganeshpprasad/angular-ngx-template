@@ -20,6 +20,8 @@ import {IMpanImportApiService} from './data/mpanimport';
 import {MpanImportApiService} from './services/mpan-import.service';
 import {IMpanReportApiService} from './data/mpanreport';
 import {MpanReportService} from './services/mpan-report.service';
+import {ILLFCSelectionService} from './data/llfcselection';
+import {LlfcSelectionService} from './services/llfc-selection.service';
 
 
 const DATA_SERVICES = [
@@ -31,6 +33,7 @@ const DATA_SERVICES = [
     {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
     {provide: IAssetDetailsAPIService, useClass: AssetDetailsService},
     {provide: IMpanReportApiService, useClass: MpanReportService},
+    {provide: ILLFCSelectionService, useClass: LlfcSelectionService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
