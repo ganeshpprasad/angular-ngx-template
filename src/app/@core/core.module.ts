@@ -5,7 +5,7 @@ import {NbRoleProvider, NbSecurityModule} from '@nebular/security';
 import {of as observableOf} from 'rxjs';
 
 import {throwIfAlreadyLoaded} from './module-import-guard';
-import {AnalyticsService, LayoutService, PlayerService, StateService,} from './utils';
+import {AnalyticsService, LayoutService, PlayerService, StateService} from './utils';
 import {UserData} from './data/users';
 
 import {UserService} from './mock/users.service';
@@ -57,7 +57,7 @@ export const NB_CORE_PROVIDERS = [
                 token: {
                     class: NbAuthSimpleToken,
                     key: 'token', // <-- this parameter tells where to look for the token
-                }
+                },
             }),
         ],
         forms: {},

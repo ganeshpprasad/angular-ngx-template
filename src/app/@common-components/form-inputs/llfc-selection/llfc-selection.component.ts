@@ -30,22 +30,27 @@ export class LlfcSelectionComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        const llfcs = this.llfcSelectionService.get_llfc_groupings();
         if (this.input_llfc !== undefined) {
-            const llfc_obj = llfcs.filter(
-                l => l.llfc === Number(this.input_llfc),
-            )[0];
-            if (llfc_obj !== undefined) {
-                this.vol_of_connection = llfc_obj.vol_of_connection;
-                this.dno_connection = llfc_obj.dno_connection;
-                this.mpan_loc = llfc_obj.dno_area;
-                this.duos_tariff = llfc_obj.duos_tarrif;
-                this.selected_llfc = Number(this.input_llfc);
-            }
+            this.selected_llfc = Number(this.input_llfc);
+            this.set_parent_selections();
+            this.cdr.detectChanges();
         }
-        this.cdr.detectChanges();
     }
 
+
+    private set_parent_selections() {
+        const llfcs = this.llfcSelectionService.get_llfc_groupings();
+        //
+        const llfc_obj = llfcs.filter(
+            l => l.llfc === Number(this.selected_llfc),
+        )[0];
+        if (llfc_obj !== undefined) {
+            this.vol_of_connection = llfc_obj.vol_of_connection;
+            this.dno_connection = llfc_obj.dno_connection;
+            this.mpan_loc = llfc_obj.dno_area;
+            this.duos_tariff = llfc_obj.duos_tarrif;
+        }
+    }
 
     onSubmit() {
         if (this.selected_llfc) {
@@ -64,10 +69,19 @@ export class LlfcSelectionComponent implements OnInit, AfterViewInit {
     }
 
     get_llfcs_list() {
-        return this.filterLlfcList().map(l => l.llfc);
+        return this.llfcSelectionService.get_llfcs_list();
     }
 
     onSelectionChange() {
         this.selected_llfc = undefined;
+        const filtered_llfc_list = this.filterLlfcList();
+        if (filtered_llfc_list.length > 0) {
+            // update the selected LLFC when any parent field changes.
+            this.selected_llfc = filtered_llfc_list[0].llfc;
+        }
+    }
+
+    onLLFCchange() {
+        this.set_parent_selections();
     }
 }

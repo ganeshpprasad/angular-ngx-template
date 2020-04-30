@@ -54,7 +54,6 @@ const NB_MODULES = [
     NbEvaIconsModule,
     NbTooltipModule,
     NbToastrModule,
-
 ];
 const COMPONENTS = [
     HeaderComponent,

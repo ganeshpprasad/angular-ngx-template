@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ILLFCSelectionService, LLFCGrouping, llfc_groupings} from '../data/llfcselection';
+import {ILLFCSelectionService, llfc_groupings, LLFCGrouping} from '../data/llfcselection';
 
 @Injectable()
 export class LlfcSelectionService extends ILLFCSelectionService {
@@ -75,6 +75,10 @@ export class LlfcSelectionService extends ILLFCSelectionService {
 
     get_llfc_groupings(): LLFCGrouping[] {
         return llfc_groupings;
+    }
+
+    get_llfcs_list(): number[] {
+        return this.get_llfc_groupings().map(l => l.llfc);
     }
 
 }

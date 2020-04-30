@@ -28,7 +28,7 @@
         <button (click)="openLlfcDialog()"
                 ghost size="small" status="primary"
                 class="hvr-bob" nbButton>
-            <nb-icon icon="alert-triangle-outline" status="danger"></nb-icon>
+            <nb-icon icon="expand-outline" status="danger"></nb-icon>
             LLFC
         </button>
         <nb-checkbox [(checked)]="isFormEditable" status="primary">
@@ -111,8 +111,9 @@
                                     <div class="form-group col-md-6">
                                         <label class="label col-sm-3 col-form-label"
                                                (click)="openLlfcDialog()">
-                                            <span><nb-icon status="danger" icon="alert-triangle-outline" pack="eva"></nb-icon></span>
-                                            {{formFieldAttributes['llfc.line_loss_factor_class_fk'].label}}</label>
+                                               <span><nb-icon status="danger" icon="expand-outline" pack="eva"></nb-icon></span>
+                                            {{formFieldAttributes['llfc.line_loss_factor_class_fk'].label}}
+                                            </label>
                                         <div class="col-sm-9">
                                             <input type="text"
                                                    class="input-full-width size-medium shape-semi-round"

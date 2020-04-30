@@ -16,6 +16,8 @@ export abstract class ILLFCSelectionService {
     abstract get_dno_area_list(): string[];
 
     abstract get_duos_tarrif_list(): string[];
+
+    abstract get_llfcs_list(): number[];
 }
 
 
@@ -37,7 +39,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 62, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 63, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'HV HH Metered'},
     {llfc: 64, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'LV Network Dom'},
-    {llfc: 65, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 65,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'LOND_C',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 66, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 67, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'Dom Two Rate'},
     {llfc: 68, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'LOND_C', duos_tarrif: 'Small Non-Dom Un'},
@@ -46,7 +54,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 112, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 113, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'HV HH Metered'},
     {llfc: 114, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'LV Network Dom'},
-    {llfc: 115, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 115,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'SOUT_H',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 116, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 117, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Two Rate'},
     {llfc: 118, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SOUT_H', duos_tarrif: 'Small Non-Dom Un'},
@@ -55,7 +69,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 122, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 123, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'HV HH Metered'},
     {llfc: 124, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'LV Network Dom'},
-    {llfc: 125, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 125,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'SOUT_H',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 126, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 127, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Two Rate'},
     {llfc: 128, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SOUT_H', duos_tarrif: 'Small Non-Dom Un'},
@@ -64,7 +84,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 132, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 133, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'HV HH Metered'},
     {llfc: 134, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'LV Network Dom'},
-    {llfc: 135, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 135,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'SEEB_J',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 136, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 137, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Two Rate'},
     {llfc: 138, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SEEB_J', duos_tarrif: 'Small Non-Dom Un'},
@@ -73,7 +99,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 142, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 143, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'HV HH Metered'},
     {llfc: 144, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'LV Network Dom'},
-    {llfc: 145, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 145,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'SEEB_J',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 146, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 147, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Two Rate'},
     {llfc: 148, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SEEB_J', duos_tarrif: 'Small Non-Dom Un'},
@@ -82,7 +114,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 192, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 193, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'HV HH Metered'},
     {llfc: 194, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'LV Network Dom'},
-    {llfc: 195, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 195,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'YELG_M',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 196, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 197, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'Dom Two Rate'},
     {llfc: 198, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'YELG_M', duos_tarrif: 'Small Non-Dom Un'},
@@ -91,7 +129,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 202, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 203, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'HV HH Metered'},
     {llfc: 204, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'LV Network Dom'},
-    {llfc: 205, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 205,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'YELG_M',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 206, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 207, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'Dom Two Rate'},
     {llfc: 208, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'YELG_M', duos_tarrif: 'Small Non-Dom Un'},
@@ -99,7 +143,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 250, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'LV HH Metered'},
     {llfc: 251, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 252, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'LV Network Dom'},
-    {llfc: 253, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 253,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'LOND_C',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 254, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 255, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'Dom Two Rate'},
     {llfc: 256, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'LOND_C', duos_tarrif: 'Small Non-Dom Un'},
@@ -107,7 +157,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 258, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'LV HH Metered'},
     {llfc: 259, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 260, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'LV Network Dom'},
-    {llfc: 261, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 261,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'SOUT_H',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 262, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 263, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'Dom Two Rate'},
     {llfc: 264, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SOUT_H', duos_tarrif: 'Small Non-Dom Un'},
@@ -115,7 +171,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 266, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'LV HH Metered'},
     {llfc: 267, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 268, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'LV Network Dom'},
-    {llfc: 269, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 269,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'MANW_D',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 270, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 271, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'Dom Two Rate'},
     {llfc: 272, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MANW_D', duos_tarrif: 'Small Non-Dom Un'},
@@ -123,7 +185,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 274, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'LV HH Metered'},
     {llfc: 275, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 276, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'LV Network Dom'},
-    {llfc: 277, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 277,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'MANW_D',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 278, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 279, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'Dom Two Rate'},
     {llfc: 280, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MANW_D', duos_tarrif: 'Small Non-Dom Un'},
@@ -131,7 +199,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 282, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'LV HH Metered'},
     {llfc: 283, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 284, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'LV Network Dom'},
-    {llfc: 285, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 285,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'NORW_G',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 286, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 287, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'Dom Two Rate'},
     {llfc: 288, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NORW_G', duos_tarrif: 'Small Non-Dom Un'},
@@ -139,7 +213,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 290, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'LV HH Metered'},
     {llfc: 291, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 292, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'LV Network Dom'},
-    {llfc: 293, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 293,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'NORW_G',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 294, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 295, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'Dom Two Rate'},
     {llfc: 296, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NORW_G', duos_tarrif: 'Small Non-Dom Un'},
@@ -148,7 +228,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 299, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 300, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'HV HH Metered'},
     {llfc: 301, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'LV Network Dom'},
-    {llfc: 302, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 302,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'EMEB_B',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 303, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 304, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Two Rate'},
     {llfc: 305, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EMEB_B', duos_tarrif: 'Small Non-Dom Un'},
@@ -157,7 +243,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 308, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 309, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'HV HH Metered'},
     {llfc: 310, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'LV Network Dom'},
-    {llfc: 311, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 311,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'EMEB_B',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 312, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 313, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Two Rate'},
     {llfc: 314, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EMEB_B', duos_tarrif: 'Small Non-Dom Un'},
@@ -165,7 +257,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 316, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'LV HH Metered'},
     {llfc: 317, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 318, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'LV Network Dom'},
-    {llfc: 319, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 319,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'EMEB_B',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 320, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 321, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'Dom Two Rate'},
     {llfc: 322, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EMEB_B', duos_tarrif: 'Small Non-Dom Un'},
@@ -186,7 +284,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 337, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 338, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'HV HH Metered'},
     {llfc: 339, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'LV Network Dom'},
-    {llfc: 340, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 340,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'MIDE_E',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 341, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 342, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Two Rate'},
     {llfc: 343, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'MIDE_E', duos_tarrif: 'Small Non-Dom Un'},
@@ -195,7 +299,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 346, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 347, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'HV HH Metered'},
     {llfc: 348, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'LV Network Dom'},
-    {llfc: 349, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 349,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'MIDE_E',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 350, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 351, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Two Rate'},
     {llfc: 352, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MIDE_E', duos_tarrif: 'Small Non-Dom Un'},
@@ -203,7 +313,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 354, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'LV HH Metered'},
     {llfc: 355, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 356, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'LV Network Dom'},
-    {llfc: 357, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 357,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'MIDE_E',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 358, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 359, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'Dom Two Rate'},
     {llfc: 360, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'MIDE_E', duos_tarrif: 'Small Non-Dom Un'},
@@ -224,7 +340,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 375, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 376, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'HV HH Metered'},
     {llfc: 377, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'LV Network Dom'},
-    {llfc: 378, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 378,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'EELC_A',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 379, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 380, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'Dom Two Rate'},
     {llfc: 381, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'EELC_A', duos_tarrif: 'Small Non-Dom Un'},
@@ -233,7 +355,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 384, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 385, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'HV HH Metered'},
     {llfc: 386, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'LV Network Dom'},
-    {llfc: 387, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 387,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'EELC_A',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 388, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 389, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'Dom Two Rate'},
     {llfc: 390, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'EELC_A', duos_tarrif: 'Small Non-Dom Un'},
@@ -241,7 +369,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 392, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'LV HH Metered'},
     {llfc: 393, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 394, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'LV Network Dom'},
-    {llfc: 395, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 395,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'EELC_A',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 396, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 397, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'Dom Two Rate'},
     {llfc: 398, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'EELC_A', duos_tarrif: 'Small Non-Dom Un'},
@@ -261,7 +395,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 412, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'LV HH Metered'},
     {llfc: 413, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 414, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'LV Network Dom'},
-    {llfc: 415, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 415,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'SEEB_J',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 416, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 417, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'Dom Two Rate'},
     {llfc: 418, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SEEB_J', duos_tarrif: 'Small Non-Dom Un'},
@@ -345,7 +485,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 496, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 497, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'HV HH Metered'},
     {llfc: 498, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'LV Network Dom'},
-    {llfc: 499, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 499,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'SWAE_K',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 500, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 501, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Two Rate'},
     {llfc: 502, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWAE_K', duos_tarrif: 'Small Non-Dom Un'},
@@ -354,7 +500,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 505, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 506, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'HV HH Metered'},
     {llfc: 507, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'LV Network Dom'},
-    {llfc: 508, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 508,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'SWAE_K',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 509, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 510, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Two Rate'},
     {llfc: 511, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWAE_K', duos_tarrif: 'Small Non-Dom Un'},
@@ -362,7 +514,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 513, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'LV HH Metered'},
     {llfc: 514, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 515, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'LV Network Dom'},
-    {llfc: 516, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 516,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'SWAE_K',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 517, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 518, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'Dom Two Rate'},
     {llfc: 519, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWAE_K', duos_tarrif: 'Small Non-Dom Un'},
@@ -383,7 +541,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 534, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 535, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'HV HH Metered'},
     {llfc: 536, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'LV Network Dom'},
-    {llfc: 537, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 537,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'SWEB_L',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 538, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 539, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Two Rate'},
     {llfc: 540, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SWEB_L', duos_tarrif: 'Small Non-Dom Un'},
@@ -392,7 +556,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 543, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 544, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'HV HH Metered'},
     {llfc: 545, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'LV Network Dom'},
-    {llfc: 546, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 546,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'SWEB_L',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 547, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 548, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Two Rate'},
     {llfc: 549, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SWEB_L', duos_tarrif: 'Small Non-Dom Un'},
@@ -400,7 +570,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 551, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'LV HH Metered'},
     {llfc: 552, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 553, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'LV Network Dom'},
-    {llfc: 554, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 554,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'SWEB_L',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 555, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 556, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'Dom Two Rate'},
     {llfc: 557, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SWEB_L', duos_tarrif: 'Small Non-Dom Un'},
@@ -421,7 +597,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 572, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 573, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'HV HH Metered'},
     {llfc: 574, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'LV Network Dom'},
-    {llfc: 575, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 575,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'NEEB_F',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 576, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 577, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Two Rate'},
     {llfc: 578, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'Small Non-Dom Un'},
@@ -430,7 +612,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 581, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 582, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'HV HH Metered'},
     {llfc: 583, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'LV Network Dom'},
-    {llfc: 584, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 584,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'NEEB_F',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 585, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 586, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Two Rate'},
     {llfc: 587, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NEEB_F', duos_tarrif: 'Small Non-Dom Un'},
@@ -439,7 +627,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 590, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 591, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MANW_D', duos_tarrif: 'LV Network Dom'},
     {llfc: 592, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'LV Network Dom'},
-    {llfc: 593, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 593,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'NEEB_F',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 594, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 595, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'Dom Two Rate'},
     {llfc: 596, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'Small Non-Dom Un'},
@@ -447,7 +641,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 598, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat A'},
     {llfc: 599, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat B'},
     {llfc: 600, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat C'},
-    {llfc: 601, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'MANW_D', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 601,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'MANW_D',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 602, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat D'},
     {llfc: 603, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat A'},
     {llfc: 604, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'NEEB_F', duos_tarrif: 'UMS Cat B'},
@@ -460,7 +660,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 611, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'LV HH Metered'},
     {llfc: 612, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 613, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'LV Network Dom'},
-    {llfc: 614, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 614,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'YELG_M',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 615, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 616, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'Dom Two Rate'},
     {llfc: 617, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'YELG_M', duos_tarrif: 'Small Non-Dom Un'},
@@ -469,7 +675,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 620, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 621, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'HV HH Metered'},
     {llfc: 622, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'LV Network Dom'},
-    {llfc: 623, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 623,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'SPOW_N',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 624, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 625, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Two Rate'},
     {llfc: 626, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'SPOW_N', duos_tarrif: 'Small Non-Dom Un'},
@@ -478,7 +690,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 629, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 630, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'HV HH Metered'},
     {llfc: 631, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'LV Network Dom'},
-    {llfc: 632, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 632,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'SPOW_N',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 633, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 634, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Two Rate'},
     {llfc: 635, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'SPOW_N', duos_tarrif: 'Small Non-Dom Un'},
@@ -486,7 +704,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 637, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'LV HH Metered'},
     {llfc: 638, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 639, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'LV Network Dom'},
-    {llfc: 640, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 640,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'SPOW_N',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 641, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 642, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'Dom Two Rate'},
     {llfc: 643, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'SPOW_N', duos_tarrif: 'Small Non-Dom Un'},
@@ -516,7 +740,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 667, vol_of_connection: 'LVS', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 668, vol_of_connection: 'HV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'HV HH Metered'},
     {llfc: 669, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'LV Network Dom'},
-    {llfc: 670, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 670,
+        vol_of_connection: 'LV',
+        dno_connection: 'HV',
+        dno_area: 'HYDE_P',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 671, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 672, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Two Rate'},
     {llfc: 673, vol_of_connection: 'LV', dno_connection: 'HV', dno_area: 'HYDE_P', duos_tarrif: 'Small Non-Dom Un'},
@@ -525,7 +755,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 676, vol_of_connection: 'LVS', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 677, vol_of_connection: 'HV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'HV HH Metered'},
     {llfc: 678, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'LV Network Dom'},
-    {llfc: 679, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 679,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'HYDE_P',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 680, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 681, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Two Rate'},
     {llfc: 682, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'Small Non-Dom Un'},
@@ -533,7 +769,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 684, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'LV HH Metered'},
     {llfc: 685, vol_of_connection: 'LVS', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'LV Sub HH Metered'},
     {llfc: 686, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'LV Network Dom'},
-    {llfc: 687, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'LV Net Non-Dom Non-CT'},
+    {
+        llfc: 687,
+        vol_of_connection: 'LV',
+        dno_connection: 'LV',
+        dno_area: 'HYDE_P',
+        duos_tarrif: 'LV Net Non-Dom Non-CT'
+    },
     {llfc: 688, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Unrestricted'},
     {llfc: 689, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'Dom Two Rate'},
     {llfc: 690, vol_of_connection: 'LV', dno_connection: 'LV', dno_area: 'HYDE_P', duos_tarrif: 'Small Non-Dom Un'},
@@ -551,7 +793,13 @@ export const llfc_groupings: LLFCGrouping[] = [
     {llfc: 702, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'UMS Cat C'},
     {llfc: 703, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'HYDE_P', duos_tarrif: 'UMS Cat D'},
     {llfc: 801, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NORW_G', duos_tarrif: 'LV N/W Dom'},
-    {llfc: 811, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NORW_G', duos_tarrif: 'LV N/W Non-Dom Non-CT'},
+    {
+        llfc: 811,
+        vol_of_connection: 'LV',
+        dno_connection: 'EHV',
+        dno_area: 'NORW_G',
+        duos_tarrif: 'LV N/W Non-Dom Non-CT'
+    },
     {llfc: 861, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NORW_G', duos_tarrif: 'Dom Unrestrict'},
     {llfc: 862, vol_of_connection: 'LV', dno_connection: 'EHV', dno_area: 'NORW_G', duos_tarrif: 'Dom Two Rate'},
     {
