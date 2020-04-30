@@ -124,7 +124,8 @@
                                                    [nbTooltip]="formFieldAttributes['llfc.line_loss_factor_class_fk'].tooltip"
                                                    [formControlName]="formFieldAttributes['llfc.line_loss_factor_class_fk'].formControlName"
                                                    [status]="getFieldStatus('llfc.line_loss_factor_class_fk', 'llfc')"
-                                                   (keydown.enter)="$event.target.blur();">
+                                                   (keydown.enter)="$event.target.blur();"
+                                                   (click)="openLlfcDialog()">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
