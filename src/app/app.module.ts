@@ -15,8 +15,7 @@ import {
     NbToastrModule,
     NbWindowModule,
 } from '@nebular/theme';
-import {FormsModule} from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +35,7 @@ import {ReactiveFormsModule} from '@angular/forms';
         NbWindowModule.forRoot(),
         NbToastrModule.forRoot(),
         NbDialogModule.forRoot(),
+        NbDatepickerModule.forRoot(),
         CoreModule.forRoot(),
         ProvidersModule.forRoot(),
     ],
