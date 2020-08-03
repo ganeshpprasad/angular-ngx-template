@@ -1,27 +1,22 @@
-import {NgModule} from '@angular/core';
-import {NbMenuModule} from '@nebular/theme';
+import { AssetDetailsModule } from './asset-details/asset-details.module';
+import { CustomerModule } from './customer/customer.module';
+import { TariffModule } from './tariff/tariff.module';
+import { NgModule } from '@angular/core';
+import { NbMenuModule } from '@nebular/theme';
 
-import {ThemeModule} from '../@theme/theme.module';
-import {PagesComponent} from './pages.component';
-import {DashboardModule} from './dashboard/dashboard.module';
-import {PagesRoutingModule} from './pages-routing.module';
-import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
-import {MPANDetailsModule} from './mpandetails/mpandetails.module';
-import {SiteDetailsModule} from './sitedetails/sitedetails.module';
+import { ThemeModule } from '../@theme/theme.module';
+import { PagesComponent } from './pages.component';
+import { PagesRoutingModule } from './pages-routing.module';
 
 @NgModule({
-    imports: [
-        NbMenuModule,
-        PagesRoutingModule,
-        ThemeModule,
-        DashboardModule,
-        MiscellaneousModule,
-        MPANDetailsModule,
-        SiteDetailsModule,
-    ],
-    declarations: [
-        PagesComponent,
-    ],
+	imports: [
+		NbMenuModule,
+		PagesRoutingModule,
+		ThemeModule,
+		TariffModule,
+		CustomerModule,
+		AssetDetailsModule,
+	],
+	declarations: [PagesComponent],
 })
-export class PagesModule {
-}
+export class PagesModule {}

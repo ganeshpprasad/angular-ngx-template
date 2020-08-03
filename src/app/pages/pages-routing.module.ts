@@ -1,58 +1,52 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
+import { CustomerComponent } from './customer/customer.component';
+import { TariffComponent } from './tariff/tariff.component';
+import { AssetDetailsComponent } from './asset-details/asset-details.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
 
-import {PagesComponent} from './pages.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
+import { PagesComponent } from './pages.component';
 
-const routes: Routes = [{
-    path: '',
-    component: PagesComponent,
-    children: [
-        {
-            path: 'dashboard',
-            component: DashboardComponent,
-        },
-        {
-            path: 'bulk-import',
-            loadChildren: () => import('./bulk-import/bulkimport.module')
-                .then(m => m.BulkImportModule),
-        },
-        {
-            path: 'mpan-details',
-            loadChildren: () => import('./mpandetails/mpandetails.module')
-                .then(m => m.MPANDetailsModule),
-        },
-        {
-            path: 'asset-details',
-            loadChildren: () => import('./asset-details/asset-details.module')
-                .then(m => m.AssetDetailsModule),
-        },
-        {
-            path: 'main-cable-details',
-            loadChildren: () => import('./maincabledetails/maincabledetails.module')
-                .then(m => m.MainCableDetailsModule),
-        },
-        {
-            path: '',
-            redirectTo: 'dashboard',
-            pathMatch: 'full',
-        },
-        {
-            path: 'mpan-report',
-            loadChildren: () => import('./mpan-report/mpanreport.module')
-                .then(m => m.MPANReportModule),
-        },
-        {
-            path: '**',
-            component: NotFoundComponent,
-        },
-    ],
-}];
+const routes: Routes = [
+	{
+		path: '',
+		component: PagesComponent,
+		children: [
+			{
+				path: 'customer',
+				component: CustomerComponent,
+			},
+			{
+				path: 'asset-details',
+				// loadChildren: () =>
+				// import('./asset-details/asset-details.module').then(
+				// m => m.AssetDetailsModule
+				// ),
+				component: AssetDetailsComponent,
+			},
+			{
+				path: 'tariffs',
+				// loadChildren: () =>
+				// import('./maincabledetails/maincabledetails.module').then(
+				// m => m.MainCableDetailsModule
+				// ),
+				component: TariffComponent,
+			},
+			{
+				path: '',
+				redirectTo: 'dashboard',
+				pathMatch: 'full',
+			},
+			{
+				path: '**',
+				// component: NotFoundComponent,
+				component: CustomerComponent,
+			},
+		],
+	},
+];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class PagesRoutingModule {
-}
+export class PagesRoutingModule {}
