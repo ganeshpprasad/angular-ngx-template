@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerComponent implements OnInit {
 
+  fruits:any[] = ['mango','apple','orange'];
   constructor() { }
 
   ngOnInit() {

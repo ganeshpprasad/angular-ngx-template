@@ -1,8 +1,9 @@
 import { CustomerComponent } from './customer.component';
-import { NbCardModule } from '@nebular/theme';
+import { NbCardModule,NbSearchModule,NbLayoutModule,NbListModule } from '@nebular/theme';
 import { NgModule } from '@angular/core';
 @NgModule({
-	imports: [NbCardModule],
+	imports: [NbCardModule,NbSearchModule,NbLayoutModule,NbListModule],
+	
 	declarations: [CustomerComponent],
 })
 export class CustomerModule {}

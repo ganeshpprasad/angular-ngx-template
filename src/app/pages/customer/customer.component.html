@@ -1,1 +1,65 @@
-<p>customer works!</p>
+<nb-search type="rotate-layout"></nb-search>
+<nb-card>
+    <nb-card-body>
+      Card
+    </nb-card-body>
+  </nb-card>
+  <nb-layout>
+    <nb-layout-column>
+        <nb-card>
+            <nb-card-body>
+              Card 1
+            </nb-card-body>
+          </nb-card>
+    </nb-layout-column>
+    <nb-layout-column><nb-card>
+        <nb-card-body>
+          Card 2
+        </nb-card-body>
+      </nb-card></nb-layout-column>
+    <nb-layout-column><nb-card>
+        <nb-card-body>
+          Card 3
+        </nb-card-body>
+      </nb-card></nb-layout-column>
+   </nb-layout>
+
+
+   <nb-card>
+    <nb-card-header>
+        <nb-layout-column><nb-card>
+            <nb-card-body>
+              Card 2
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+          <nb-layout-column><nb-card>
+            <nb-card-body>
+              Card 2
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+          <nb-layout-column><nb-card>
+            <nb-card-body>
+              Card 2
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+    </nb-card-header>
+    <nb-list>
+      <nb-list-item *ngFor="let fruit of fruits">
+        <nb-layout-column><nb-card>
+            <nb-card-body>
+              {{fruit}}
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+          <nb-layout-column><nb-card>
+            <nb-card-body>
+              {{fruit}}
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+          <nb-layout-column><nb-card>
+            <nb-card-body>
+              {{fruit}}
+            </nb-card-body>
+          </nb-card></nb-layout-column>
+      </nb-list-item>
+    </nb-list>
+  </nb-card>
