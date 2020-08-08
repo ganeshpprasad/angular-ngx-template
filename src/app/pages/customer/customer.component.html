@@ -1,65 +1,55 @@
 <nb-search type="rotate-layout"></nb-search>
 <nb-card>
+  <nb-card-body>
+    <button nbButton status="primary">
+      <nb-icon icon="edit-outline"></nb-icon>
+    </button>
+  </nb-card-body>
+</nb-card>
+
+<div class="customer-detail">
+  <nb-card>
     <nb-card-body>
-      Card
+      <h5>Customer details</h5>
+      <span>name</span><br />
+      <span>Customer ID</span>
+      <div class="tags">
+        <span>Tags#</span>
+        <span>Tags2#</span>
+      </div>
     </nb-card-body>
   </nb-card>
-  <nb-layout>
-    <nb-layout-column>
-        <nb-card>
-            <nb-card-body>
-              Card 1
-            </nb-card-body>
-          </nb-card>
-    </nb-layout-column>
-    <nb-layout-column><nb-card>
-        <nb-card-body>
-          Card 2
-        </nb-card-body>
-      </nb-card></nb-layout-column>
-    <nb-layout-column><nb-card>
-        <nb-card-body>
-          Card 3
-        </nb-card-body>
-      </nb-card></nb-layout-column>
-   </nb-layout>
-
-
-   <nb-card>
-    <nb-card-header>
-        <nb-layout-column><nb-card>
-            <nb-card-body>
-              Card 2
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-          <nb-layout-column><nb-card>
-            <nb-card-body>
-              Card 2
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-          <nb-layout-column><nb-card>
-            <nb-card-body>
-              Card 2
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-    </nb-card-header>
-    <nb-list>
-      <nb-list-item *ngFor="let fruit of fruits">
-        <nb-layout-column><nb-card>
-            <nb-card-body>
-              {{fruit}}
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-          <nb-layout-column><nb-card>
-            <nb-card-body>
-              {{fruit}}
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-          <nb-layout-column><nb-card>
-            <nb-card-body>
-              {{fruit}}
-            </nb-card-body>
-          </nb-card></nb-layout-column>
-      </nb-list-item>
-    </nb-list>
+  <nb-card>
+    <nb-card-body>
+      <h5>Account details</h5>
+    </nb-card-body>
   </nb-card>
+  <nb-card>
+    <nb-card-body>
+      <h5>Revenue details</h5>
+    </nb-card-body>
+  </nb-card>
+</div>
+
+<!-- <nb-card>
+  <nb-list>
+    <nb-list-item>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+    </nb-list-item>
+  </nb-list>
+</nb-card> -->
+<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
