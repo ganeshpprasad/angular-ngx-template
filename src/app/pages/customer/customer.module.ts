@@ -1,4 +1,8 @@
+import { EditComponent } from "./edit/edit.component";
+import { CustomerRoutingModule } from "./customer-routing.module";
 import { CustomerComponent } from "./customer.component";
+import { RouterModule } from "@angular/router";
+import { NbMenuModule } from "@nebular/theme";
 import {
   NbCardModule,
   NbSearchModule,
@@ -21,8 +25,11 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
     NbListModule,
     NbUserModule,
     Ng2SmartTableModule,
+    CustomerRoutingModule,
+    RouterModule,
+    NbMenuModule,
   ],
 
-  declarations: [CustomerComponent],
+  declarations: [CustomerComponent, EditComponent],
 })
 export class CustomerModule {}

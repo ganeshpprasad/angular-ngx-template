@@ -19,9 +19,6 @@ import { ProvidersModule } from "./@providers/providers.module"; //APIs
 import { ThemeModule } from "./@theme/theme.module"; // Theme config
 import { AppRoutingModule } from "./app-routing.module"; // Routing
 import { AppComponent } from "./app.component";
-import { CustomerComponent } from "./pages/customer/customer.component";
-import { TariffComponent } from "./pages/tariff/tariff.component";
-import { AssetDetailsComponent } from "./pages/asset-details/asset-details.component";
 import { NbEvaIconsModule } from "@nebular/eva-icons";
 
 // import { CustomerComponent } from './customer/customer.component';

@@ -1,9 +1,7 @@
 <nb-search type="rotate-layout"></nb-search>
 <nb-card>
   <nb-card-body>
-    <button nbButton status="primary">
-      <nb-icon icon="edit-outline"></nb-icon>
-    </button>
+    <nb-menu [items]="items"></nb-menu>
   </nb-card-body>
 </nb-card>
 
@@ -53,3 +51,6 @@
   </nb-list>
 </nb-card> -->
 <ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+<div class="edit">
+  <router-outlet></router-outlet>
+</div>
