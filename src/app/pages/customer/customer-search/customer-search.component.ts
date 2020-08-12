@@ -3,6 +3,7 @@ import {NbSearchComponent, NbSearchService} from '@nebular/theme';
 import {Subscription} from 'rxjs';
 import {LocalDataSource} from 'ng2-smart-table';
 import {ICustomerDetails, ICustomerDetailsAPIService} from '../../../@providers/data/customer-details';
+import {CustomerDetailsTableRouteComponent} from '../customer-details-table-route/customer-details-table-route.component';
 
 @Component({
     selector: 'ngx-customer-search',
@@ -26,10 +27,9 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
         columns: {
             customer_id: {
                 title: 'Customer ID',
-                // type: 'custom',
-                type: 'string',
+                type: 'custom',
                 editable: false,
-                // renderComponent: MpanDetailsTableRouteComponent,
+                renderComponent: CustomerDetailsTableRouteComponent,
             },
             full_name: {
                 title: 'Customer Name',

@@ -21,10 +21,13 @@ import {
 import {NgModule} from '@angular/core';
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {ThemeModule} from '../../@theme/theme.module';
+import {
+    CustomerDetailsTableRouteComponent,
+} from './customer-details-table-route/customer-details-table-route.component';
 
 
-const ENTRY_COMPONENTS = [];
-const EXPORT_COMPONENTS = [];
+const ENTRY_COMPONENTS = [CustomerDetailsTableRouteComponent];
+const EXPORT_COMPONENTS = [CustomerDetailsTableRouteComponent];
 
 
 @NgModule({
