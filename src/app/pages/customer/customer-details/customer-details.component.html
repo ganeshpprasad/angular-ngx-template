@@ -46,22 +46,25 @@
 <div class="customer-detail">
     <nb-card>
         <nb-card-header>
-            <h6 class="text-primary">Customer</h6>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="people-outline" pack="eva" status="danger"></nb-icon>
+                CUSTOMER
+            </span>
         </nb-card-header>
         <div class="details-card">
             <nb-card-body>
                 <div class="c-detail-container">
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">name</div>
-                        <div class="c-detail-item-value">{{(customerDetails | async).full_name}}</div>
+                        <div class="c-detail-item-value text-danger font-weight-bold">{{(customerDetails | async).full_name}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Customer ID</div>
-                        <div class="c-detail-item-value text-primary">{{(customerDetails | async).customer_id}}</div>
+                        <div class="c-detail-item-value text-primary font-weight-bold">{{(customerDetails | async).customer_id}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Company Name</div>
-                        <div class="c-detail-item-value">{{(customerDetails | async).company_name}}</div>
+                        <div class="c-detail-item-value text-danger font-weight-bold">{{(customerDetails | async).company_name}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Alias</div>
@@ -128,36 +131,47 @@
 <div class="customer-detail">
     <nb-card>
         <nb-card-header>
-            <h6 class="text-primary">Service Accounts</h6>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="pantone-outline" pack="eva" status="danger"></nb-icon>
+                SERVICE ACCOUNTS
+            </span>
         </nb-card-header>
         <div class="details-card">
             <nb-card-body>
                 <div class="srv-detail-container">
                     <div class="c-detail-item">
-                        <div class="c-detail-item-title">Service ID</div>
+                        <div class="c-detail-item-title text-primary">Service ID</div>
                     </div>
                     <div class="c-detail-item">
-                        <div class="c-detail-item-title">Service Type</div>
+                        <div class="c-detail-item-title text-primary">Service Type</div>
                     </div>
                     <div class="c-detail-item">
-                        <div class="c-detail-item-title">Asset ID</div>
+                        <div class="c-detail-item-title text-primary">Asset ID</div>
                     </div>
                     <div class="c-detail-item">
-                        <div class="c-detail-item-title">Service Status</div>
+                        <div class="c-detail-item-title text-primary">Service Status</div>
                     </div>
-                    <div *ngFor="let srv of (serviceAccounts | async)">
-                        <div class="c-detail-item">
-                            <div class="c-detail-item-value">{{srv.service_id}}</div>
-                        </div>
-                        <div class="c-detail-item">
-                            <div class="c-detail-item-value">{{srv.service_type}}</div>
-                        </div>
-                        <div class="c-detail-item">
-                            <div class="c-detail-item-value">{{srv.asset_id}}</div>
-                        </div>
-                        <div class="c-detail-item">
-                            <div class="c-detail-item-value">{{srv.service_status}}</div>
-                        </div>
+                </div>
+                <div class="srv-detail-container" *ngFor="let srv of (serviceAccounts | async)">
+                    <div class="c-detail-item">
+                        <a class="hvr-grow"
+                           [routerLink]="'/pages/customer/' + srv.service_id"
+                           routerLinkActive="active">
+                            <span>
+                                <nb-icon icon="expand-outline" pack="eva" status="primary"></nb-icon>
+                                {{ srv.service_id }}
+                            </span>
+                        </a>
+<!--                        <div class="c-detail-item-value text-primary">{{srv.service_id}}</div>-->
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.service_type}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.asset_id}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.service_status}}</div>
                     </div>
                 </div>
             </nb-card-body>
@@ -166,22 +180,24 @@
 
     <nb-card>
         <nb-card-header>
-            <h6 class="text-primary">Notes</h6>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="grid-outline" pack="eva" status="danger"></nb-icon>
+                ACCOUNT INFO
+            </span>
         </nb-card-header>
         <div class="details-card">
             <nb-card-body>
                 <div class="c-detail-item">
-                    <div class="c-detail-item-title text-primary">Billing Address</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.street}}</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.city}}</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.state}}</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.country}}</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.postcode}}</div>
-                </div>
-                <div class="c-detail-item">
-                    <div class="c-detail-item-title text-primary">Contact Info</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.email}}</div>
-                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.contact_info}}</div>
+                    <div class="c-detail-item-title text-primary">Outstanding Balance</div>
+                    <div class="c-detail-item-value text-danger font-weight-bolder">£300.70</div>
+                    <div class="c-detail-item-title text-primary">Last Payment</div>
+                    <div class="c-detail-item-value">2020-07-07</div>
+                    <div class="c-detail-item-title text-primary">Last Payment Amount</div>
+                    <div class="c-detail-item-value">£70.00</div>
+                    <div class="c-detail-item-title text-primary">Last Bill Date</div>
+                    <div class="c-detail-item-value">2020-08-01</div>
+                    <div class="c-detail-item-title text-primary">Last Bill Amount</div>
+                    <div class="c-detail-item-value">£370.70</div>
                 </div>
             </nb-card-body>
         </div>
