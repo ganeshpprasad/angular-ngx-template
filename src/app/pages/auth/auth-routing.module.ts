@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {NbAuthComponent} from "@nebular/auth";
-import {LoginComponent} from "./login/login.component";
-import {LogoutComponent} from "./logout/logout.component";
+import {NbAuthComponent} from '@nebular/auth';
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +30,5 @@ export class NgxAuthRoutingModule {
 
 export const routedComponents = [
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
 ];

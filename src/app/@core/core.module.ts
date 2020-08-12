@@ -59,7 +59,7 @@ export const NB_CORE_PROVIDERS = [
             //         key: 'token', // <-- this parameter tells where to look for the token
             //     },
             // }),
-            NbDummyAuthStrategy.setup({name:'email'}) ],
+            NbDummyAuthStrategy.setup({name: 'email'})],
         forms: {},
     }).providers,
 
