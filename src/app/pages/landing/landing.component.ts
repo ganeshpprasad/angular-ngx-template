@@ -18,11 +18,17 @@ export class LandingComponent implements OnDestroy {
 
     private alive = true;
 
-    mpanCard: CardSettings = {
+    customerCard: CardSettings = {
         title: 'Customer 360',
         iconClass: 'nb-lightbulb',
         type: 'success',
         url: '/pages/customer',
+    };
+    srvCard: CardSettings = {
+        title: 'Service A/C 360',
+        iconClass: 'nb-lightbulb',
+        type: 'success',
+        url: '/pages/srv-account',
     };
     assetDetails: CardSettings = {
         title: 'Asset Management',
@@ -70,7 +76,8 @@ export class LandingComponent implements OnDestroy {
     statusCards: CardSettings[];
 
     commonStatusCardsSet: CardSettings[] = [
-        this.mpanCard,
+        this.customerCard,
+        this.srvCard,
         this.tariffDetails,
         this.assetDetails,
         this.debtManagement,

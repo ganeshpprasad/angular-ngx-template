@@ -20,6 +20,13 @@ const routes: Routes = [
                     ),
             },
             {
+                path: 'srv-account',
+                loadChildren: () =>
+                    import('./srv-account/srv-account.module').then(
+                        m => m.SrvAccountModule,
+                    ),
+            },
+            {
                 path: 'landing',
                 component: LandingComponent,
             },

@@ -9,6 +9,7 @@ import {ThemeModule} from '../@theme/theme.module';
 import {PagesComponent} from './pages.component';
 import {PagesRoutingModule} from './pages-routing.module';
 import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
+import {SrvAccountModule} from './srv-account/srv-account.module';
 
 @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
         AssetDetailsModule,
         LandingModule,
         MiscellaneousModule,
+        SrvAccountModule,
     ],
     declarations: [PagesComponent],
 })

@@ -13,6 +13,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/customer',
     },
     {
+        title: 'Service A/C 360',
+        icon: 'globe-2-outline',
+        link: '/pages/srv-account',
+    },
+    {
         title: 'Asset Management',
         icon: 'cube-outline',
         link: '/pages/asset-details',
