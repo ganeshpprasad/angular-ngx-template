@@ -1,24 +1,42 @@
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { LandingComponent } from './landing.component';
+import {NgModule} from '@angular/core';
 import {
-	NbCardModule,
-	NbSearchModule,
-	NbListModule,
-	NbMenuModule,
+    NbActionsModule,
+    NbButtonModule,
+    NbCardModule,
+    NbIconModule,
+    NbListModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbTabsetModule,
+    NbUserModule,
 } from '@nebular/theme';
-import { NgModule } from '@angular/core';
+import {NgxEchartsModule} from 'ngx-echarts';
+
+import {ThemeModule} from '../../@theme/theme.module';
+import {StatusCardComponent} from './status-card/status-card.component';
+import {FormsModule} from '@angular/forms';
+import {LandingComponent} from './landing.component';
+
 @NgModule({
-	imports: [
-		NbCardModule,
-		NbSearchModule,
-		HttpClientModule,
-		CommonModule,
-		RouterModule,
-		NbListModule,
-		NbMenuModule,
-	],
-	declarations: [LandingComponent],
+    imports: [
+        FormsModule,
+        ThemeModule,
+        NbCardModule,
+        NbUserModule,
+        NbButtonModule,
+        NbTabsetModule,
+        NbActionsModule,
+        NbRadioModule,
+        NbSelectModule,
+        NbListModule,
+        NbIconModule,
+        NbButtonModule,
+        NgxEchartsModule,
+    ],
+    declarations: [
+        LandingComponent,
+        StatusCardComponent,
+    ],
 })
-export class LandingModule {}
+export class LandingModule {
+}

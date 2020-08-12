@@ -1,16 +1,10 @@
-<nb-search type="rotate-layout"></nb-search>
-<!-- <div *ngFor="let item of data">
-	<span>{{ item.customer_id }}</span>
-	<span>{{ item.name }}</span>
-</div> -->
-<nb-list>
-	<nb-list-item *ngFor="let item of data">
-		<a [routerLink]="['customer']">
-			<div>
-				<span>{{ item.customer_id }}</span>
-				<span> &nbsp; </span>
-				<span>{{ item.name }}</span>
-			</div>
-		</a>
-	</nb-list-item>
-</nb-list>
+<div class="row">
+    <div class="col-xxxl-3 col-md-6" *ngFor="let statusCard of statusCards">
+        <ngx-status-card
+                [title]="statusCard.title"
+                [type]="statusCard.type"
+                [route2Link]="statusCard.url">
+            <i [ngClass]="statusCard.iconClass"></i>
+        </ngx-status-card>
+    </div>
+</div>

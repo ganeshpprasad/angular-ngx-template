@@ -2,10 +2,15 @@ import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
     {
+        title: 'Dashboard',
+        icon: 'globe-2-outline',
+        link: '/pages/landing',
+        home: true,
+    },
+    {
         title: 'Customer 360',
         icon: 'globe-2-outline',
         link: '/pages/customer',
-        home: true,
     },
     {
         title: 'Asset Management',
