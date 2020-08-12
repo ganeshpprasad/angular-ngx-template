@@ -1,71 +1,57 @@
-import { EditComponent } from './edit/edit.component';
-import { filter } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { NbMenuItem } from '@nebular/theme';
-import { ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
+import {ICustomerDetails, ICustomerDetailsAPIService} from '../../../@providers/data/customer-details';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Component({
-	selector: 'ngx-customer',
-	changeDetection: ChangeDetectionStrategy.OnPush,
-	templateUrl: './customer-details.component.html',
-	styleUrls: ['./customer-details.component.scss'],
+    selector: 'ngx-customer',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './customer-details.component.html',
+    styleUrls: ['./customer-details.component.scss'],
 })
 export class CustomerDetailsComponent implements OnInit {
-	fruit: String = 'mango';
-	settings = {
-		actions: false,
+    @Input() customer_id: string;
 
-		hideHeader: false,
+    routed_id$: Observable<string>;
+    customerDetails: ICustomerDetails;
 
-		columns: {
-			id: {
-				title: 'ID',
-				filter: false,
-			},
-			name: {
-				title: 'Full Name',
-				filter: false,
-			},
-			username: {
-				title: 'User Name',
-				filter: false,
-			},
-			email: {
-				title: 'Email',
-				filter: false,
-			},
-		},
-	};
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private customerDetailsAPIService: ICustomerDetailsAPIService) {
+    }
 
-	data = [
-		{
-			id: 1,
-			name: 'Leanne Graham',
-			username: 'Bret',
-			email: 'Sincere@april.biz',
-		},
-		{
-			id: 2,
-			name: 'Ervin Howell',
-			username: 'Antonette',
-			email: 'Shanna@melissa.tv',
-		},
-		{
-			id: 3,
-			name: 'Nicholas DuBuque',
-			username: 'Nicholas.Stanton',
-			email: 'Rey.Padberg@rosamond.biz',
-		},
-	];
+    ngOnInit() {
+        this.routed_id$ = this.route.paramMap.pipe(
+            map((params: ParamMap) => params.get('id')),
+        );
+        // Load data from server api
+        this.loadCustomerDetails();
+    }
 
-	items: NbMenuItem[] = [
-		{
-			title: 'Edit',
-			icon: 'edit-outline',
-			link: 'edit',
-		},
-	];
-	constructor() {}
+    private loadCustomerDetails() {
+        this.routed_id$.subscribe((cusid: string) => {
 
-	ngOnInit() {}
+            this.customerDetailsAPIService.getCustomerDetailsByID(cusid)
+                .subscribe((m: ICustomerDetails) => {
+                    console.log(m);
+                    this.customerDetails = m;
+                });
+        });
+    }
+
+
+    onEventClick() {
+        return;
+    }
+
+    onClickBack() {
+        this.router.navigate(['../', {}], {relativeTo: this.route});
+    }
+
+    onClickHome() {
+        this.router.navigate(['/pages/landing', {}], {relativeTo: this.route});
+    }
+
 }
