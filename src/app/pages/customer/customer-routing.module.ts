@@ -21,6 +21,11 @@ export const routes: Routes = [
         ],
     },
 ];
+export const routedComponents = [
+    CustomerComponent,
+    CustomerDetailsComponent,
+    CustomerSearchComponent,
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

@@ -1,18 +1,64 @@
-import { CustomerSearchModule } from './customer-search/customer-search.module';
-import { CustomerDetailModule } from './customer-details/customer-details.module';
-import { CustomerComponent } from './customer.component';
-import { CustomerRoutingModule } from './customer-routing.module';
-import { RouterModule } from '@angular/router';
+import {CustomerRoutingModule, routedComponents} from './customer-routing.module';
 
-import { NbCardModule } from '@nebular/theme';
-import { NgModule } from '@angular/core';
+import {
+    NbActionsModule,
+    NbButtonModule,
+    NbCardModule,
+    NbCheckboxModule,
+    NbIconModule,
+    NbInputModule,
+    NbListModule,
+    NbMenuModule,
+    NbRadioModule,
+    NbSearchModule,
+    NbSelectModule,
+    NbSpinnerModule,
+    NbTabsetModule,
+    NbTooltipModule,
+    NbUserModule,
+} from '@nebular/theme';
+
+import {NgModule} from '@angular/core';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
+import {ThemeModule} from '../../@theme/theme.module';
+
+
+const ENTRY_COMPONENTS = [];
+const EXPORT_COMPONENTS = [];
+
+
 @NgModule({
-	imports: [
-		NbCardModule,
-		CustomerRoutingModule,
-		CustomerDetailModule,
-		CustomerSearchModule,
-	],
-	declarations: [CustomerComponent],
+    imports: [
+        ThemeModule,
+        NbMenuModule,
+        NbInputModule,
+        NbSearchModule,
+        NbCardModule,
+        NbUserModule,
+        NbButtonModule,
+        NbTabsetModule,
+        NbActionsModule,
+        NbRadioModule,
+        NbSelectModule,
+        NbCheckboxModule,
+        NbListModule,
+        NbIconModule,
+        NbButtonModule,
+        NbTooltipModule,
+        NbSpinnerModule,
+        Ng2SmartTableModule,
+        CustomerRoutingModule,
+    ],
+    declarations: [
+        ...ENTRY_COMPONENTS, ...routedComponents, ...EXPORT_COMPONENTS,
+    ],
+    entryComponents: [
+        ...ENTRY_COMPONENTS,
+    ],
+    exports: [
+        ...EXPORT_COMPONENTS,
+    ],
+
 })
-export class CustomerModule {}
+export class CustomerModule {
+}

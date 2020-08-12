@@ -5,35 +5,17 @@ import {throwIfAlreadyLoaded} from './module-import-guard';
 import {AuthGuard} from './services/auth-guard.service';
 import {TimeProfile} from './data/timeprofile';
 import {TimeProfileService} from './services/timeprofile.service';
-import {IMPANDetailsAPIService} from './data/mpandetails';
-import {MpanDetailsService} from './services/mpan-details.service';
-import {ISiteDetailsAPIService} from './data/sitedetails';
-import {SiteDetailsService} from './services/site-details.service';
-import {IMainCableDetailsAPIService} from './data/main-cable-details';
-import {MainCableDetailsService} from './services/main-cable-details.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {LoggingInterceptor} from './interceptors/logging-interceptor';
 import {HttpErrorInterceptor} from './interceptors/http-error-interceptor';
-import {IAssetDetailsAPIService} from './data/assetdetails';
-import {AssetDetailsService} from './services/asset-details.service';
-import {IMpanImportApiService} from './data/mpanimport';
-import {MpanImportApiService} from './services/mpan-import.service';
-import {IMpanReportApiService} from './data/mpanreport';
-import {MpanReportService} from './services/mpan-report.service';
-import {ILLFCSelectionService} from './data/llfcselection';
-import {LlfcSelectionService} from './services/llfc-selection.service';
+import {ICustomerDetailsAPIService} from './data/customer-details';
+import {CustomerDetailsService} from './services/customer-details.service';
 
 
 const DATA_SERVICES = [
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
-    {provide: IMPANDetailsAPIService, useClass: MpanDetailsService},
-    {provide: IMpanImportApiService, useClass: MpanImportApiService},
-    {provide: ISiteDetailsAPIService, useClass: SiteDetailsService},
-    {provide: IMainCableDetailsAPIService, useClass: MainCableDetailsService},
-    {provide: IAssetDetailsAPIService, useClass: AssetDetailsService},
-    {provide: IMpanReportApiService, useClass: MpanReportService},
-    {provide: ILLFCSelectionService, useClass: LlfcSelectionService},
+    {provide: ICustomerDetailsAPIService, useClass: CustomerDetailsService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
