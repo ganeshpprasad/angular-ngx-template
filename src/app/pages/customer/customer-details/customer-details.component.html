@@ -1,0 +1,92 @@
+<p>customer-details works!</p>
+
+<nb-search type="rotate-layout"></nb-search>
+<nb-card>
+	<nb-card-body>
+		<nb-menu [items]="items"></nb-menu>
+	</nb-card-body>
+</nb-card>
+
+<div class="customer-detail">
+	<nb-card>
+		<div class="details-card">
+			<nb-card-body>
+				<h6>Customer details</h6>
+
+				<div class="c-detail-container">
+					<div class="c-detail-item">
+						<div class="c-detail-item-title">name</div>
+						<div class="c-detail-item-value">John Doe</div>
+					</div>
+					<div class="c-detail-item">
+						<div class="c-detail-item-title">Customer ID</div>
+						<div class="c-detail-item-value">FKDD5824SH</div>
+					</div>
+					<div class="c-detail-item">
+						<div class="c-detail-item-title">Company Name</div>
+						<div class="c-detail-item-value">BBC.corp</div>
+					</div>
+					<div class="c-detail-item">
+						<div class="c-detail-item-title">Company Type</div>
+						<div class="c-detail-item-value">Media</div>
+					</div>
+				</div>
+
+				<div class="tags">
+					<span>Tags#</span>
+					<span>Tags2#</span>
+				</div>
+			</nb-card-body>
+		</div>
+	</nb-card>
+
+	<nb-card>
+		<div class="details-card">
+			<nb-card-body>
+				<h6>Service details</h6>
+				<div class="c-detail-item">
+					<div class="c-detail-item-title">Solar</div>
+					<div class="c-detail-item-value">Rajastan</div>
+				</div>
+				<div class="c-detail-item">
+					<div class="c-detail-item-title">Wind</div>
+					<div class="c-detail-item-value">Gujarath</div>
+				</div>
+			</nb-card-body>
+		</div>
+	</nb-card>
+
+	<nb-card>
+		<div class="details-card">
+			<nb-card-body>
+				<h6>Payment details</h6>
+			</nb-card-body>
+		</div>
+	</nb-card>
+</div>
+
+<!-- <nb-card>
+  <nb-list>
+    <nb-list-item>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+      <nb-card>
+        <nb-card-body>
+          fruit
+        </nb-card-body>
+      </nb-card>
+    </nb-list-item>
+  </nb-list>
+</nb-card> -->
+<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>
+<div class="edit">
+	<!-- <router-outlet></router-outlet> -->
+</div>

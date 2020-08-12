@@ -1,5 +1,4 @@
 import { LandingComponent } from './landing/landing.component';
-import { CustomerComponent } from './customer/customer.component';
 import { TariffComponent } from './tariff/tariff.component';
 import { AssetDetailsComponent } from './asset-details/asset-details.component';
 import { RouterModule, Routes } from '@angular/router';

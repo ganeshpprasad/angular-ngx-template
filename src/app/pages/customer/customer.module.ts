@@ -1,35 +1,18 @@
-import { EditComponent } from "./edit/edit.component";
-import { CustomerRoutingModule } from "./customer-routing.module";
-import { CustomerComponent } from "./customer.component";
-import { RouterModule } from "@angular/router";
-import { NbMenuModule } from "@nebular/theme";
-import {
-  NbCardModule,
-  NbSearchModule,
-  NbLayoutModule,
-  NbButtonModule,
-  NbIconModule,
-  NbListModule,
-  NbUserModule,
-} from "@nebular/theme";
+import { CustomerSearchModule } from './customer-search/customer-search.module';
+import { CustomerDetailModule } from './customer-details/customer-details.module';
+import { CustomerComponent } from './customer.component';
+import { CustomerRoutingModule } from './customer-routing.module';
+import { RouterModule } from '@angular/router';
 
-import { NgModule } from "@angular/core";
-import { Ng2SmartTableModule } from "ng2-smart-table";
+import { NbCardModule } from '@nebular/theme';
+import { NgModule } from '@angular/core';
 @NgModule({
-  imports: [
-    NbCardModule,
-    NbSearchModule,
-    NbLayoutModule,
-    NbButtonModule,
-    NbIconModule,
-    NbListModule,
-    NbUserModule,
-    Ng2SmartTableModule,
-    CustomerRoutingModule,
-    RouterModule,
-    NbMenuModule,
-  ],
-
-  declarations: [CustomerComponent, EditComponent],
+	imports: [
+		NbCardModule,
+		CustomerRoutingModule,
+		CustomerDetailModule,
+		CustomerSearchModule,
+	],
+	declarations: [CustomerComponent],
 })
 export class CustomerModule {}
