@@ -48,7 +48,7 @@ const routes: Routes = [
 			{
 				path: '**',
 				// component: NotFoundComponent,
-				component: CustomerComponent,
+				component: LandingComponent,
 			},
 		],
 	},
