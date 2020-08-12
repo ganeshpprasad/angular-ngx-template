@@ -8,6 +8,7 @@ import {NbMenuModule} from '@nebular/theme';
 import {ThemeModule} from '../@theme/theme.module';
 import {PagesComponent} from './pages.component';
 import {PagesRoutingModule} from './pages-routing.module';
+import {MiscellaneousModule} from './miscellaneous/miscellaneous.module';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import {PagesRoutingModule} from './pages-routing.module';
         CustomerModule,
         AssetDetailsModule,
         LandingModule,
+        MiscellaneousModule,
     ],
     declarations: [PagesComponent],
 })

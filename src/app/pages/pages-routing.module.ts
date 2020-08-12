@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 
 import {PagesComponent} from './pages.component';
+import {NotFoundComponent} from './miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [
     {
@@ -17,7 +18,6 @@ const routes: Routes = [
                     import('./customer/customer.module').then(
                         m => m.CustomerModule,
                     ),
-                // component: CustomerComponent,
             },
             {
                 path: 'landing',
@@ -25,18 +25,10 @@ const routes: Routes = [
             },
             {
                 path: 'asset-details',
-                // loadChildren: () =>
-                // import('./asset-details/asset-details.module').then(
-                // m => m.AssetDetailsModule
-                // ),
                 component: AssetDetailsComponent,
             },
             {
                 path: 'tariffs',
-                // loadChildren: () =>
-                // import('./maincabledetails/maincabledetails.module').then(
-                // m => m.MainCableDetailsModule
-                // ),
                 component: TariffComponent,
             },
             {
@@ -46,8 +38,7 @@ const routes: Routes = [
             },
             {
                 path: '**',
-                // component: NotFoundComponent,
-                component: LandingComponent,
+                component: NotFoundComponent,
             },
         ],
     },
