@@ -53,25 +53,25 @@
                 <div class="c-detail-container">
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">name</div>
-                        <div class="c-detail-item-value">{{customerDetails.full_name}}</div>
+                        <div class="c-detail-item-value">{{(customerDetails | async).full_name}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Customer ID</div>
-                        <div class="c-detail-item-value text-primary">{{customerDetails.customer_id}}</div>
+                        <div class="c-detail-item-value text-primary">{{(customerDetails | async).customer_id}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Company Name</div>
-                        <div class="c-detail-item-value">{{customerDetails.company_name}}</div>
+                        <div class="c-detail-item-value">{{(customerDetails | async).company_name}}</div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title">Alias</div>
-                        <div class="c-detail-item-value">{{customerDetails.company_name}}</div>
+                        <div class="c-detail-item-value">{{(customerDetails | async).company_name}}</div>
                     </div>
                 </div>
 
                 <div class="tags">
                     <div class="text-info"
-                         *ngFor="let tag of customerDetails.tags">
+                         *ngFor="let tag of (customerDetails | async).tags">
                         {{ tag }}
                     </div>
                 </div>
@@ -87,16 +87,16 @@
             <nb-card-body>
                 <div class="c-detail-item">
                     <div class="c-detail-item-title text-primary">Billing Address</div>
-                    <div class="c-detail-item-value">{{customerDetails.billing_address.street}}</div>
-                    <div class="c-detail-item-value">{{customerDetails.billing_address.city}}</div>
-                    <div class="c-detail-item-value">{{customerDetails.billing_address.state}}</div>
-                    <div class="c-detail-item-value">{{customerDetails.billing_address.country}}</div>
-                    <div class="c-detail-item-value">{{customerDetails.billing_address.postcode}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.street}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.city}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.state}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.country}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.postcode}}</div>
                 </div>
                 <div class="c-detail-item">
                     <div class="c-detail-item-title text-primary">Contact Info</div>
-                    <div class="c-detail-item-value">{{customerDetails.contact_info.email}}</div>
-                    <div class="c-detail-item-value">{{customerDetails.contact_info.contact_info}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.email}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.contact_info}}</div>
                 </div>
             </nb-card-body>
         </div>
@@ -125,28 +125,69 @@
     </nb-card>
 </div>
 
-<!-- <nb-card>
-  <nb-list>
-    <nb-list-item>
-      <nb-card>
-        <nb-card-body>
-          fruit
-        </nb-card-body>
-      </nb-card>
-      <nb-card>
-        <nb-card-body>
-          fruit
-        </nb-card-body>
-      </nb-card>
-      <nb-card>
-        <nb-card-body>
-          fruit
-        </nb-card-body>
-      </nb-card>
-    </nb-list-item>
-  </nb-list>
-</nb-card> -->
-<!--<ng2-smart-table [settings]="settings" [source]="data"></ng2-smart-table>-->
+<div class="customer-detail">
+    <nb-card>
+        <nb-card-header>
+            <h6 class="text-primary">Service Accounts</h6>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="srv-detail-container">
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Service ID</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Service Type</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Asset ID</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Service Status</div>
+                    </div>
+                    <div *ngFor="let srv of (serviceAccounts | async)">
+                        <div class="c-detail-item">
+                            <div class="c-detail-item-value">{{srv.service_id}}</div>
+                        </div>
+                        <div class="c-detail-item">
+                            <div class="c-detail-item-value">{{srv.service_type}}</div>
+                        </div>
+                        <div class="c-detail-item">
+                            <div class="c-detail-item-value">{{srv.asset_id}}</div>
+                        </div>
+                        <div class="c-detail-item">
+                            <div class="c-detail-item-value">{{srv.service_status}}</div>
+                        </div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card>
+        <nb-card-header>
+            <h6 class="text-primary">Notes</h6>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Billing Address</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.street}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.city}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.state}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.country}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.postcode}}</div>
+                </div>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Contact Info</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.email}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.contact_info}}</div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+</div>
+
 <div class="edit">
     <!-- <router-outlet></router-outlet> -->
 </div>

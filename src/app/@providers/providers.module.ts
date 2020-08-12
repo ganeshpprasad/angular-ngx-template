@@ -10,12 +10,15 @@ import {LoggingInterceptor} from './interceptors/logging-interceptor';
 import {HttpErrorInterceptor} from './interceptors/http-error-interceptor';
 import {ICustomerDetailsAPIService} from './data/customer-details';
 import {CustomerDetailsService} from './services/customer-details.service';
+import {IServiceAccountDetailsAPIService} from './data/service-account';
+import {ServiceAccountService} from './services/service-account.service';
 
 
 const DATA_SERVICES = [
     {provide: TimeProfile, useClass: TimeProfileService},
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: ICustomerDetailsAPIService, useClass: CustomerDetailsService},
+    {provide: IServiceAccountDetailsAPIService, useClass: ServiceAccountService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
