@@ -1,0 +1,35 @@
+
+nb-icon {
+
+}
+
+.title {
+  padding: 0 1.25rem;
+  font-size: 1.95rem;
+  white-space: nowrap;
+  text-decoration: none;
+  nb-icon {
+    font-size: 1.95rem;
+
+  }
+}
+
+.slide-in {
+
+  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+  animation: slide-in 3s forwards;
+  -webkit-animation: slide-in 3s forwards;
+
+  @keyframes slide-in {
+    100% {
+      transform: translateY(0%);
+    }
+  }
+
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateY(0%);
+    }
+  }
+}

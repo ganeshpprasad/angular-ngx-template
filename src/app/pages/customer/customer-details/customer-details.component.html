@@ -1,0 +1,209 @@
+<nb-card>
+    <nb-card-body>
+        <!--ACTION BUTTONS-->
+        <div class="row">
+            <button (click)="onClickHome()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="home-outline" status="primary"></nb-icon>
+                Home
+            </button>
+            <button (click)="onClickBack()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="arrowhead-left-outline" status="primary"></nb-icon>
+                Back
+            </button>
+            <button (click)="onEventClick()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="save-outline" status="danger"></nb-icon>
+                Save
+            </button>
+            <button (click)="onEventClick()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="refresh-outline" status="primary"></nb-icon>
+                Reset
+            </button>
+            <button (click)="onEventClick()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="expand-outline" status="danger"></nb-icon>
+                Edit Customer
+            </button>
+            <button (click)="onEventClick()"
+                    ghost size="small" status="primary"
+                    class="hvr-bob" nbButton>
+                <nb-icon icon="expand-outline" status="danger"></nb-icon>
+                Edit Payment
+            </button>
+        </div>
+
+    </nb-card-body>
+</nb-card>
+
+<div class="customer-detail">
+    <nb-card>
+        <nb-card-header>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="people-outline" pack="eva" status="danger"></nb-icon>
+                CUSTOMER
+            </span>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="c-detail-container">
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">name</div>
+                        <div class="c-detail-item-value text-danger font-weight-bold">{{(customerDetails | async).full_name}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Customer ID</div>
+                        <div class="c-detail-item-value text-primary font-weight-bold">{{(customerDetails | async).customer_id}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Company Name</div>
+                        <div class="c-detail-item-value text-danger font-weight-bold">{{(customerDetails | async).company_name}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title">Alias</div>
+                        <div class="c-detail-item-value">{{(customerDetails | async).company_name}}</div>
+                    </div>
+                </div>
+
+                <div class="tags">
+                    <div class="text-info"
+                         *ngFor="let tag of (customerDetails | async).tags">
+                        {{ tag }}
+                    </div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card>
+        <nb-card-header>
+            <h6 class="text-primary">Customer details</h6>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Billing Address</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.street}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.city}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.state}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.country}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).billing_address.postcode}}</div>
+                </div>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Contact Info</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.email}}</div>
+                    <div class="c-detail-item-value">{{(customerDetails | async).contact_info.contact_info}}</div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card>
+        <nb-card-header>
+            <h6 class="text-primary">Payment Details</h6>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Preferred Method</div>
+                    <div class="c-detail-item-value">Direct Debit</div>
+                    <div class="c-detail-item-title text-primary">Preferred Date</div>
+                    <div class="c-detail-item-value">2020-xx-xx</div>
+                    <div class="c-detail-item-title text-primary">Fixed Direct Debit Amt</div>
+                    <div class="c-detail-item-value">£70.00</div>
+                    <div class="c-detail-item-title text-primary">Bank Name</div>
+                    <div class="c-detail-item-value">Barclays Bank Plc</div>
+                    <div class="c-detail-item-title text-primary">a/c number</div>
+                    <div class="c-detail-item-value">XXXXX-860</div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+</div>
+
+<div class="customer-detail">
+    <nb-card>
+        <nb-card-header>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="pantone-outline" pack="eva" status="danger"></nb-icon>
+                SERVICE ACCOUNTS
+            </span>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="srv-detail-container">
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title text-primary">Service ID</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title text-primary">Service Type</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title text-primary">Asset ID</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-title text-primary">Service Status</div>
+                    </div>
+                </div>
+                <div class="srv-detail-container" *ngFor="let srv of (serviceAccounts | async)">
+                    <div class="c-detail-item">
+                        <a class="hvr-grow"
+                           [routerLink]="'/pages/srv-account/' + srv.service_id"
+                           routerLinkActive="active">
+                            <span>
+                                <nb-icon icon="expand-outline" pack="eva" status="primary"></nb-icon>
+                                {{ srv.service_id }}
+                            </span>
+                        </a>
+<!--                        <div class="c-detail-item-value text-primary">{{srv.service_id}}</div>-->
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.service_type}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.asset_id}}</div>
+                    </div>
+                    <div class="c-detail-item">
+                        <div class="c-detail-item-value">{{srv.service_status}}</div>
+                    </div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+
+    <nb-card>
+        <nb-card-header>
+            <span class="text-primary font-weight-bold">
+                <nb-icon icon="grid-outline" pack="eva" status="danger"></nb-icon>
+                ACCOUNT INFO
+            </span>
+        </nb-card-header>
+        <div class="details-card">
+            <nb-card-body>
+                <div class="c-detail-item">
+                    <div class="c-detail-item-title text-primary">Outstanding Balance</div>
+                    <div class="c-detail-item-value text-danger font-weight-bolder">£300.70</div>
+                    <div class="c-detail-item-title text-primary">Last Payment</div>
+                    <div class="c-detail-item-value">2020-07-07</div>
+                    <div class="c-detail-item-title text-primary">Last Payment Amount</div>
+                    <div class="c-detail-item-value">£70.00</div>
+                    <div class="c-detail-item-title text-primary">Last Bill Date</div>
+                    <div class="c-detail-item-value">2020-08-01</div>
+                    <div class="c-detail-item-title text-primary">Last Bill Amount</div>
+                    <div class="c-detail-item-value">£370.70</div>
+                </div>
+            </nb-card-body>
+        </div>
+    </nb-card>
+</div>
+
+<div class="edit">
+    <!-- <router-outlet></router-outlet> -->
+</div>
