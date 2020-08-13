@@ -5,7 +5,7 @@ import {UserData} from '../../../@core/data/users';
 import {LayoutService} from '../../../@core/utils';
 import {map, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
-import {NbAuthService} from "@nebular/auth";
+import {NbAuthService} from '@nebular/auth';
 
 @Component({
     selector: 'ngx-header',

@@ -16,10 +16,10 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    .srv-detail-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
+    //.srv-detail-container {
+    //  display: grid;
+    //  grid-template-columns: 1fr 1fr 1fr 1fr;
+    //}
 
     .c-detail-item {
       margin-bottom: 6px;
@@ -38,6 +38,8 @@
   }
 
   .tags {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     border: 1px solid rgba(18, 247, 149, 0.12);
     padding: 10px;
     border-radius: 5px;
