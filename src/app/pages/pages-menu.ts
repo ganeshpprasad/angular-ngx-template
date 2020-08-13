@@ -14,8 +14,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     },
     {
         title: 'Service A/C 360',
-        icon: 'hash-outline',
+        icon: 'bulb-outline',
         link: '/pages/srv-account',
+    },
+    {
+        title: 'Tariff Management',
+        icon: 'keypad-outline',
+        link: '/pages/tariff-details',
     },
     {
         title: 'Asset Management',
@@ -23,8 +28,23 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/asset-details',
     },
     {
-        title: 'Tariff Management',
-        icon: 'keypad-outline',
-        link: '/pages/tariff',
+        title: 'Debt Management',
+        icon: 'briefcase-outline',
+        link: '/pages/debt-details',
+    },
+    {
+        title: 'Cash Postings',
+        icon: 'credit-card-outline',
+        link: '/pages/cash-details',
+    },
+    {
+        title: 'Bulk Import',
+        icon: 'cloud-upload-outline',
+        link: '/pages/bulk-import',
+    },
+    {
+        title: 'Reports Management',
+        icon: 'folder-add-outline',
+        link: '/pages/reports-management',
     },
 ];
