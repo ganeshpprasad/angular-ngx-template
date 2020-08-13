@@ -24,10 +24,22 @@ import {ThemeModule} from '../../@theme/theme.module';
 import {
     CustomerDetailsTableRouteComponent,
 } from './customer-details-table-route/customer-details-table-route.component';
+import {CustomerChartpieComponent} from './customer-chartpie/customer-chartpie.component';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {CustomerDistpieComponent} from './customer-distpie/customer-distpie.component';
 
 
-const ENTRY_COMPONENTS = [CustomerDetailsTableRouteComponent];
-const EXPORT_COMPONENTS = [CustomerDetailsTableRouteComponent];
+const ENTRY_COMPONENTS = [
+    CustomerDetailsTableRouteComponent,
+    CustomerChartpieComponent,
+    CustomerDistpieComponent,
+];
+const EXPORT_COMPONENTS = [
+    CustomerDetailsTableRouteComponent,
+    CustomerChartpieComponent,
+    CustomerDistpieComponent,
+
+];
 
 
 @NgModule({
@@ -50,6 +62,7 @@ const EXPORT_COMPONENTS = [CustomerDetailsTableRouteComponent];
         NbTooltipModule,
         NbSpinnerModule,
         Ng2SmartTableModule,
+        NgxEchartsModule,
         CustomerRoutingModule,
     ],
     declarations: [
