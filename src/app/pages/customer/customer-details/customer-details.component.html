@@ -75,7 +75,7 @@
                 <div class="tags">
                     <div class="text-info"
                          *ngFor="let tag of (customerDetails | async).tags">
-                        {{ tag }}
+                        <button nbButton outline shape="round" size="small" status="success">{{ tag }}</button>
                     </div>
                 </div>
             </nb-card-body>
@@ -162,7 +162,7 @@
                                 {{ srv.service_id }}
                             </span>
                         </a>
-<!--                        <div class="c-detail-item-value text-primary">{{srv.service_id}}</div>-->
+                        <!--                        <div class="c-detail-item-value text-primary">{{srv.service_id}}</div>-->
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-value">{{srv.service_type}}</div>

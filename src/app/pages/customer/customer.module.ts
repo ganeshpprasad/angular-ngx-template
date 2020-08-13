@@ -27,18 +27,23 @@ import {
 import {CustomerChartpieComponent} from './customer-chartpie/customer-chartpie.component';
 import {NgxEchartsModule} from 'ngx-echarts';
 import {CustomerDistpieComponent} from './customer-distpie/customer-distpie.component';
+import {CustomerGrowthareaComponent} from './customer-growtharea/customer-growtharea.component';
+import {CustomerQuerybarComponent} from './customer-querybar/customer-querybar.component';
 
 
 const ENTRY_COMPONENTS = [
     CustomerDetailsTableRouteComponent,
     CustomerChartpieComponent,
     CustomerDistpieComponent,
+    CustomerGrowthareaComponent,
+    CustomerQuerybarComponent,
 ];
 const EXPORT_COMPONENTS = [
     CustomerDetailsTableRouteComponent,
     CustomerChartpieComponent,
     CustomerDistpieComponent,
-
+    CustomerGrowthareaComponent,
+    CustomerQuerybarComponent,
 ];
 
 
