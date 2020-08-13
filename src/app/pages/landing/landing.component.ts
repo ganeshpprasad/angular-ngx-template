@@ -20,14 +20,14 @@ export class LandingComponent implements OnDestroy {
 
     customerCard: CardSettings = {
         title: 'Customer 360',
-        iconClass: 'nb-lightbulb',
-        type: 'success',
+        iconClass: 'nb-person',
+        type: 'danger',
         url: '/pages/customer',
     };
     srvCard: CardSettings = {
         title: 'Service A/C 360',
         iconClass: 'nb-lightbulb',
-        type: 'success',
+        type: 'danger',
         url: '/pages/srv-account',
     };
     assetDetails: CardSettings = {

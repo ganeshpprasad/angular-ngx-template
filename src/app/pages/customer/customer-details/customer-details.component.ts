@@ -37,33 +37,7 @@ export class CustomerDetailsComponent implements OnInit {
             .pipe(
                 flatMap(customer => this.serviceDetailsAPIService.getServiceAccountForCustomer(customer.customer_id)),
             );
-        // Load data from server api
-        // this.loadCustomerDetails();
     }
-
-    // private loadCustomerDetails() {
-    //     this.routed_id$
-    //         .pipe(
-    //             map(id => this.customerDetailsAPIService.getCustomerDetailsByID(id)),
-    //         )
-    //     this.routed_id$.subscribe((cusid: string) => {
-    //         this.customerDetailsAPIService.getCustomerDetailsByID(cusid)
-    //             .subscribe((m: ICustomerDetails) => {
-    //                 console.log(m);
-    //                 this.customerDetails = m;
-    //                 this.loadServiceDetails(this.customerDetails.customer_id);
-    //             });
-    //     });
-    // }
-    //
-    // private loadServiceDetails(cusid) {
-    //     this.serviceDetailsAPIService
-    //         .getServiceAccountForCustomer(cusid)
-    //         .subscribe((m: IServiceAccountDetails[]) => {
-    //             console.log(m);
-    //             this.serviceAccounts = m;
-    //         });
-    // }
 
 
     onEventClick() {

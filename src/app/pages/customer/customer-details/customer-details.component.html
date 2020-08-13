@@ -155,7 +155,7 @@
                 <div class="srv-detail-container" *ngFor="let srv of (serviceAccounts | async)">
                     <div class="c-detail-item">
                         <a class="hvr-grow"
-                           [routerLink]="'/pages/customer/' + srv.service_id"
+                           [routerLink]="'/pages/srv-account/' + srv.service_id"
                            routerLinkActive="active">
                             <span>
                                 <nb-icon icon="expand-outline" pack="eva" status="primary"></nb-icon>
