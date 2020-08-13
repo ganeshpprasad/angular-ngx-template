@@ -20,9 +20,20 @@ import {
 import {Ng2SmartTableModule} from 'ng2-smart-table';
 import {routedComponents, SrvAccountRoutingModule} from './srv-account-routing.module';
 import {SrvAccountTableRouteComponent} from './srv-account-table-route/srv-account-table-route.component';
+import {SrvAccountTypepieComponent} from './srv-account-typepie/srv-account-typepie.component';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {SrvAccountBillingpieComponent} from './srv-account-billingpie/srv-account-billingpie.component';
 
-const ENTRY_COMPONENTS = [SrvAccountTableRouteComponent];
-const EXPORT_COMPONENTS = [SrvAccountTableRouteComponent];
+const ENTRY_COMPONENTS = [
+    SrvAccountTableRouteComponent,
+    SrvAccountTypepieComponent,
+    SrvAccountBillingpieComponent,
+];
+const EXPORT_COMPONENTS = [
+    SrvAccountTableRouteComponent,
+    SrvAccountTypepieComponent,
+    SrvAccountBillingpieComponent,
+];
 
 
 @NgModule({
@@ -45,6 +56,7 @@ const EXPORT_COMPONENTS = [SrvAccountTableRouteComponent];
         NbTooltipModule,
         NbSpinnerModule,
         Ng2SmartTableModule,
+        NgxEchartsModule,
         SrvAccountRoutingModule,
     ],
     declarations: [
