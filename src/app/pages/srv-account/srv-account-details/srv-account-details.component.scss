@@ -16,10 +16,10 @@
       grid-template-columns: 1fr 1fr;
     }
 
-    //.srv-detail-container {
-    //  display: grid;
-    //  grid-template-columns: 1fr 1fr 1fr 1fr;
-    //}
+    .bill-invoice-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
 
     .c-detail-item {
       margin-bottom: 6px;
@@ -57,4 +57,11 @@
 .details-card {
   flex-grow: 1;
   margin: 6px;
+}
+
+.bill-invoice-card {
+  flex-grow: 1;
+  margin: 6px;
+  overflow-y: auto;
+  min-height: 100px;
 }

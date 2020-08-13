@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {flatMap, map} from 'rxjs/operators';
 import {IServiceAccountDetails, IServiceAccountDetailsAPIService} from '../../../@providers/data/service-account';
+import {IBillInvoiceDetails, IBillInvoiceDetailsAPIService} from '../../../@providers/data/bill-invoice';
 
 @Component({
     selector: 'ngx-srv-account',
@@ -15,10 +16,12 @@ export class SrvAccountDetailsComponent implements OnInit {
 
     routed_id$: Observable<string>;
     serviceAccount: Observable<IServiceAccountDetails>;
+    billInvoices: Observable<IBillInvoiceDetails[]>;
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
+        private billInvoiceDetailsAPIService: IBillInvoiceDetailsAPIService,
         private serviceDetailsAPIService: IServiceAccountDetailsAPIService) {
     }
 
@@ -29,6 +32,11 @@ export class SrvAccountDetailsComponent implements OnInit {
         this.serviceAccount = this.routed_id$
             .pipe(
                 flatMap(id => this.serviceDetailsAPIService.getServiceAccountDetailsByID(id)),
+            );
+        this.billInvoices = this.serviceAccount
+            .pipe(
+                flatMap(service_ac =>
+                    this.billInvoiceDetailsAPIService.getBillInvoiceDetailsByServiceID(service_ac.service_id)),
             );
     }
 

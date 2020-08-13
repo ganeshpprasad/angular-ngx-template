@@ -63,3 +63,10 @@
   flex-grow: 1;
   margin: 6px;
 }
+
+.srv-accounts-list-card {
+  flex-grow: 1;
+  margin: 6px;
+  overflow-y: auto;
+  min-height: 100px;
+}

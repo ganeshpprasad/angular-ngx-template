@@ -12,6 +12,8 @@ import {ICustomerDetailsAPIService} from './data/customer-details';
 import {CustomerDetailsService} from './services/customer-details.service';
 import {IServiceAccountDetailsAPIService} from './data/service-account';
 import {ServiceAccountService} from './services/service-account.service';
+import {IBillInvoiceDetailsAPIService} from './data/bill-invoice';
+import {BillInvoiceService} from './services/bill-invoice.service';
 
 
 const DATA_SERVICES = [
@@ -19,6 +21,7 @@ const DATA_SERVICES = [
     {provide: AuthGuard, useClass: AuthGuard},
     {provide: ICustomerDetailsAPIService, useClass: CustomerDetailsService},
     {provide: IServiceAccountDetailsAPIService, useClass: ServiceAccountService},
+    {provide: IBillInvoiceDetailsAPIService, useClass: BillInvoiceService},
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
