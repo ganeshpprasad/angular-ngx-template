@@ -41,14 +41,6 @@
 		max-width: 70%;
 	}
 
-	.header > nb-card {
-		margin-bottom: 0.8rem;
-	}
-
-	.header-body {
-		padding: 0.75rem 1rem;
-	}
-
 	.customer-details-card {
 		max-width: 30%;
 
@@ -96,4 +88,12 @@
 	margin: 6px;
 	overflow-y: auto;
 	min-height: 100px;
+}
+
+.header > .header-con {
+	margin-bottom: 0.8rem;
+}
+
+.header-body {
+	padding: 0.75rem 1rem;
 }

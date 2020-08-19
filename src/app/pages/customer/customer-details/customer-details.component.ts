@@ -1,3 +1,4 @@
+import { SrvAccountTableRouteComponent } from './../../srv-account/srv-account-table-route/srv-account-table-route.component';
 import {
 	ChangeDetectionStrategy,
 	Component,
@@ -41,9 +42,9 @@ export class CustomerDetailsComponent implements OnInit {
 		columns: {
 			service_id: {
 				title: 'Service ID',
-				type: 'string',
+				type: 'custom',
 				editable: false,
-				// renderComponent: CustomerDetailsTableRouteComponent,
+				renderComponent: SrvAccountTableRouteComponent,
 				width: '50px',
 			},
 			service_type: {
