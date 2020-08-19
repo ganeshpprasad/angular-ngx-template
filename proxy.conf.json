@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://localhost:5000",
+    "target": "https://billing-engine-app-xwatwudzxq-ew.a.run.app",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
