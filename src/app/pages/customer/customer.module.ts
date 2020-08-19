@@ -1,85 +1,80 @@
-import {CustomerRoutingModule, routedComponents} from './customer-routing.module';
+import {
+  CustomerRoutingModule,
+  routedComponents,
+} from "./customer-routing.module";
 
 import {
-    NbActionsModule,
-    NbButtonModule,
-    NbCardModule,
-    NbCheckboxModule,
-    NbIconModule,
-    NbInputModule,
-    NbListModule,
-    NbMenuModule,
-    NbRadioModule,
-    NbSearchModule,
-    NbSelectModule,
-    NbSpinnerModule,
-    NbTabsetModule,
-    NbTooltipModule,
-    NbUserModule,
-} from '@nebular/theme';
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbCheckboxModule,
+  NbIconModule,
+  NbInputModule,
+  NbListModule,
+  NbMenuModule,
+  NbRadioModule,
+  NbSearchModule,
+  NbSelectModule,
+  NbSpinnerModule,
+  NbTabsetModule,
+  NbTooltipModule,
+  NbUserModule,
+} from "@nebular/theme";
 
-import {NgModule} from '@angular/core';
-import {Ng2SmartTableModule} from 'ng2-smart-table';
-import {ThemeModule} from '../../@theme/theme.module';
-import {
-    CustomerDetailsTableRouteComponent,
-} from './customer-details-table-route/customer-details-table-route.component';
-import {CustomerChartpieComponent} from './customer-chartpie/customer-chartpie.component';
-import {NgxEchartsModule} from 'ngx-echarts';
-import {CustomerDistpieComponent} from './customer-distpie/customer-distpie.component';
-import {CustomerGrowthareaComponent} from './customer-growtharea/customer-growtharea.component';
-import {CustomerQuerybarComponent} from './customer-querybar/customer-querybar.component';
-
+import { NgModule } from "@angular/core";
+import { Ng2SmartTableModule } from "ng2-smart-table";
+import { ThemeModule } from "../../@theme/theme.module";
+import { CustomerDetailsTableRouteComponent } from "./customer-details-table-route/customer-details-table-route.component";
+import { CustomerChartpieComponent } from "./customer-chartpie/customer-chartpie.component";
+import { NgxEchartsModule } from "ngx-echarts";
+import { CustomerDistpieComponent } from "./customer-distpie/customer-distpie.component";
+import { CustomerGrowthareaComponent } from "./customer-growtharea/customer-growtharea.component";
+import { CustomerQuerybarComponent } from "./customer-querybar/customer-querybar.component";
 
 const ENTRY_COMPONENTS = [
-    CustomerDetailsTableRouteComponent,
-    CustomerChartpieComponent,
-    CustomerDistpieComponent,
-    CustomerGrowthareaComponent,
-    CustomerQuerybarComponent,
+  CustomerDetailsTableRouteComponent,
+  CustomerChartpieComponent,
+  CustomerDistpieComponent,
+  CustomerGrowthareaComponent,
+  CustomerQuerybarComponent,
 ];
 const EXPORT_COMPONENTS = [
-    CustomerDetailsTableRouteComponent,
-    CustomerChartpieComponent,
-    CustomerDistpieComponent,
-    CustomerGrowthareaComponent,
-    CustomerQuerybarComponent,
+  CustomerDetailsTableRouteComponent,
+  CustomerChartpieComponent,
+  CustomerDistpieComponent,
+  CustomerGrowthareaComponent,
+  CustomerQuerybarComponent,
 ];
 
-
 @NgModule({
-    imports: [
-        ThemeModule,
-        NbMenuModule,
-        NbInputModule,
-        NbSearchModule,
-        NbCardModule,
-        NbUserModule,
-        NbButtonModule,
-        NbTabsetModule,
-        NbActionsModule,
-        NbRadioModule,
-        NbSelectModule,
-        NbCheckboxModule,
-        NbListModule,
-        NbIconModule,
-        NbButtonModule,
-        NbTooltipModule,
-        NbSpinnerModule,
-        Ng2SmartTableModule,
-        NgxEchartsModule,
-        CustomerRoutingModule,
-    ],
-    declarations: [
-        ...ENTRY_COMPONENTS, ...routedComponents, ...EXPORT_COMPONENTS,
-    ],
-    entryComponents: [
-        ...ENTRY_COMPONENTS,
-    ],
-    exports: [
-        ...EXPORT_COMPONENTS,
-    ],
-
+  imports: [
+    ThemeModule,
+    NbMenuModule,
+    NbInputModule,
+    NbSearchModule,
+    NbCardModule,
+    NbUserModule,
+    NbButtonModule,
+    NbTabsetModule,
+    NbActionsModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbCheckboxModule,
+    NbListModule,
+    NbIconModule,
+    NbButtonModule,
+    NbTooltipModule,
+    NbSpinnerModule,
+    Ng2SmartTableModule,
+    NgxEchartsModule,
+    CustomerRoutingModule,
+  ],
+  declarations: [
+    ...ENTRY_COMPONENTS,
+    ...routedComponents,
+    ...EXPORT_COMPONENTS,
+  ],
+  entryComponents: [...ENTRY_COMPONENTS],
+  exports: [...EXPORT_COMPONENTS],
 })
-export class CustomerModule {
-}
+export class CustomerModule {}

@@ -53,7 +53,6 @@
   }
 }
 
-
 .details-card {
   flex-grow: 1;
   margin: 6px;
@@ -64,4 +63,8 @@
   margin: 6px;
   overflow-y: auto;
   min-height: 100px;
+}
+
+.smart-table {
+  width: 65%;
 }
