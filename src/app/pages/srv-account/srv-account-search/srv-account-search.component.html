@@ -1,56 +1,60 @@
 <div class="row">
-    <div class="col-md-12">
-        <nb-card>
-            <nb-card-body>
-                <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 hvr-underline-from-center">
-                    <div (click)="onClickSearch($event)">
-                        <nb-search type="rotate-layout"
-                                   tag="srv-account-search"
-                                   placeholder="search for service a/c .."
-                                   hint="By ID "></nb-search>
-                        <i class="title offset-2">Search for service a/c ..</i>
-                    </div>
-                </div>
-            </nb-card-body>
-        </nb-card>
-    </div>
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-body>
+        <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
+          <div (click)="onClickSearch($event)">
+            <nb-search
+              type="rotate-layout"
+              tag="srv-account-search"
+              placeholder="search for service a/c .."
+              hint="By ID "
+            ></nb-search>
+            <i class="title offset-2">Search for service a/c ..</i>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>
 <div class="row">
-    <div class="col-md-12"  *ngIf="searchResultVisible">
-        <nb-card accent="primary"
-                 [nbSpinner]="spinner_loading"
-                 nbSpinnerStatus="danger"
-                 nbSpinnerSize="large"
-                 fullWidth>
-            <nb-card-header>
-                <h5 class="text-muted"> Search results .. </h5>
-                <div class="font-italic text-danger" *ngIf="noSearchResultReturned">
-                    No matching results found please try with different search text ..
-                </div>
-            </nb-card-header>
+  <div class="col-md-12" *ngIf="searchResultVisible">
+    <nb-card
+      accent="primary"
+      [nbSpinner]="spinner_loading"
+      nbSpinnerStatus="danger"
+      nbSpinnerSize="large"
+      fullWidth
+    >
+      <nb-card-header>
+        <h5 class="text-muted">Search results ..</h5>
+        <div class="font-italic text-danger" *ngIf="noSearchResultReturned">
+          No matching results found please try with different search text ..
+        </div>
+      </nb-card-header>
 
-            <nb-card-body>
-                <ng2-smart-table [settings]="tableSettings" [source]="localDataSource">
-                </ng2-smart-table>
-            </nb-card-body>
-        </nb-card>
-    </div>
+      <nb-card-body>
+        <ng2-smart-table [settings]="tableSettings" [source]="localDataSource">
+        </ng2-smart-table>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>
 <div class="row">
-    <div class="col-lg-6">
-        <nb-card>
-            <nb-card-header>Account by Service Type</nb-card-header>
-            <nb-card-body>
-                <ngx-srv-360-type-pie></ngx-srv-360-type-pie>
-            </nb-card-body>
-        </nb-card>
-    </div>
-    <div class="col-lg-6">
-        <nb-card>
-            <nb-card-header>Accounts by Billing Org</nb-card-header>
-            <nb-card-body>
-                <ngx-srv-360-billing-pie></ngx-srv-360-billing-pie>
-            </nb-card-body>
-        </nb-card>
-    </div>
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Account by Service Type</nb-card-header>
+      <nb-card-body>
+        <ngx-srv-360-type-pie></ngx-srv-360-type-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>Accounts by Billing Org</nb-card-header>
+      <nb-card-body>
+        <ngx-srv-360-billing-pie></ngx-srv-360-billing-pie>
+      </nb-card-body>
+    </nb-card>
+  </div>
 </div>
