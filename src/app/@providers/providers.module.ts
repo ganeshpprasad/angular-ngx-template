@@ -14,6 +14,7 @@ import {IServiceAccountDetailsAPIService} from './data/service-account';
 import {ServiceAccountService} from './services/service-account.service';
 import {IBillInvoiceDetailsAPIService} from './data/bill-invoice';
 import {BillInvoiceService} from './services/bill-invoice.service';
+import {TokenHeaderInterceptor} from './interceptors/token-header-interceptor';
 
 
 const DATA_SERVICES = [
@@ -25,6 +26,7 @@ const DATA_SERVICES = [
 ];
 
 const NGX_HTTP_INTERCEPTORS = [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenHeaderInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
 ];
