@@ -17,7 +17,7 @@ import {
 
 @Injectable()
 export class CustomerDetailsService extends ICustomerDetailsAPIService {
-  private _url = environment.baseUrl + "/v1/crm_customer";
+  private _url = environment.baseUrl + "/api/v1/crm_customer";
 
   private httpOptions = {
     headers: new HttpHeaders({
