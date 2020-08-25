@@ -1,0 +1,65 @@
+<form (ngSubmit)="reset()" #form="ngForm" aria-labelledby="title">
+  <div class="form-control-group">
+    <label class="label" for="input-password">Old Password:</label>
+    <input
+      nbInput
+      fullWidth
+      #oldpassword
+      name="password"
+      type="password"
+      id="input-password"
+      placeholder="Old Password"
+      [status]="
+        oldPassword.dirty ? (oldPassword.invalid ? 'danger' : 'success') : ''
+      "
+      [required]="true"
+    />
+    <ng-container *ngIf="oldPassword.invalid && oldPassword.touched">
+      <p class="error-message" *ngIf="oldPassword.errors.minLength">
+        Password is required!
+      </p>
+      <p class="error-message" *ngIf="oldPassword.errors?.minLength">
+        Password should contains
+        {{ MIN_PASS_LENGTH }}
+        characters
+      </p>
+    </ng-container>
+  </div>
+
+  <div class="form-control-group">
+    <label class="label" for="input-password">Old Password:</label>
+    <input
+      nbInput
+      fullWidth
+      #newPassword
+      name="password"
+      type="password"
+      id="input-password"
+      placeholder="New Password"
+      [status]="
+        newPassword.dirty ? (newPassword.invalid ? 'danger' : 'success') : ''
+      "
+      [required]="true"
+    />
+    <ng-container *ngIf="newPassword.invalid && newPassword.touched">
+      <p class="error-message" *ngIf="newPassword.errors.minLength">
+        Password is required!
+      </p>
+      <p class="error-message" *ngIf="newPassword.errors?.minLength">
+        Password should contains
+        {{ MIN_PASS_LENGTH }}
+        characters
+      </p>
+    </ng-container>
+  </div>
+
+  <button
+    nbButton
+    fullWidth
+    status="success"
+    [disabled]="submitted || !form.valid"
+    [class.btn-pulse]="submitted"
+  >
+    Reset Password
+  </button>
+</form>
