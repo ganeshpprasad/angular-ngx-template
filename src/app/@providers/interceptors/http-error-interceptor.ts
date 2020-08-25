@@ -1,8 +1,8 @@
 import {catchError} from 'rxjs/operators';
-import {Injectable} from "@angular/core";
-import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
-import {throwError} from "rxjs";
-import {NbGlobalPhysicalPosition, NbToastrConfig, NbToastrService} from "@nebular/theme";
+import {Injectable} from '@angular/core';
+import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {throwError} from 'rxjs';
+import {NbGlobalPhysicalPosition, NbToastrConfig, NbToastrService} from '@nebular/theme';
 
 @Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor {
@@ -20,8 +20,8 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     } else {
                         // server-side error
                         errorMessage = `SERVER ERR CODE: ${error.status}\n`;
-                        if (error.error.message){
-                            errorMessage += `ERR MSG: ${error.error.message}`
+                        if (error.error.message) {
+                            errorMessage += `ERR MSG: ${error.error.message}`;
                         }
 
                     }
@@ -29,7 +29,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     this.showToast('REQUEST ERR', errorMessage);
                     // throw the original error since body has useful info app could be using
                     return throwError(error);
-                })
+                }),
             );
     }
 
