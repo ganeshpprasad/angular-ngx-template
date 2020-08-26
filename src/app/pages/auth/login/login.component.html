@@ -1,10 +1,7 @@
 <h1 class="title text-info slide-in">
-    <nb-icon icon="flash-outline" status="success"></nb-icon>
-    C<span class="text-primary"> O R T E X</span>
+    <img src="/assets/logo/logo_transparent.png" alt="" style="" height="325">
 </h1>
 
-<h1 id="title" class="title">Login</h1>
-<p class="sub-title">Log in with your email.</p>
 
 <nb-alert *ngIf="showMessages.error && errors?.length && !submitted" outline="danger" role="alert">
     <p class="alert-title"><b>Oops!</b></p>
@@ -37,10 +34,10 @@
                [required]="getConfigValue('forms.validation.email.required')"
                [attr.aria-invalid]="email.invalid && email.touched ? true : null">
         <ng-container *ngIf="email.invalid && email.touched">
-            <p class="error-message" *ngIf="email.errors?.required">
-                Email is required!
+            <p class="error-message text-light" *ngIf="email.errors?.required">
+<!--                Email is required!-->
             </p>
-            <p class="error-message" *ngIf="email.errors?.pattern">
+            <p class="error-message text-light" *ngIf="email.errors?.pattern">
                 Email should be the real one!
             </p>
         </ng-container>
@@ -63,7 +60,7 @@
                [attr.aria-invalid]="password.invalid && password.touched ? true : null">
         <ng-container *ngIf="password.invalid && password.touched ">
             <p class="error-message" *ngIf="password.errors?.required">
-                Password is required!
+<!--                Password is required!-->
             </p>
             <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
                 Password should contains
@@ -89,5 +86,5 @@
 </form>
 
 <section class="another-action" aria-label="Register">
-    Don't have an account? <a class="text-link" routerLink="../contact-us">contact-us @ ep-techsolutions.com</a>
+    Don't have an account? <a class="text-link" routerLink="../contact-us">contact-us@ep-techsolutions.com</a>
 </section>
