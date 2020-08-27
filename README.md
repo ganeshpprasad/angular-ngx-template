@@ -38,3 +38,4 @@ ___
 By default it should point to /etc/nginx/mime.types or /usr/local/etc/nginx/mime.types
 
 * tsconfig.js -> https://angular.io/guide/deployment#differential-loading
+* https://billing-engine-app-xwatwudzxq-ew.a.run.app/
