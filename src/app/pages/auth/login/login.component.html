@@ -1,7 +1,10 @@
 <h1 class="title text-info slide-in">
-    <img src="/assets/logo/logo_transparent.png" alt="" style="" height="325">
+  <nb-icon icon="flash-outline" status="success"></nb-icon>
+  C<span class="text-primary"> O R T E X</span>
 </h1>
 
+<h1 id="title" class="title">Login</h1>
+<p class="sub-title">Log in with your email.</p>
 
 <nb-alert
   *ngIf="showMessages.error && errors?.length && !submitted"
@@ -54,57 +57,50 @@
     </ng-container>
   </div>
 
-    <div class="form-control-group">
-        <label class="label" for="input-email">Email address:</label>
-        <input nbInput
-               fullWidth
-               [(ngModel)]="user.email"
-               #email="ngModel"
-               name="email"
-               id="input-email"
-               pattern=".+@.+\..+"
-               placeholder="Email address"
-               autofocus
-               [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
-               [required]="getConfigValue('forms.validation.email.required')"
-               [attr.aria-invalid]="email.invalid && email.touched ? true : null">
-        <ng-container *ngIf="email.invalid && email.touched">
-            <p class="error-message text-light" *ngIf="email.errors?.required">
-<!--                Email is required!-->
-            </p>
-            <p class="error-message text-light" *ngIf="email.errors?.pattern">
-                Email should be the real one!
-            </p>
-        </ng-container>
-    </div>
+  <div class="form-control-group">
+    <label class="label" for="input-password">Password:</label>
+    <input
+      nbInput
+      fullWidth
+      [(ngModel)]="user.password"
+      #password="ngModel"
+      name="password"
+      type="password"
+      id="input-password"
+      placeholder="Password"
+      [status]="password.dirty ? (password.invalid ? 'danger' : 'success') : ''"
+      [required]="getConfigValue('forms.validation.password.required')"
+      [minlength]="getConfigValue('forms.validation.password.minLength')"
+      [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+      [attr.aria-invalid]="password.invalid && password.touched ? true : null"
+    />
+    <ng-container *ngIf="password.invalid && password.touched">
+      <p class="error-message" *ngIf="password.errors?.required">
+        Password is required!
+      </p>
+      <p
+        class="error-message"
+        *ngIf="password.errors?.minlength || password.errors?.maxlength"
+      >
+        Password should contains from
+        {{ getConfigValue("forms.validation.password.minLength") }} to
+        {{ getConfigValue("forms.validation.password.maxLength") }}
+        characters
+      </p>
+    </ng-container>
+  </div>
 
-    <div class="form-control-group">
-        <label class="label" for="input-password">Password:</label>
-        <input nbInput
-               fullWidth
-               [(ngModel)]="user.password"
-               #password="ngModel"
-               name="password"
-               type="password"
-               id="input-password"
-               placeholder="Password"
-               [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
-               [required]="getConfigValue('forms.validation.password.required')"
-               [minlength]="getConfigValue('forms.validation.password.minLength')"
-               [maxlength]="getConfigValue('forms.validation.password.maxLength')"
-               [attr.aria-invalid]="password.invalid && password.touched ? true : null">
-        <ng-container *ngIf="password.invalid && password.touched ">
-            <p class="error-message" *ngIf="password.errors?.required">
-<!--                Password is required!-->
-            </p>
-            <p class="error-message" *ngIf="password.errors?.minlength || password.errors?.maxlength">
-                Password should contains
-                from {{ getConfigValue('forms.validation.password.minLength') }}
-                to {{ getConfigValue('forms.validation.password.maxLength') }}
-                characters
-            </p>
-        </ng-container>
-    </div>
+  <div class="form-control-group accept-group">
+    <nb-checkbox
+      name="rememberMe"
+      [(ngModel)]="user.rememberMe"
+      *ngIf="rememberMe"
+      >Remember me</nb-checkbox
+    >
+    <a class="forgot-password" routerLink="../request-password"
+      >Forgot Password?</a
+    >
+  </div>
 
   <button
     nbButton
@@ -118,5 +114,12 @@
 </form>
 
 <section class="another-action" aria-label="Register">
-    Don't have an account? <a class="text-link" routerLink="../contact-us">contact-us@ep-techsolutions.com</a>
+  Don't have an account?
+  <a class="text-link" routerLink="../contact-us"
+    >contact-us @ ep-techsolutions.com</a
+  >
+</section>
+
+<section class="another-action" aria-label="Register">
+  <a class="text-link" routerLink="../resetpass"> Reset Password</a>
 </section>
