@@ -16,4 +16,20 @@
   ::-webkit-scrollbar {
     width: 0.4rem !important;
   }
+
+  //nb-layout .layout {
+  //  background-image: linear-gradient(#fdfbff, #c478fa);
+  //}
+
+  nb-sidebar {
+    background-image: linear-gradient(#6f06b9, #d093fb);
+
+    nb-menu .menu-item .menu-icon {
+      color: #e3e7ef;
+    }
+
+    nb-menu .menu-item a {
+      color: #e3e7ef;
+    }
+  }
 }
