@@ -1,91 +1,92 @@
 .customer-detail {
-	display: flex;
+  display: flex;
 
-	nb-card {
-		flex-grow: 1;
-		margin: 6px;
-		padding: 6px;
+  nb-card {
+    flex-grow: 1;
+    margin: 6px;
+    padding: 6px;
 
-		h6 {
-			text-transform: uppercase;
-			font-size: 12px;
-		}
+    h6 {
+      text-transform: uppercase;
+      font-size: 12px;
+    }
 
-		.c-detail-container {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-		}
 
-		.srv-detail-container {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr 1fr;
-		}
+    .c-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 
-		.c-detail-item {
-			margin-bottom: 6px;
+    .srv-detail-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 
-			.c-detail-item-title {
-				text-transform: uppercase;
-				font-size: 8px;
-				font-weight: bold;
-			}
+    .c-detail-item {
+      margin-bottom: 6px;
 
-			.c-detail-item-value {
-				text-transform: uppercase;
-				font-size: 15px;
-			}
-		}
-	}
+      .c-detail-item-title {
+        text-transform: uppercase;
+        font-size: 8px;
+        font-weight: bold;
+      }
 
-	.service-account-card {
-		max-width: 70%;
-	}
+      .c-detail-item-value {
+        text-transform: uppercase;
+        font-size: 15px;
+      }
+    }
+  }
 
-	.customer-details-card {
-		max-width: 30%;
+  .service-account-card {
+    max-width: 70%;
+  }
 
-		.c-detail-item .c-detail-item-value {
-			text-transform: capitalize;
-		}
-	}
+  .customer-details-card {
+    max-width: 30%;
 
-	.payment-details-card {
-		max-width: 30%;
-	}
+    .c-detail-item .c-detail-item-value {
+      text-transform: capitalize;
+    }
+  }
 
-	.customer-card {
-		max-width: 36%;
-	}
+  .payment-details-card {
+    max-width: 30%;
+  }
 
-	.tags {
-		border: 1px solid rgba(18, 247, 149, 0.12);
-		padding: 1rem 0;
-		border-radius: 5px;
+  .customer-card {
+    max-width: 36%;
+  }
 
-		span {
-			margin-right: 6px;
-			text-transform: uppercase;
-			font-size: small;
-		}
-	}
+  .tags {
+    border: 1px solid rgba(18, 247, 149, 0.12);
+    padding: 1rem 0;
+    border-radius: 5px;
+
+    span {
+      margin-right: 6px;
+      text-transform: uppercase;
+      font-size: small;
+    }
+  }
 }
 
 .edit {
-	position: absolute;
-	right: 1px;
-	background-color: white;
-	top: 1px;
-	width: 40vw;
+  position: absolute;
+  right: 1px;
+  background-color: white;
+  top: 1px;
+  width: 40vw;
 }
 
 .details-card {
-	flex-grow: 1;
-	margin: 0 1.25rem;
+  flex-grow: 1;
+  margin: 0 1.25rem;
 }
 
 .srv-accounts-list-card {
-	flex-grow: 1;
-	margin: 6px;
-	overflow-y: auto;
-	min-height: 100px;
+  flex-grow: 1;
+  margin: 6px;
+  overflow-y: auto;
+  min-height: 100px;
 }
