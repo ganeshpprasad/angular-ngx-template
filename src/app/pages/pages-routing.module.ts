@@ -35,8 +35,11 @@ const routes: Routes = [
                 component: AssetDetailsComponent,
             },
             {
-                path: 'tariffs',
-                component: TariffComponent,
+                path: 'tariff-details',
+                loadChildren: () =>
+                    import('./tariff/tariff.module').then(
+                        m => m.TariffModule,
+                    ),
             },
             {
                 path: '',

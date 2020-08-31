@@ -1,7 +1,7 @@
 import {
   CustomerRoutingModule,
   routedComponents,
-} from "./customer-routing.module";
+} from './customer-routing.module';
 
 import {
   NbActionsModule,
@@ -19,17 +19,17 @@ import {
   NbTabsetModule,
   NbTooltipModule,
   NbUserModule,
-} from "@nebular/theme";
+} from '@nebular/theme';
 
-import { NgModule } from "@angular/core";
-import { Ng2SmartTableModule } from "ng2-smart-table";
-import { ThemeModule } from "../../@theme/theme.module";
-import { CustomerDetailsTableRouteComponent } from "./customer-details-table-route/customer-details-table-route.component";
-import { CustomerChartpieComponent } from "./customer-chartpie/customer-chartpie.component";
-import { NgxEchartsModule } from "ngx-echarts";
-import { CustomerDistpieComponent } from "./customer-distpie/customer-distpie.component";
-import { CustomerGrowthareaComponent } from "./customer-growtharea/customer-growtharea.component";
-import { CustomerQuerybarComponent } from "./customer-querybar/customer-querybar.component";
+import { NgModule } from '@angular/core';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { ThemeModule } from '../../@theme/theme.module';
+import { CustomerDetailsTableRouteComponent } from './customer-details-table-route/customer-details-table-route.component';
+import { CustomerChartpieComponent } from './customer-chartpie/customer-chartpie.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { CustomerDistpieComponent } from './customer-distpie/customer-distpie.component';
+import { CustomerGrowthareaComponent } from './customer-growtharea/customer-growtharea.component';
+import { CustomerQuerybarComponent } from './customer-querybar/customer-querybar.component';
 
 const ENTRY_COMPONENTS = [
   CustomerDetailsTableRouteComponent,
