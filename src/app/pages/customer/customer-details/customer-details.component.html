@@ -89,7 +89,7 @@
 				CUSTOMER
 			</span>
         </nb-card-header>
-        <div class="details-card">
+        <div class="details-card" *ngIf="customerDetails$ | async as customerDetails">
             <nb-card-body>
                 <div class="c-detail-container">
                     <div class="c-detail-item">
@@ -97,13 +97,13 @@
                             Customer ID
                         </div>
                         <div class="c-detail-item-value text-danger font-weight-bold">
-                            {{ (customerDetails | async).customer_id }}
+                            {{ customerDetails.customer_id }}
                         </div>
                     </div>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title text-primary">name</div>
                         <div class="c-detail-item-value font-weight-bold">
-                            {{ (customerDetails | async).full_name }}
+                            {{ customerDetails.full_name }}
                         </div>
                     </div>
                     <div class="c-detail-item">
@@ -111,7 +111,7 @@
                             Company Name
                         </div>
                         <div class="c-detail-item-value text-danger">
-                            {{ (customerDetails | async).company_name }}
+                            {{ customerDetails.company_name }}
                         </div>
                     </div>
                     <div class="c-detail-item">
@@ -119,15 +119,14 @@
                             Alias
                         </div>
                         <div class="c-detail-item-value">
-                            {{ (customerDetails | async).company_name }}
+                            {{ customerDetails.company_name }}
                         </div>
                     </div>
                 </div>
 
                 <div class="tags">
-                    <div
-                            class="text-info"
-                            *ngFor="let tag of (customerDetails | async).tags"
+                    <div class="text-info"
+                         *ngFor="let tag of customerDetails.tags"
                     >
                         <button
                                 nbButton
@@ -155,26 +154,26 @@
 				CUSTOMER DETAILS
 			</span>
         </nb-card-header>
-        <div class="details-card">
+        <div class="details-card" *ngIf="customerDetails$ | async as customerDetails">
             <nb-card-body>
                 <div class="c-detail-item">
                     <div class="c-detail-item-title text-primary">
                         Billing Address
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).billing_address.street }}
+                        {{ customerDetails.billing_address.street }}
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).billing_address.city }}
+                        {{ customerDetails.billing_address.city }}
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).billing_address.state }}
+                        {{ customerDetails.billing_address.state }}
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).billing_address.country }}
+                        {{ customerDetails.billing_address.country }}
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).billing_address.postcode }}
+                        {{ customerDetails.billing_address.postcode }}
                     </div>
                 </div>
                 <div class="c-detail-item">
@@ -182,11 +181,11 @@
                         Contact Info
                     </div>
                     <div class="c-detail-item-value">
-                        {{ (customerDetails | async).contact_info.email }}
+                        {{ customerDetails.contact_info.email }}
                     </div>
                     <div class="c-detail-item-value">
                         {{
-                        (customerDetails | async).contact_info.contact_info
+                        customerDetails.contact_info.contact_info
                         }}
                     </div>
                 </div>
@@ -253,41 +252,6 @@
                         [source]="localDataSource"
                 >
                 </ng2-smart-table>
-                <!-- <div class="srv-detail-container">
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Service ID</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Service Type</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Asset ID</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Service Status</div>
-                    </div>
-                </div>
-                <div class="srv-detail-container" *ngFor="let srv of (serviceAccounts | async)">
-                    <div class="c-detail-item">
-                        <a class="hvr-grow"
-                           [routerLink]="'/pages/srv-account/' + srv.service_id"
-                           routerLinkActive="active">
-                            <span>
-                                <nb-icon icon="expand-outline" pack="eva" status="primary"></nb-icon>
-                                {{ srv.service_id }}
-                            </span>
-                        </a>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{srv.service_type}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{srv.asset_id}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{srv.service_status}}</div>
-                    </div>
-                </div> -->
             </nb-card-body>
         </div>
     </nb-card>

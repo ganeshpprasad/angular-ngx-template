@@ -28,9 +28,8 @@ export class CustomerDetailsComponent implements OnInit {
     @Input() customer_id: string;
 
     routed_id$: Observable<string>;
-    customerDetails: Observable<ICustomerDetails>;
-    serviceAccounts: Observable<IServiceAccountDetails[]>;
-    // serviceAccounts: IServiceAccountDetails[];
+    customerDetails$: Observable<ICustomerDetails>;
+    serviceAccounts$: Observable<IServiceAccountDetails[]>;
     localDataSource: LocalDataSource = new LocalDataSource();
 
     tableSettings = {
@@ -80,19 +79,19 @@ export class CustomerDetailsComponent implements OnInit {
         this.routed_id$ = this.route.paramMap.pipe(
             map((params: ParamMap) => params.get('id')),
         );
-        this.customerDetails = this.routed_id$.pipe(
+        this.customerDetails$ = this.routed_id$.pipe(
             flatMap(id =>
                 this.customerDetailsAPIService.getCustomerDetailsByID(id),
             ),
             catchError(_ => of(null)),
         );
-        this.serviceAccounts = this.routed_id$.pipe(
+        this.serviceAccounts$ = this.routed_id$.pipe(
             flatMap(id =>
                 this.serviceDetailsAPIService.getServiceAccountForCustomer(id),
             ),
             catchError(_ => of(null)),
         );
-        this.serviceAccounts.subscribe((results: IServiceAccountDetails[]) =>
+        this.serviceAccounts$.subscribe((results: IServiceAccountDetails[]) =>
             this.loadResults(results),
         );
     }
@@ -121,9 +120,5 @@ export class CustomerDetailsComponent implements OnInit {
         this.router.navigate(['/pages/landing', {}], {
             relativeTo: this.route,
         });
-    }
-
-    private handleError(err) {
-        console.log();
     }
 }
