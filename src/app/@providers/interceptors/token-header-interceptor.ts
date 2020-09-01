@@ -16,8 +16,6 @@ export class TokenHeaderInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler) {
-        console.log('JWT TOKEN ...');
-        console.log(this.jwt_tk);
         const request = req.clone({
             setHeaders: {
                 Authorization: `${this.jwt_tk}`,

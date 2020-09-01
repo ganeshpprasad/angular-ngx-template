@@ -1,6 +1,6 @@
 import {finalize, tap} from 'rxjs/operators';
-import {Injectable} from "@angular/core";
-import {HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 
 @Injectable()
 export class LoggingInterceptor implements HttpInterceptor {
@@ -18,7 +18,7 @@ export class LoggingInterceptor implements HttpInterceptor {
                     // Succeeds when there is a response; ignore other events
                     event => ok = event instanceof HttpResponse ? `SUCCESS MSG: ${event.body}` : '',
                     // Operation failed; error is an HttpErrorResponse
-                    error => ok = 'failed'
+                    error => ok = 'failed',
                 ),
                 // Log when response observable either completes or errors
                 finalize(() => {
@@ -26,7 +26,7 @@ export class LoggingInterceptor implements HttpInterceptor {
                     const msg = `${req.method} "${req.urlWithParams}"
                                 ${ok} in ${elapsed} ms.`;
                     console.log('HTTP INTERCEPTOR LOG: ', msg);
-                })
+                }),
             );
     }
 }

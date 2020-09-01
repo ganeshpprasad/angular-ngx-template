@@ -77,7 +77,7 @@
 					Service Account
 				</span>
             </nb-card-header>
-            <div class="details-card">
+            <div class="details-card" *ngIf="serviceAccount$ | async as serviceAccount">
                 <nb-card-body>
                     <div class="srv-detail-container">
                         <div class="c-detail-item">
@@ -89,7 +89,7 @@
                                         class="hvr-grow"
                                         [routerLink]="
 										'/pages/customer/' +
-										(serviceAccount | async).customer_id
+										serviceAccount.customer_id
 									"
                                         routerLinkActive="active"
                                 >
@@ -99,9 +99,7 @@
                                                 pack="eva"
                                                 status="danger"
                                         ></nb-icon>
-                                        {{
-                                        (serviceAccount | async).customer_id
-                                        }}
+                                        {{ serviceAccount.customer_id }}
 									</span>
                                 </a>
                             </div>
@@ -111,7 +109,7 @@
                             <div
                                     class="c-detail-item-value text-danger font-weight-bold"
                             >
-                                {{ (serviceAccount | async).service_id }}
+                                {{ serviceAccount.service_id }}
                             </div>
                         </div>
                         <div class="c-detail-item">
@@ -119,7 +117,7 @@
                                 Service Type
                             </div>
                             <div class="c-detail-item-value">
-                                {{ (serviceAccount | async).service_type }}
+                                {{ serviceAccount.service_type }}
                             </div>
                         </div>
                         <div class="c-detail-item">
@@ -127,7 +125,7 @@
                                 Description
                             </div>
                             <div class="c-detail-item-value">
-                                {{ (serviceAccount | async).service_desc }}
+                                {{ serviceAccount.service_desc }}
                             </div>
                         </div>
                         <div class="c-detail-item">
@@ -135,7 +133,7 @@
                                 Status
                             </div>
                             <div class="c-detail-item-value">
-                                {{ (serviceAccount | async).service_status }}
+                                {{ serviceAccount.service_status }}
                             </div>
                         </div>
                         <div class="c-detail-item">
@@ -143,26 +141,22 @@
                                 Start Date
                             </div>
                             <div class="c-detail-item-value">
-                                {{ (serviceAccount | async).service_start }}
+                                {{ serviceAccount.service_start }}
                             </div>
                         </div>
                         <div class="c-detail-item">
                             <div class="c-detail-item-title text-primary">
                                 Linked Asset
                             </div>
-                            <div
-                                    class="c-detail-item-value text-danger font-weight-bold"
-                            >
-                                {{ (serviceAccount | async).asset_id }}
+                            <div class="c-detail-item-value text-danger font-weight-bold">
+                                {{ serviceAccount.asset_id }}
                             </div>
                         </div>
                     </div>
-
+                    <!--TAGS-->
                     <div class="tags">
-                        <div
-                                class="text-info"
-                                *ngFor="let tag of (serviceAccount | async).tags"
-                        >
+                        <div class="text-info"
+                             *ngFor="let tag of serviceAccount.tags">
                             <button
                                     nbButton
                                     outline
@@ -189,7 +183,7 @@
 				CONTACT INFO
 			</span>
             </nb-card-header>
-            <div class="details-card">
+            <div class="details-card" *ngIf="serviceAccount$ | async as serviceAccount">
                 <nb-card-body>
                     <div class="c-detail-item">
                         <div class="c-detail-item-title text-primary">
@@ -197,23 +191,23 @@
                         </div>
                         <div class="c-detail-item-value">
                             {{
-                            (serviceAccount | async).billing_address.street
+                            serviceAccount.billing_address.street
                             }}
                         </div>
                         <div class="c-detail-item-value">
-                            {{ (serviceAccount | async).billing_address.city }}
+                            {{ serviceAccount.billing_address.city }}
                         </div>
                         <div class="c-detail-item-value">
-                            {{ (serviceAccount | async).billing_address.state }}
+                            {{ serviceAccount.billing_address.state }}
                         </div>
                         <div class="c-detail-item-value">
                             {{
-                            (serviceAccount | async).billing_address.country
+                            serviceAccount.billing_address.country
                             }}
                         </div>
                         <div class="c-detail-item-value">
                             {{
-                            (serviceAccount | async).billing_address
+                            serviceAccount.billing_address
                                 .postcode
                             }}
                         </div>
@@ -223,13 +217,10 @@
                             Contact Info
                         </div>
                         <div class="c-detail-item-value">
-                            {{ (serviceAccount | async).contact_info.email }}
+                            {{ serviceAccount.contact_info.email }}
                         </div>
                         <div class="c-detail-item-value">
-                            {{
-                            (serviceAccount | async).contact_info
-                                .contact_info
-                            }}
+                            {{serviceAccount.contact_info.contact_info}}
                         </div>
                     </div>
                 </nb-card-body>
@@ -256,59 +247,6 @@
                             [settings]="tableSettings"
                             [source]="localDataSource"
                     ></ng2-smart-table>
-                    <!-- <div class="bill-invoice-container">
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Invoice ID</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Date Issued</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Total Due ID</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Open Bal</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Gross</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">Net</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-title text-primary">VAT</div>
-                    </div>
-                </div>
-                <div class="bill-invoice-container" *ngFor="let invoice of (billInvoices | async)">
-                    <div class="c-detail-item">
-                        <a class="hvr-grow"
-                           [routerLink]="'/pages/bill-invoice/' + invoice.invoice_id"
-                           routerLinkActive="active">
-                            <span>
-                                <nb-icon icon="file-text-outline" pack="eva" status="primary"></nb-icon>
-                                {{ invoice.invoice_id }}
-                            </span>
-                        </a>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{invoice.date_issued}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{invoice.total_due}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{'£ ' + invoice.open_bal}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{'£ ' + invoice.gross}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{'£ ' + invoice.net}}</div>
-                    </div>
-                    <div class="c-detail-item">
-                        <div class="c-detail-item-value">{{'£ ' + invoice.vat}}</div>
-                    </div>
-                </div> -->
                 </nb-card-body>
             </div>
         </nb-card>
@@ -352,6 +290,29 @@
                         </div>
                         <div class="c-detail-item-value">£370.70</div>
                     </div>
+                </nb-card-body>
+            </div>
+        </nb-card>
+    </div>
+    <div class="srv-detail">
+        <nb-card size="large" class="smart-table">
+            <nb-card-header>
+				<span class="text-primary font-weight-bold">
+					<nb-icon
+                            icon="pantone-outline"
+                            pack="eva"
+                            status="danger"
+                    ></nb-icon>
+					BILL TRANSACTIONS
+				</span>
+            </nb-card-header>
+
+            <div class="bill-invoice-card">
+                <nb-card-body>
+                    <ng2-smart-table
+                            [settings]="billTransactionstableSettings"
+                            [source]="billTransactionDataSource"
+                    ></ng2-smart-table>
                 </nb-card-body>
             </div>
         </nb-card>
