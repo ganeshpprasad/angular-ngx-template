@@ -33,7 +33,7 @@
         </div>
       </nb-card-header>
 
-      <nb-card-body>
+      <nb-card-body *ngIf="!noSearchResultReturned">
         <ng2-smart-table [settings]="tableSettings" [source]="localDataSource">
         </ng2-smart-table>
       </nb-card-body>
