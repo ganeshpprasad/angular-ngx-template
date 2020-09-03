@@ -17,6 +17,7 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
   @ViewChild(NbSearchComponent, { static: false })
   searchButton: NbSearchComponent;
   searchResultVisible: boolean = false;
+  searchResultCount: number = -1;
   noSearchResultReturned = false;
   spinner_loading = false;
   private searchSubmit: Subscription;
@@ -73,9 +74,11 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
     this.customerAPIService.searchCustomer(term).subscribe(
       (results: ICustomerDetails[]) => {
         this.searchResultVisible = true;
-        if (results.length === 0) {
+        const resultsCount = results.length;
+        if (resultsCount == 0) {
           this.noSearchResultReturned = true;
         } else {
+          this.searchResultCount = resultsCount;
           this.loadSearchResults(results);
         }
         setTimeout(() => (this.spinner_loading = false), 750);

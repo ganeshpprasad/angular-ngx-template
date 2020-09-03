@@ -27,7 +27,8 @@
       fullWidth
     >
       <nb-card-header>
-        <h5 class="text-muted">Search results ..</h5>
+        <h5 class="title_search_results text-muted">Total results</h5>
+        <h6 class="search_results text-muted">{{ searchResultCount }}</h6>
         <div class="font-italic text-danger" *ngIf="noSearchResultReturned">
           No matching results found please try with different search text ..
         </div>
