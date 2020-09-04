@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { NbSearchComponent, NbSearchService } from "@nebular/theme";
 import { Subscription } from "rxjs";
@@ -21,6 +22,7 @@ export class SrvAccountSearchComponent implements OnInit, OnDestroy {
   @ViewChild(NbSearchComponent, { static: false })
   searchButton: NbSearchComponent;
   searchResultVisible: boolean = false;
+  searchResultCount: number = -1;
   noSearchResultReturned = false;
   spinner_loading = false;
   private searchSubmit: Subscription;
@@ -58,7 +60,9 @@ export class SrvAccountSearchComponent implements OnInit, OnDestroy {
 
   constructor(
     private searchService: NbSearchService,
-    private srvAccountAPIService: IServiceAccountDetailsAPIService
+    private srvAccountAPIService: IServiceAccountDetailsAPIService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -79,7 +83,8 @@ export class SrvAccountSearchComponent implements OnInit, OnDestroy {
     this.srvAccountAPIService.searchServiceAccount(term).subscribe(
       (results: IServiceAccountDetails[]) => {
         this.searchResultVisible = true;
-        if (results.length === 0) {
+        this.searchResultCount = results.length;
+        if (this.searchResultCount === 0) {
           this.noSearchResultReturned = true;
         } else {
           this.loadSearchResults(results);
@@ -114,5 +119,19 @@ export class SrvAccountSearchComponent implements OnInit, OnDestroy {
 
   onClickSearch($event: any): void {
     this.searchButton.openSearch();
+  }
+
+  onEventClick() {
+    return;
+  }
+
+  onClickBack() {
+    this.router.navigate(["../", {}], { relativeTo: this.route });
+  }
+
+  onClickHome() {
+    this.router.navigate(["/pages/landing", {}], {
+      relativeTo: this.route,
+    });
   }
 }
