@@ -1,17 +1,18 @@
-import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
-import { NbSearchComponent, NbSearchService } from "@nebular/theme";
-import { Subscription } from "rxjs";
-import { LocalDataSource } from "ng2-smart-table";
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NbSearchComponent, NbSearchService } from '@nebular/theme';
+import { Subscription } from 'rxjs';
+import { LocalDataSource } from 'ng2-smart-table';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {
   ICustomerDetails,
   ICustomerDetailsAPIService,
-} from "../../../@providers/data/customer-details";
-import { CustomerDetailsTableRouteComponent } from "../customer-details-table-route/customer-details-table-route.component";
+} from '../../../@providers/data/customer-details';
+import { CustomerDetailsTableRouteComponent } from '../customer-details-table-route/customer-details-table-route.component';
 
 @Component({
-  selector: "ngx-customer-search",
-  templateUrl: "./customer-search.component.html",
-  styleUrls: ["./customer-search.component.scss"],
+  selector: 'ngx-customer-search',
+  templateUrl: './customer-search.component.html',
+  styleUrls: ['./customer-search.component.scss'],
 })
 export class CustomerSearchComponent implements OnInit, OnDestroy {
   @ViewChild(NbSearchComponent, { static: false })
@@ -30,37 +31,39 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
     },
     columns: {
       customer_id: {
-        title: "Customer ID",
-        type: "custom",
+        title: 'Customer ID',
+        type: 'custom',
         editable: false,
         renderComponent: CustomerDetailsTableRouteComponent,
-        width: "50px",
+        width: '50px',
       },
       full_name: {
-        title: "Customer Name",
-        type: "string",
+        title: 'Customer Name',
+        type: 'string',
         editable: false,
-        width: "50px",
+        width: '50px',
       },
       postcode: {
-        title: "Postcode",
-        type: "string",
+        title: 'Postcode',
+        type: 'string',
         editable: false,
-        width: "50px",
+        width: '50px',
       },
     },
   };
 
   constructor(
+        private route: ActivatedRoute,
+        private router: Router,
     private searchService: NbSearchService,
-    private customerAPIService: ICustomerDetailsAPIService
+    private customerAPIService: ICustomerDetailsAPIService,
   ) {}
 
   ngOnInit() {
     this.searchSubmit = this.searchService
       .onSearchSubmit()
       .subscribe((s: { term: string; tag?: string }) => {
-        if (s.tag === "customer-search") {
+        if (s.tag === 'customer-search') {
           this.onCustomerSearchSubmit(s.term);
         }
       });
@@ -88,7 +91,7 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
         console.log(err);
         this.searchResultVisible = false;
         this.spinner_loading = false;
-      }
+      },
     );
     return;
   }
@@ -117,4 +120,17 @@ export class CustomerSearchComponent implements OnInit, OnDestroy {
   onClickSearch($event: any): void {
     this.searchButton.openSearch();
   }
+    onEventClick() {
+        return;
+    }
+
+    onClickBack() {
+        this.router.navigate(['../', {}], {relativeTo: this.route});
+    }
+
+    onClickHome() {
+        this.router.navigate(['/pages/landing', {}], {
+            relativeTo: this.route,
+        });
+    }
 }
