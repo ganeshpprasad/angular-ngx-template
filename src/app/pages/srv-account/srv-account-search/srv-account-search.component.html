@@ -1,21 +1,56 @@
-<div class="row">
-  <div class="col-md-12">
-    <nb-card>
-      <nb-card-body>
-        <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12">
-          <div (click)="onClickSearch($event)">
-            <nb-search
-              type="rotate-layout"
-              tag="srv-account-search"
-              placeholder="search for service a/c .."
-              hint="By ID "
-            ></nb-search>
-            <i class="title offset-2">Search for service a/c ..</i>
-          </div>
+<div class="header">
+  <nb-card class="header-con">
+    <nb-card-body class="header-body">
+      <!--ACTION BUTTONS-->
+      <div class="row">
+        <div (click)="onClickSearch($event)">
+          <nb-search
+            type="rotate-layout"
+            tag="srv-account-search"
+            placeholder="search for service a/c .."
+            hint="By ID "
+          ></nb-search>
         </div>
-      </nb-card-body>
-    </nb-card>
-  </div>
+        <!-- <button (click)="onClickHome()" ghost size="small" nbButton>
+          <nb-icon icon="home-outline" status="primary"></nb-icon>
+          Home
+        </button> -->
+        <button
+          (click)="onClickBack()"
+          ghost
+          size="small"
+          status="primary"
+          class="hvr-bob"
+          nbButton
+        >
+          <nb-icon icon="arrowhead-left-outline" status="primary"></nb-icon>
+          Back
+        </button>
+        <button
+          (click)="onEventClick()"
+          ghost
+          size="small"
+          status="primary"
+          class="hvr-bob"
+          nbButton
+        >
+          <nb-icon icon="save-outline" status="danger"></nb-icon>
+          Save
+        </button>
+        <button
+          (click)="onEventClick()"
+          ghost
+          size="small"
+          status="primary"
+          class="hvr-bob"
+          nbButton
+        >
+          <nb-icon icon="refresh-outline" status="primary"></nb-icon>
+          Reset
+        </button>
+      </div>
+    </nb-card-body>
+  </nb-card>
 </div>
 <div class="row">
   <div class="col-md-12" *ngIf="searchResultVisible">
@@ -27,13 +62,18 @@
       fullWidth
     >
       <nb-card-header>
-        <h5 class="text-muted">Search results ..</h5>
-        <div class="font-italic text-danger" *ngIf="noSearchResultReturned">
-          No matching results found please try with different search text ..
+        <div class="total_results">
+          <h6 class="title_search_results text-muted">
+            Total results : &nbsp;
+          </h6>
+          <h6 class="search_results text-muted">{{ searchResultCount }}</h6>
+          <div class="font-italic text-danger" *ngIf="noSearchResultReturned">
+            No matching results found please try with different search text ..
+          </div>
         </div>
       </nb-card-header>
 
-      <nb-card-body *ngIf="!noSearchResultReturned">
+      <nb-card-body class="smart_table" *ngIf="!noSearchResultReturned">
         <ng2-smart-table [settings]="tableSettings" [source]="localDataSource">
         </ng2-smart-table>
       </nb-card-body>
